@@ -26,14 +26,14 @@ class LoginController extends Controller
     {
         $code=$request->get('code','');
         $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
-        if (!$openId) {
+        if (!$openId&&$code) {
             $result = WeixinHelper::getWeixinId ( $code );
             $openId=Helper::getc($result,'weixinId','');
             $this->getRequest ()->getSession ()->set ( 'openId', $openId );
         }
         $status=$this->get('user_service')->checkLogin($openId);
-        if(!$status){
-            return $this->render('WebBundle:Index:index.html.twig',array('openId'=>$openId));
+        if($status){
+            return $this->render('MirrorWebBundle:Index:index.html.twig',array('openId'=>$openId));
         }
         return array('openId'=>$openId);
     }
