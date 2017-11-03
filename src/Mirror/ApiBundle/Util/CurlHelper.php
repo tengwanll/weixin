@@ -27,9 +27,13 @@ class CurlHelper {
         $result = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         $errInfo = curl_error($curl);;
-        
+
         curl_close($curl);
-        return new CurlReturn($result,$status,$errInfo);
+        return array (
+            'status' => $status,
+            'result' => $result,
+            'errInfo' => $errInfo
+        );
     }
 
     /**

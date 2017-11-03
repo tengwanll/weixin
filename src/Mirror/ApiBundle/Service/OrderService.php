@@ -9,6 +9,7 @@
 namespace Mirror\ApiBundle\Service;
 
 
+use JMS\DiExtraBundle\Annotation as DI;
 use Mirror\ApiBundle\Common\Code;
 use Mirror\ApiBundle\Common\Constant;
 use Mirror\ApiBundle\Entity\Order;
@@ -26,6 +27,11 @@ use Mirror\ApiBundle\Util\WxPay\WxPayUnifiedOrder;
 use Mirror\ApiBundle\ViewModel\ReturnResult;
 use Monolog\Logger;
 
+/**
+ * @DI\Service("order_service")
+ * Class OrderService
+ * @package Mirror\ApiBundle\Service
+ */
 class OrderService
 {
     private $orderModel;

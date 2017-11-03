@@ -9,6 +9,7 @@
 namespace Mirror\ApiBundle\Service;
 
 
+use JMS\DiExtraBundle\Annotation as DI;
 use Mirror\ApiBundle\Common\Code;
 use Mirror\ApiBundle\Model\TelephoneCodeModel;
 use Mirror\ApiBundle\Model\UserModel;
@@ -16,6 +17,11 @@ use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use Mirror\ApiBundle\ViewModel\ReturnResult;
 
+/**
+ * @DI\Service("user_service")
+ * Class UserService
+ * @package Mirror\ApiBundle\Service
+ */
 class UserService
 {
     private $userModel;
