@@ -52,9 +52,9 @@ class Order
     /**
      * @var string
      *
-     * @ORM\Column(name="trade_no", type="string", length=100, nullable=false)
+     * @ORM\Column(name="trade_no", type="string", length=100, nullable=true)
      */
-    private $tradeNo;
+    private $tradeNo = 'NULL';
 
     /**
      * @var string

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  *
- * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="telephone", columns={"telephone"})}, indexes={@ORM\Index(name="openId", columns={"openId"})})
+ * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="openId", columns={"open_id"})}, indexes={@ORM\Index(name="telephone", columns={"telephone"})})
  * @ORM\Entity
  */
 class User
@@ -31,9 +31,9 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="openId", type="string", length=100, nullable=false)
+     * @ORM\Column(name="open_id", type="string", length=100, nullable=false)
      */
-    private $openid;
+    private $openId;
 
     /**
      * @var integer
@@ -93,27 +93,27 @@ class User
     }
 
     /**
-     * Set openid
+     * Set openId
      *
-     * @param string $openid
+     * @param string $openId
      *
      * @return User
      */
-    public function setOpenid($openid)
+    public function setOpenId($openId)
     {
-        $this->openid = $openid;
+        $this->openId = $openId;
 
         return $this;
     }
 
     /**
-     * Get openid
+     * Get openId
      *
      * @return string
      */
-    public function getOpenid()
+    public function getOpenId()
     {
-        return $this->openid;
+        return $this->openId;
     }
 
     /**

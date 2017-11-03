@@ -49,10 +49,11 @@ Order:
             column: order_no
         tradeNo:
             type: string
-            nullable: false
+            nullable: true
             length: 100
             options:
                 fixed: false
+                default: 'NULL'
             column: trade_no
         price:
             type: decimal

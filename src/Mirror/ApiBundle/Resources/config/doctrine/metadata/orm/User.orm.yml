@@ -2,13 +2,13 @@ User:
     type: entity
     table: user
     indexes:
-        openId:
-            columns:
-                - openId
-    uniqueConstraints:
         telephone:
             columns:
                 - telephone
+    uniqueConstraints:
+        openId:
+            columns:
+                - open_id
     id:
         id:
             type: integer
@@ -25,13 +25,13 @@ User:
             length: 11
             options:
                 fixed: false
-        openid:
+        openId:
             type: string
             nullable: false
             length: 100
             options:
                 fixed: false
-            column: openId
+            column: open_id
         status:
             type: integer
             nullable: false
