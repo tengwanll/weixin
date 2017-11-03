@@ -1,0 +1,3 @@
+mirror_web_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MirrorWebBundle:Default:index }

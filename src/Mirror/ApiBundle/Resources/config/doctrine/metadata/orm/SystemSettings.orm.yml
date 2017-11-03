@@ -1,0 +1,57 @@
+SystemSettings:
+    type: entity
+    table: system_settings
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        value:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                default: 'NULL'
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                default: 'NULL'
+        showEditor:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                comment: 是否可编辑
+                default: 'NULL'
+            column: show_editor
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        createTime:
+            type: datetime
+            nullable: false
+            column: create_time
+        updateTime:
+            type: datetime
+            nullable: false
+            options:
+                default: current_timestamp()
+            column: update_time
+    lifecycleCallbacks: {  }

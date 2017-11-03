@@ -1,0 +1,103 @@
+Order:
+    type: entity
+    table: order
+    indexes:
+        user:
+            columns:
+                - user_id
+        status:
+            columns:
+                - status
+    uniqueConstraints:
+        orderNo:
+            columns:
+                - order_no
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        userId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: user_id
+        goodsId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: goods_id
+        orderNo:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: order_no
+        tradeNo:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: trade_no
+        price:
+            type: decimal
+            nullable: false
+            precision: 11
+            scale: 2
+        address:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        payTime:
+            type: datetime
+            nullable: true
+            options:
+                default: 'NULL'
+            column: pay_time
+        remark:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+                default: 'NULL'
+        report:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                comment: 报表
+                default: 'NULL'
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        createTime:
+            type: datetime
+            nullable: false
+            column: create_time
+        updateTime:
+            type: datetime
+            nullable: false
+            options:
+                default: '''0000-00-00 00:00:00'''
+            column: update_time
+    lifecycleCallbacks: {  }

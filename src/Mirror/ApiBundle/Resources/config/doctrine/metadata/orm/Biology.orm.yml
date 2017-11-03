@@ -1,0 +1,97 @@
+Biology:
+    type: entity
+    table: biology
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        englishName:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: english_name
+        sort:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        kind:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        checkGene:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: check_gene
+        otherGene:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: other_gene
+        literature:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        disease:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        keyword:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        isUsual:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: true
+            column: is_usual
+        comment:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        updateTime:
+            type: datetime
+            nullable: false
+            column: update_time
+        createTime:
+            type: datetime
+            nullable: false
+            column: create_time
+    lifecycleCallbacks: {  }

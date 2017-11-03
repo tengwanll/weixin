@@ -1,0 +1,85 @@
+Sort:
+    type: entity
+    table: sort
+    indexes:
+        parent:
+            columns:
+                - parent_id
+        left:
+            columns:
+                - left_r
+        right:
+            columns:
+                - right_r
+        status:
+            columns:
+                - status
+    uniqueConstraints:
+        name:
+            columns:
+                - name
+                - level
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+                comment: 商品名称
+        image:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        leftR:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                comment: '左值,left是关键字不能取'
+            column: left_r
+        rightR:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                comment: '右值,right是关键字不能取'
+            column: right_r
+        parentId:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 父辈id
+            column: parent_id
+        level:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                comment: 当前级别
+                default: '0'
+        status:
+            type: boolean
+            nullable: false
+        createTime:
+            type: datetime
+            nullable: false
+            column: create_time
+        updateTime:
+            type: datetime
+            nullable: false
+            options:
+                default: '0000-00-00 00:00:00'
+            column: update_time
+    lifecycleCallbacks: {  }

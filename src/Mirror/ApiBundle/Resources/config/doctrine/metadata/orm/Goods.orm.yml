@@ -1,0 +1,55 @@
+Goods:
+    type: entity
+    table: goods
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        price:
+            type: decimal
+            nullable: false
+            precision: 7
+            scale: 2
+        oldPrice:
+            type: decimal
+            nullable: true
+            precision: 7
+            scale: 2
+            options:
+                default: 'NULL'
+            column: old_price
+        desc:
+            type: text
+            nullable: true
+            length: 65535
+            options:
+                fixed: false
+                default: 'NULL'
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        createTime:
+            type: datetime
+            nullable: false
+            column: create_time
+        updateTime:
+            type: datetime
+            nullable: false
+            options:
+                default: '''0000-00-00 00:00:00'''
+            column: update_time
+    lifecycleCallbacks: {  }

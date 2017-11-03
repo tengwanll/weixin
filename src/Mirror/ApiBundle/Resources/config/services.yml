@@ -1,0 +1,9 @@
+parameters:
+services:
+    json_parse:
+        class: Mirror\ApiBundle\Util\JsonParser
+################################################
+    base_model:
+        class: Mirror\ApiBundle\Model\BaseModel
+        arguments: [@validator,@doctrine.orm.entity_manager]
+        abstract: true
