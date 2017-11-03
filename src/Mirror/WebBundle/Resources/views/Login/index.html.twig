@@ -1,4 +1,5 @@
 hello {{ openId }};
+<p></p>
 <script>
     var openId='{{ openId }}';
     checkWeiXinId(openId);
@@ -16,6 +17,7 @@ hello {{ openId }};
         var head = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8c06263e253e080d&redirect_uri=';
         var footer = '&response_type=code&scope='+getType+'&state=STATE#wechat_redirect';
         url = head + encodeURIComponent(origin+url) + footer;
+        $('p').html(url);
         return url;
     }
 </script>
