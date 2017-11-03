@@ -30,7 +30,7 @@ class UserService
     /**
      * @InjectParams({
      *     "userModel"=@Inject("user_model"),
-     *     "telephoneModel"=@Inject("telephone_model")
+     *     "telephoneCodeModel"=@Inject("telephone_model")
      * })
      * UserService constructor.
      * @param UserModel $userModel
