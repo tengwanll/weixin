@@ -25,7 +25,6 @@ use Mirror\ApiBundle\Util\WxPay\WxPayOrderQuery;
 use Mirror\ApiBundle\Util\WxPay\WxPayResults;
 use Mirror\ApiBundle\Util\WxPay\WxPayUnifiedOrder;
 use Mirror\ApiBundle\ViewModel\ReturnResult;
-use Monolog\Logger;
 
 /**
  * @DI\Service("order_service")
@@ -37,24 +36,21 @@ class OrderService
     private $orderModel;
     private $goodsModel;
     private $userModel;
-    private $monolog;
     /**
      * @InjectParams({
      *     "orderModel"=@Inject("order_model"),
      *     "goodsModel"=@Inject("goods_model"),
      *     "userModel"=@Inject("user_model"),
-     *     @Inject("logger")
      * })
      * OrderService constructor.
      * @param OrderModel $orderModel
      * @param GoodsModel $goodsModel
      */
-    public function __construct(OrderModel $orderModel,GoodsModel $goodsModel,UserModel $userModel,Logger $mongoLog)
+    public function __construct(OrderModel $orderModel,GoodsModel $goodsModel,UserModel $userModel)
     {
         $this->goodsModel=$goodsModel;
         $this->orderModel=$orderModel;
         $this->userModel=$userModel;
-        $this->monolog=$mongoLog;
     }
 
     public function create(Order $order,$openId){
