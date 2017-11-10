@@ -90,7 +90,7 @@ class OrderService
         $order->setOrderNo($orderNo);
         $order->setName($goods->getName());
         $order->setPrice($goods->getPrice());
-        $this->orderModel->save($order);
+        $order=$this->orderModel->save($order);
         $rr->result=array('orderId'=>$order->getId());
         return $rr;
     }
