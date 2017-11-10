@@ -45,7 +45,7 @@ class UserService
     public function login($telephone,$openId){
         $rr=new ReturnResult();
         if(!$openId){
-            $rr=Code::$openId_null;
+            $rr->errno=Code::$openId_null;
             return $rr;
         }
         $user=$this->userModel->getByProperty('openId',$openId);

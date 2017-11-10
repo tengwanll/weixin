@@ -1,9 +1,11 @@
 hello {{ openId }};
-<p></p>
 <script src="//cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="{{ asset('/bundles/mirrorweb/js/admPublic.js') }}"></script>
 <script>
     var openId='{{ openId }}';
     checkWeiXinId(openId);
+    var data
+    ajaxAction();
     function checkWeiXinId(value,bool){
         if(!bool) bool = false;
         if(value == ''){
@@ -18,7 +20,6 @@ hello {{ openId }};
         var head = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8c06263e253e080d&redirect_uri=';
         var footer = '&response_type=code&scope='+getType+'&state=STATE#wechat_redirect';
         url = head + encodeURIComponent(origin+url) + footer;
-        $('p').html(url);
         return url;
     }
 </script>

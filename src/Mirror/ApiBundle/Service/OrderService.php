@@ -53,26 +53,31 @@ class OrderService
         $this->userModel=$userModel;
     }
 
+    /**
+     * @param Order $order
+     * @param $openId
+     * @return int|ReturnResult
+     */
     public function create(Order $order,$openId){
         $rr=new ReturnResult();
         if(!$openId){
-            $rr=Code::$openId_null;
+            $rr->errno=Code::$openId_null;
             return $rr;
         }
         if(!$order->getAddress()){
-            $rr=Code::$address_null;
+            $rr->errno=Code::$address_null;
             return $rr;
         }
         $user=$this->userModel->getByProperty('openId',$openId);
         /**@var $user \Mirror\ApiBundle\Entity\User*/
         if(!$user){
-            $rr=Code::$user_not_exist;
+            $rr->errno=Code::$user_not_exist;
             return $rr;
         }
         $goods=$this->goodsModel->getById(Constant::$goods_id);
         /**@var $goods \Mirror\ApiBundle\Entity\Goods*/
         if(!$goods){
-            $rr=Code::$goods_not_exist;
+            $rr->errno=Code::$goods_not_exist;
             return $rr;
         }
         $orderNo=OrderHelper::generateTradeNo();
