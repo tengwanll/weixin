@@ -67,9 +67,10 @@ Order:
             options:
                 fixed: false
         payTime:
-            type: datetime
+            type: integer
             nullable: true
             options:
+                unsigned: false
                 default: 'NULL'
             column: pay_time
         remark:

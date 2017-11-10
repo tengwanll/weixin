@@ -12,13 +12,12 @@ namespace Mirror\ApiBundle\Service;
 use JMS\DiExtraBundle\Annotation as DI;
 use Mirror\ApiBundle\Common\Code;
 use Mirror\ApiBundle\Common\Constant;
-use Mirror\ApiBundle\Entity\Order;
+use Mirror\ApiBundle\Entity\Orders;
 use Mirror\ApiBundle\Model\GoodsModel;
 use Mirror\ApiBundle\Model\OrderModel;
 use JMS\DiExtraBundle\Annotation\Inject;
 use JMS\DiExtraBundle\Annotation\InjectParams;
 use Mirror\ApiBundle\Model\UserModel;
-use Mirror\ApiBundle\Util\OrderHelper;
 use Mirror\ApiBundle\Util\WxPay\JsApiPay;
 use Mirror\ApiBundle\Util\WxPay\WxPayApi;
 use Mirror\ApiBundle\Util\WxPay\WxPayOrderQuery;
@@ -54,11 +53,11 @@ class OrderService
     }
 
     /**
-     * @param Order $order
+     * @param Orders $order
      * @param $openId
      * @return int|ReturnResult
      */
-    public function create(Order $order,$openId){
+    public function create(Orders $order,$openId){
         $rr=new ReturnResult();
         if(!$openId){
             $rr->errno=Code::$openId_null;
@@ -88,7 +87,7 @@ class OrderService
     public function pay($orderId,$openId){
         $rr=new ReturnResult();
         $order=$this->orderModel->getById($orderId);
-        /**@var $order \Mirror\ApiBundle\Entity\Order*/
+        /**@var $order \Mirror\ApiBundle\Entity\Orders*/
         if(!$order)
         {
             $rr->errno=Code::$order_not_exist;

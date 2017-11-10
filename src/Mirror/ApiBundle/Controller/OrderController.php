@@ -29,7 +29,7 @@ class OrderController extends BaseController
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function create(Request $request){
-        $order=$goods=$this->serializerByJson($request,'Order');
+        $order=$goods=$this->serializerByJson($request,'Orders');
         $openId=$this->sessionGet($request,'openId','');
         $openId='ob0nEw5dVJjsD6Z96o_BEwgSWjMM';
         $rr=$this->get('order_service')->create($order,$openId);

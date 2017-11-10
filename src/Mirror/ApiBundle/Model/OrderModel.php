@@ -11,7 +11,7 @@ namespace Mirror\ApiBundle\Model;
 use JMS\DiExtraBundle\Annotation as DI;
 use Mirror\ApiBundle\Common\Constant;
 use Mirror\ApiBundle\Entity\Goods;
-use Mirror\ApiBundle\Entity\Order;
+use Mirror\ApiBundle\Entity\Orders;
 use Mirror\ApiBundle\Entity\User;
 use Mirror\ApiBundle\Util\OrderHelper;
 
@@ -22,7 +22,7 @@ use Mirror\ApiBundle\Util\OrderHelper;
  */
 class OrderModel extends BaseModel
 {
-    private $repositoryName = 'MirrorApiBundle:Order';
+    private $repositoryName = 'MirrorApiBundle:Orders';
 
     public function getRepositoryName() {
         return $this->repositoryName;
@@ -36,7 +36,7 @@ class OrderModel extends BaseModel
      * @return mixed
      */
     public function add($address,User $user,Goods $goods,$remark){
-        $order=new Order();
+        $order=new Orders();
         $date=new \DateTime();
         $orderNo=OrderHelper::generateTradeNo();
         $order->setUserId($user->getId());
@@ -48,7 +48,9 @@ class OrderModel extends BaseModel
         $order->setName($goods->getName());
         $order->setPrice($goods->getPrice());
         $order->setAddress($address);
-        $order->setRemark($remark);
+        $order->setRemark($remark?$remark:'');
+        $order->setPayTime(0);
+        $order->setReport(0);
         return $this->save($order);
     }
 }

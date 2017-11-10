@@ -5,12 +5,12 @@ namespace Mirror\ApiBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Order
+ * Orders
  *
- * @ORM\Table(name="order", uniqueConstraints={@ORM\UniqueConstraint(name="orderNo", columns={"order_no"})}, indexes={@ORM\Index(name="user", columns={"user_id"}), @ORM\Index(name="status", columns={"status"})})
+ * @ORM\Table(name="orders", uniqueConstraints={@ORM\UniqueConstraint(name="orderNo", columns={"order_no"})}, indexes={@ORM\Index(name="user", columns={"user_id"}), @ORM\Index(name="status", columns={"status"})})
  * @ORM\Entity
  */
-class Order
+class Orders
 {
     /**
      * @var integer
@@ -71,9 +71,9 @@ class Order
     private $address;
 
     /**
-     * @var \DateTime
+     * @var integer
      *
-     * @ORM\Column(name="pay_time", type="datetime", nullable=true)
+     * @ORM\Column(name="pay_time", type="integer", nullable=true)
      */
     private $payTime = 'NULL';
 
@@ -129,7 +129,7 @@ class Order
      *
      * @param string $name
      *
-     * @return Order
+     * @return Orders
      */
     public function setName($name)
     {
@@ -153,7 +153,7 @@ class Order
      *
      * @param integer $userId
      *
-     * @return Order
+     * @return Orders
      */
     public function setUserId($userId)
     {
@@ -177,7 +177,7 @@ class Order
      *
      * @param integer $goodsId
      *
-     * @return Order
+     * @return Orders
      */
     public function setGoodsId($goodsId)
     {
@@ -201,7 +201,7 @@ class Order
      *
      * @param string $orderNo
      *
-     * @return Order
+     * @return Orders
      */
     public function setOrderNo($orderNo)
     {
@@ -225,7 +225,7 @@ class Order
      *
      * @param string $tradeNo
      *
-     * @return Order
+     * @return Orders
      */
     public function setTradeNo($tradeNo)
     {
@@ -249,7 +249,7 @@ class Order
      *
      * @param string $price
      *
-     * @return Order
+     * @return Orders
      */
     public function setPrice($price)
     {
@@ -273,7 +273,7 @@ class Order
      *
      * @param string $address
      *
-     * @return Order
+     * @return Orders
      */
     public function setAddress($address)
     {
@@ -295,9 +295,9 @@ class Order
     /**
      * Set payTime
      *
-     * @param \DateTime $payTime
+     * @param integer $payTime
      *
-     * @return Order
+     * @return Orders
      */
     public function setPayTime($payTime)
     {
@@ -309,7 +309,7 @@ class Order
     /**
      * Get payTime
      *
-     * @return \DateTime
+     * @return integer
      */
     public function getPayTime()
     {
@@ -321,7 +321,7 @@ class Order
      *
      * @param string $remark
      *
-     * @return Order
+     * @return Orders
      */
     public function setRemark($remark)
     {
@@ -345,7 +345,7 @@ class Order
      *
      * @param integer $report
      *
-     * @return Order
+     * @return Orders
      */
     public function setReport($report)
     {
@@ -369,7 +369,7 @@ class Order
      *
      * @param integer $status
      *
-     * @return Order
+     * @return Orders
      */
     public function setStatus($status)
     {
@@ -393,7 +393,7 @@ class Order
      *
      * @param \DateTime $createTime
      *
-     * @return Order
+     * @return Orders
      */
     public function setCreateTime($createTime)
     {
@@ -417,7 +417,7 @@ class Order
      *
      * @param \DateTime $updateTime
      *
-     * @return Order
+     * @return Orders
      */
     public function setUpdateTime($updateTime)
     {
