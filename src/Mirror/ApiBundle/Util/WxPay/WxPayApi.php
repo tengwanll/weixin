@@ -559,8 +559,14 @@ class WxPayApi {
 			curl_setopt ( $ch, CURLOPT_PROXYPORT, WxPayConfig::CURL_PROXY_PORT );
 		}
 		curl_setopt ( $ch, CURLOPT_URL, $url );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, TRUE );
-		curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, 2 ); // 严格校验
+		if(stripos($url,"https://")!==FALSE){
+			curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+		}    else    {
+			curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
+			curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);//严格校验
+		}
 		if (defined ( 'CURLOPT_IPRESOLVE' ) && defined ( 'CURL_IPRESOLVE_V4' )) {
 			curl_setopt ( $ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
 		} // 设置header

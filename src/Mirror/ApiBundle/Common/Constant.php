@@ -32,4 +32,5 @@ class Constant {
     public static $openIdUrl = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid=%s&secret=%s&code=%s&grant_type=authorization_code';
     public static $appId = 'wx8c06263e253e080d';
     public static $secret = '1ebfe6bec0c027b9a97750d183b56ce9';
+    public static $WX_NOTIFY_PATH='weixin.amogene.com/api/order/notify';
 }

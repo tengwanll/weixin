@@ -84,6 +84,12 @@ class OrderService
         return $rr;
     }
 
+    /**
+     * @param $orderId
+     * @param $openId
+     * @return ReturnResult
+     * @throws \Mirror\ApiBundle\Util\WxPay\WxPayException
+     */
     public function pay($orderId,$openId){
         $rr=new ReturnResult();
         $order=$this->orderModel->getById($orderId);
