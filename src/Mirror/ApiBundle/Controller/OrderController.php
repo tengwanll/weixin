@@ -31,6 +31,7 @@ class OrderController extends BaseController
     public function create(Request $request){
         $order=$goods=$this->serializerByJson($request,'Order');
         $openId=$this->sessionGet($request,'openId','');
+        $openId='ob0nEw5dVJjsD6Z96o_BEwgSWjMM';
         $rr=$this->get('order_service')->create($order,$openId);
         return $this->buildResponse($rr);
     }
