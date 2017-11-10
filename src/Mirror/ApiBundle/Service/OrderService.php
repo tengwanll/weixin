@@ -68,7 +68,7 @@ class OrderService
             $rr->errno=Code::$address_null;
             return $rr;
         }
-        $user=$this->userModel->getByProperty('openId',$openId);
+        $user=$this->userModel->getOneByProperty('openId',$openId);
         /**@var $user \Mirror\ApiBundle\Entity\User*/
         if(!$user){
             $rr->errno=Code::$user_not_exist;

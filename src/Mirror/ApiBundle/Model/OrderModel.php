@@ -37,8 +37,8 @@ class OrderModel extends BaseModel
      */
     public function add($address,User $user,Goods $goods,$remark){
         $order=new Order();
-        $orderNo=OrderHelper::generateTradeNo();
         $date=new \DateTime();
+        $orderNo=OrderHelper::generateTradeNo();
         $order->setUserId($user->getId());
         $order->setGoodsId(Constant::$goods_id);
         $order->setStatus(Constant::$order_status_wait);
