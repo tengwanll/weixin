@@ -80,17 +80,7 @@ class OrderService
             $rr->errno=Code::$goods_not_exist;
             return $rr;
         }
-        $orderNo=OrderHelper::generateTradeNo();
-        $date=new \DateTime();
-        $order->setUserId($user->getId());
-        $order->setGoodsId(Constant::$goods_id);
-        $order->setStatus(Constant::$order_status_wait);
-        $order->setUpdateTime($date);
-        $order->setCreateTime($date);
-        $order->setOrderNo($orderNo);
-        $order->setName($goods->getName());
-        $order->setPrice($goods->getPrice());
-        $order=$this->orderModel->save($order);
+        $order=$this->orderModel->add($order->getAddress(),$user,$goods,$order->getRemark());
         $rr->result=array('orderId'=>$order->getId());
         return $rr;
     }
