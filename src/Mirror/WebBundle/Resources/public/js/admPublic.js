@@ -252,6 +252,7 @@ function ajaxAction(method,url,json,async,success_func,error_func)
 				case 408:
 					errno = 10408;
 					errmsg = '请求超时';
+					break;
 				case 409:
 					errno = 10409;
 					errmsg = '请求资源冲突，请重试';
@@ -259,7 +260,7 @@ function ajaxAction(method,url,json,async,success_func,error_func)
 				case 415:
 					errno = 10415;
 					errmsg = '不支持此用户代理';
-					break
+					break;
 				case 500:
 					errno = 10500;
 					errmsg = '服务器内部错误';
