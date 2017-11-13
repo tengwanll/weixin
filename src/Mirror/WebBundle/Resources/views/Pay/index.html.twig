@@ -15,15 +15,13 @@
 	$('.detail-service').click(function () {
 		var info={};
 		info.orderId=orderId;
-		info.openId=openId;
-		document.write(info);
 		ajaxAction("post",'/api/order/pay',info,false,function(data,textStatus){
 			JS_PARAM = data.jsApiParameters;
 			JS_PARAM = $.evalJSON(JS_PARAM);
 			document.write(JS_PARAM);
 			callPay();
 		},function(errno,errmsg){
-
+			document.write(errno);
 		});
 
 	});
