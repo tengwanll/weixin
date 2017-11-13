@@ -167,10 +167,10 @@ class OrderService
             && $result["result_code"] == "SUCCESS")
         {
             $order=$this->orderModel->getByProperty('orderNo',$orderNo);
-            /**@var $order \Mirror\ApiBundle\Entity\Order*/
+            /**@var $order \Mirror\ApiBundle\Entity\Orders*/
             //检查是否已经处理过
             if($order->getStatus()==Constant::$order_status_wait){
-                $date=new \DateTime();
+                $date=time();
                 $order->setTradeNo($transaction_id);
                 $order->setPayTime($date);
                 $order->setStatus(Constant::$order_status_success);
