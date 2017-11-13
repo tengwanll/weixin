@@ -66,6 +66,23 @@ function formatter(value,set){
 	return time;
 }
 
+function checkWeiXinId(value,bool){
+	if(!bool) bool = false;
+	if(value == ''){
+		location.href = wxPath(location.pathname,bool);
+	}
+}
+
+function wxPath(url,bool){
+	var getType = 'snsapi_userinfo';
+	if(!bool) getType = 'snsapi_base';
+	var origin = location.origin;
+	var head = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8c06263e253e080d&redirect_uri=';
+	var footer = '&response_type=code&scope='+getType+'&state=STATE#wechat_redirect';
+	url = head + encodeURIComponent(origin+url) + footer;
+	return url;
+}
+
 /*格式化月日时分秒，不足两位数补零*/
 function checkTimeItem(value){
 	if(value < 10)
