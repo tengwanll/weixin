@@ -17,7 +17,7 @@
 		info.orderId=orderId;
 		ajaxAction("post",'/api/order/pay',info,false,function(data,textStatus){
 			JS_PARAM = data.jsApiParameters;
-			JS_PARAM = $.toJSON(JS_PARAM);
+			JS_PARAM = $.evalJSON(JS_PARAM);
 			callPay(orderId);
 		},function(errno,errmsg){
 
