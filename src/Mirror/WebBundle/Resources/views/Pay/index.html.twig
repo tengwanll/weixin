@@ -18,13 +18,13 @@
 		ajaxAction("post",'/api/order/pay',info,false,function(data,textStatus){
 			JS_PARAM = data.jsApiParameters;
 			JS_PARAM = $.evalJSON(JS_PARAM);
-			callPay();
+			callPay(orderId);
 		},function(errno,errmsg){
-			document.write(errno);
+
 		});
 
 	});
-	function jsApiCall()
+	function jsApiCall($orderId)
 	{
 		WeixinJSBridge.invoke(
 			'getBrandWCPayRequest',
@@ -34,13 +34,13 @@
 					location.href= wxPath('/web/login');
 				 }
 				 if(res.err_msg == "get_brand_wcpay_request:cancel" || res.err_msg == "get_brand_wcpay_request:fail"){
-					location.href= wxPath('/web/pay');
+					location.href= wxPath('/web/pay/'+$orderId);
 				 }
 			}
 		);
 	}
 
-	function callPay($scope)
+	function callPay($orderId)
 	{
 		var target=$('.detail-service');
 		changeBind(target,true);
@@ -53,7 +53,7 @@
 			}
 			changeBind(target,false);
 		}else{
-			jsApiCall();
+			jsApiCall($orderId);
 			changeBind(target,false);
 		}
 	}
