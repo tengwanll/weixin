@@ -24,6 +24,7 @@ use Mirror\ApiBundle\Util\WxPay\WxPayOrderQuery;
 use Mirror\ApiBundle\Util\WxPay\WxPayResults;
 use Mirror\ApiBundle\Util\WxPay\WxPayUnifiedOrder;
 use Mirror\ApiBundle\ViewModel\ReturnResult;
+use Monolog\Logger;
 
 /**
  * @DI\Service("order_service")
@@ -35,21 +36,24 @@ class OrderService
     private $orderModel;
     private $goodsModel;
     private $userModel;
+    private $logger;
     /**
      * @InjectParams({
      *     "orderModel"=@Inject("order_model"),
      *     "goodsModel"=@Inject("goods_model"),
      *     "userModel"=@Inject("user_model"),
+     *     "logger"=@Inject("logger")
      * })
      * OrderService constructor.
      * @param OrderModel $orderModel
      * @param GoodsModel $goodsModel
      */
-    public function __construct(OrderModel $orderModel,GoodsModel $goodsModel,UserModel $userModel)
+    public function __construct(OrderModel $orderModel,GoodsModel $goodsModel,UserModel $userModel,Logger $logger)
     {
         $this->goodsModel=$goodsModel;
         $this->orderModel=$orderModel;
         $this->userModel=$userModel;
+        $this->logger=$logger;
     }
 
     /**
@@ -92,6 +96,7 @@ class OrderService
      */
     public function pay($orderId,$openId){
         $rr=new ReturnResult();
+        $this->logger->info(222);
         $order=$this->orderModel->getById($orderId);
         /**@var $order \Mirror\ApiBundle\Entity\Orders*/
         if(!$order)
@@ -150,6 +155,7 @@ class OrderService
     }
 
     public function notify($xml){
+        $this->logger->info(111);
         try {
             $params = WxPayResults::Init($xml);
         } catch (\Exception $e){
