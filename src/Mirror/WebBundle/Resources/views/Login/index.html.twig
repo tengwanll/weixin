@@ -40,7 +40,7 @@
         $('.codeInput:after').click(function(){
             var telephone=$('#telephone').val();
             if(!(/^1[34578]\d{9}$/.test(telephone))){
-                //$('#telephone').val('').focus();
+                $('#telephone').val('').focus();
                 //阴影错误提示
                 return;
             }
@@ -54,12 +54,13 @@
             var telephone=$('#telephone').val();
             var code=$('#code').val();
             if(!(/^1[34578]\d{9}$/.test(telephone))){
-                //$('#telephone').val('').focus();
+                $('#telephone').val('').focus();
                 //阴影错误提示
                 return;
             }
             if(!code||code.length!=4){
                 //阴影错误提示
+                $('#code').val().focus();
                 return;
             }
             var info={};
