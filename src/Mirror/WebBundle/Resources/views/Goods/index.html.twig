@@ -56,7 +56,7 @@
             var info={};
             info.price=allPrice;
             info.number=number;
-            ajaxAction("post",'/api/order/goods',info,false,function(data,textStatus){
+            ajaxAction("post",'/api/order',info,false,function(data,textStatus){
                 location.href=wxPath('/web/pay/'+data.orderId);
             },function(errno,errmsg){
 
@@ -78,7 +78,5 @@
             $('#number').html(++number);
             $('#allPrice').html((allPrice+price).toFixed(2));
         }
-
-
     </script>
 {% endblock  %}
