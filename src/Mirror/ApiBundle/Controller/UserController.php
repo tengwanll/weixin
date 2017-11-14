@@ -23,6 +23,7 @@ use Symfony\Component\HttpFoundation\Request;
 class UserController extends BaseController
 {
     /**
+     * 登录
      * @Route("/login")
      * @Method("POST")
      * @param Request $request
@@ -44,6 +45,7 @@ class UserController extends BaseController
     }
 
     /**
+     * 退出登录
      * @Route("/logout")
      * @Method("POST")
      * @param Request $request
@@ -56,6 +58,7 @@ class UserController extends BaseController
     }
 
     /**
+     * 获取订单列表
      * @Route("/order")
      * @Method("GET")
      * @param Request $request
