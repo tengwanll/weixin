@@ -21,7 +21,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class IndexController
  * @package Mirror\WebBundle\Controller
  */
-class AddressController extends Controller
+class GoodsController extends Controller
 {
     /**
      * @Route()
