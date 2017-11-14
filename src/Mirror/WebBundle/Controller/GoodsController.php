@@ -37,6 +37,10 @@ class AddressController extends Controller
             $openId=Helper::getc($result,'openid','');
             $this->getRequest ()->getSession ()->set ( 'openId', $openId );
         }
+        $status=$this->get('user_service')->checkLogin($openId);
+        if($status){
+            return $this->render('WebBundle:Login:index.html.twig',array('openId'=>$openId));
+        }
         return array('openId'=>$openId);
     }
 }
