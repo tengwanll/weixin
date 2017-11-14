@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <!--<label for="exampleInputName2">Name</label>-->
                         <div class="userInput">
-                            <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入电话号码">
+                            <input type="text" class="form-control" id="telphone" placeholder="请输入电话号码">
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <!--<label for="exampleInputName2">code</label>-->
                         <div class="codeInput">
-                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入验证码">
+                            <input type="text" class="form-control" id="code" placeholder="请输入验证码">
                         </div>
                     </div>
                 </div>
@@ -36,5 +36,40 @@
     </div>
 {% endblock %}
 {% block script %}
+    <script>
+        $('.codeInput:after').click(function(){
+            var telephone=$('#telephone').val();
+            if(!(/^1[34578]\d{9}$/.test(telephone))){
+                //$('#telephone').val('').focus();
+                //阴影错误提示
+                return;
+            }
+            ajaxAction("get",'/api/sms/code/'+telephone,'',false,function(data,textStatus){
+                //写一个定时器关闭发送验证码功能,60秒后打开
+            },function(errno,errmsg){
 
+            });
+        });
+        $('.loginButton').click(function(){
+            var telephone=$('#telephone').val();
+            var code=$('#code').val();
+            if(!(/^1[34578]\d{9}$/.test(telephone))){
+                //$('#telephone').val('').focus();
+                //阴影错误提示
+                return;
+            }
+            if(!code||code.length!=4){
+                //阴影错误提示
+                return;
+            }
+            var info={};
+            info.telephone=telephone;
+            info.code=code;
+            ajaxAction("post",'/api/user/login',info,false,function(data,textStatus){
+                location.href=wxPath('/web/index');
+            },function(errno,errmsg){
+                //阴影错误提示
+            });
+        });
+    </script>
 {% endblock  %}

@@ -21,4 +21,5 @@ class Code {
     public static $address_null=20104;
     public static $order_not_exist=20105;
     public static $order_had_paid=20105;
+    public static $code_exist=20106;
 }

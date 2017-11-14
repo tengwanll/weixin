@@ -7,6 +7,7 @@ use JMS\DiExtraBundle\Annotation\InjectParams;
 use JMS\DiExtraBundle\Annotation\Service;
 use Mirror\ApiBundle\Common\Code;
 use Mirror\ApiBundle\Common\Constant;
+use Mirror\ApiBundle\Entity\TelephoneCode;
 use Mirror\ApiBundle\Model\TelephoneCodeModel;
 use Mirror\ApiBundle\Util\Ucpaas;
 use Mirror\ApiBundle\ViewModel\ReturnResult;
@@ -82,7 +83,7 @@ class TelephoneCodeService {
             'validity' => 0,
         );
         //让之前的验证码失效
-        $result=$this->telephoneCodeModel->getByParams($arguments);
+        $result=$this->telephoneCodeModel->getByCriteria($arguments);
         foreach($result as $item){
             /**@var $item \Mirror\ApiBundle\Entity\TelephoneCode*/
             $item->setValidity(1);
@@ -101,7 +102,7 @@ class TelephoneCodeService {
         $telephoneCode->setValidBeginTime($expire);
         // TODO should query by system setting
         // 设置30分钟过期
-        $expires = 30;
+        $expires = 3;
         $expire += $expires * 60;
         $telephoneCode->setValidity(0);
         $telephoneCode->setValidEndTime($expire);
