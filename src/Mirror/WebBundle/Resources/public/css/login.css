@@ -44,7 +44,7 @@ body{
     display: inline-block;
     vertical-align: middle;
     color: #fff;
-    width: 4.1rem;
+    width: 4.3rem;
 }
 .userInput input:focus,.codeInput input:focus{
     border: none;
@@ -53,7 +53,7 @@ body{
 .userInput input::placeholder,.codeInput input::placeholder{
     color: #ffffff;
 }
-.codeNum{
+.userInput:before{
     content: '';
     background-image: url("../images/phoneIco.png");
     background-repeat: no-repeat;
@@ -64,7 +64,7 @@ body{
     display: inline-block;
     vertical-align: middle;
 }
-.codeSend{
+.codeNum{
     background-image: url("../images/codeBg.png");
     background-repeat: no-repeat;
     background-size: .55rem .38rem;
@@ -77,8 +77,7 @@ body{
     font-size: .12rem;
     line-height: .5rem;
 }
-.codeInput:after{
-    content: '';
+.codeSend{
     background-image: url("../images/ic_sent.png");
     background-repeat: no-repeat;
     background-size: .49rem .43rem;
