@@ -10,6 +10,7 @@ services:
 # 异常处理
     app.exception_listener:
         class: Mirror\ApiBundle\EventListener\ExceptionListener
+        arguments: ["@logger"]
         tags:
             - { name: kernel.event_listener, event: kernel.exception }
     # 序列化
