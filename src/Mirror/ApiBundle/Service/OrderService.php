@@ -183,10 +183,10 @@ class OrderService
                         'return_code'=>$params['result_code'],
                         'return_msg'=>isset($params['return_msg'])?$params['return_msg']:'OK'
                     );
-                    $this->logger->info('微信回调报错--订单状态修改失败--'.date('Y-m-d H:i:s'));
+                    $this->logger->info('微信回调成功--'.date('Y-m-d H:i:s'));
                     return  $this->toxml($data);
                 }else{
-                    $this->logger->info('微信回调报错--订单已经支付过--'.date('Y-m-d H:i:s'));
+                    $this->logger->info('微信回调报错--订单状态修改失败--'.date('Y-m-d H:i:s'));
                 }
             }
         }else{
