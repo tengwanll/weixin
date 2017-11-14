@@ -38,7 +38,7 @@ class GoodsController extends Controller
             $this->getRequest ()->getSession ()->set ( 'openId', $openId );
         }
         $status=$this->get('user_service')->checkLogin($openId);
-        if($status){
+        if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
         return array('openId'=>$openId);
