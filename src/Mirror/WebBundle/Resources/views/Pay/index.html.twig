@@ -31,7 +31,7 @@
 			JS_PARAM,
 			function(res){
 				 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-					location.href= wxPath('/web/login');
+					location.href= wxPath('/web/user/login');
 				 }
 				 if(res.err_msg == "get_brand_wcpay_request:cancel" || res.err_msg == "get_brand_wcpay_request:fail"){
 					location.href= wxPath('/web/pay/'+$orderId);
