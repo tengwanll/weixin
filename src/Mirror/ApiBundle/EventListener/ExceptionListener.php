@@ -5,6 +5,7 @@ namespace Mirror\ApiBundle\EventListener;
 use Mirror\ApiBundle\Exception\CustomException;
 use Mirror\ApiBundle\Exception\LogicException;
 use Mirror\ApiBundle\Response\AccessResponse;
+use Monolog\Logger;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
@@ -17,6 +18,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
  * @package Mirror\ApiBundle\EventListener
  */
 class ExceptionListener {
+
+    private $logger;
+    public function __construct(Logger $logger)
+    {
+        $this->logger=$logger;
+    }
 
     public function onKernelException(GetResponseForExceptionEvent $event) {
         $exception = $event->getException();
@@ -57,7 +64,6 @@ class ExceptionListener {
                     $response->setContent(json_encode($json_r, JSON_UNESCAPED_UNICODE));
                 } else {
                     $message = $exception->getMessage();
-                    var_dump($message);
                     $file = $exception->getFile();
                     $line = $exception->getLine();
                     // $exception->getTraceAsString();
@@ -65,6 +71,7 @@ class ExceptionListener {
                     $format = $format.$exception->getTraceAsString();
                     $message = sprintf($format, $file, $line, $message);
                     $response->setContent($message);
+                    $this->logger->error($message);
                 }
             }
         }
