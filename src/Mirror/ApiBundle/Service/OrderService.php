@@ -170,7 +170,7 @@ class OrderService
             && $result["return_code"] == "SUCCESS"
             && $result["result_code"] == "SUCCESS")
         {
-            $order=$this->orderModel->getByProperty('orderNo',$orderNo);
+            $order=$this->orderModel->getOneByProperty('orderNo',$orderNo);
             /**@var $order \Mirror\ApiBundle\Entity\Orders*/
             //检查是否已经处理过
             if($order->getStatus()==Constant::$order_status_wait){
