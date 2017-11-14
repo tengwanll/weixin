@@ -87,3 +87,7 @@ monolog:
             path: "%kernel.root_dir%/logs/symfony.log"
             level: info
             channels: [app,request]
+        debuglog:
+            type: stream
+            path: "%kernel.root_dir%/logs/dev.log"
+            level: debug
