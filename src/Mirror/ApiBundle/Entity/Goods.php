@@ -43,6 +43,20 @@ class Goods
     private $oldPrice = 'NULL';
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="logo", type="integer", nullable=false)
+     */
+    private $logo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="banner", type="integer", nullable=false)
+     */
+    private $banner;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="desc", type="text", length=65535, nullable=true)
@@ -152,6 +166,54 @@ class Goods
     public function getOldPrice()
     {
         return $this->oldPrice;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param integer $logo
+     *
+     * @return Goods
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return integer
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * Set banner
+     *
+     * @param integer $banner
+     *
+     * @return Goods
+     */
+    public function setBanner($banner)
+    {
+        $this->banner = $banner;
+
+        return $this;
+    }
+
+    /**
+     * Get banner
+     *
+     * @return integer
+     */
+    public function getBanner()
+    {
+        return $this->banner;
     }
 
     /**

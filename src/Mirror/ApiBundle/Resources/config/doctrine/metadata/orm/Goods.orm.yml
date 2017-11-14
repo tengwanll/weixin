@@ -30,6 +30,16 @@ Goods:
             options:
                 default: 'NULL'
             column: old_price
+        logo:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        banner:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
         desc:
             type: text
             nullable: true

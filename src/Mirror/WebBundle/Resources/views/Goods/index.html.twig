@@ -14,9 +14,9 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="goodsInfoTitle">
-                        <p>HPV自检套装</p>
+                        <p id="name"></p>
                         <div class="goodsInfoPrice">
-                            <span>￥399</span><span>￥699</span>
+                            <span id="price"></span><span id="oldPrice"></span>
                         </div>
                     </div>
                 </div>
@@ -24,13 +24,13 @@
                     <div class="buyNum">
                     <span class="numLabel">数量：</span>
                     <div class="numChange">
-                        <span>-</span><span>1</span><span>+</span>
+                        <span onclick="sub()">-</span><span id="number">1</span><span onclick="add()">+</span>
                     </div>
                     </div>
                 </div>
                 <div class="col-xs-12">
                     <div class="goodsInfoBuyButton">
-                        <span>优惠：0元</span><span>总计：</span><span>399.00</span>
+                        <span>总计：</span><span id="allPrice"></span>
                         <button class="btn btn-default btn-block">下一步</button>
                     </div>
                 </div>
@@ -39,5 +39,45 @@
     </div>
 {% endblock %}
 {% block script %}
+    <script>
+        ajaxAction("get",'/api/order/goods','',false,function(data,textStatus){
+            $('#name').val(data.name);
+            $('#price').val(data.price);
+            $('#oldPrice').val(data.oldPrice);
+            $('.goodsImg').css("background-url:"+data.banner);
+        },function(errno,errmsg){
 
+        });
+
+        $('.btn-block').click(function(){
+            var allPrice=parseInt($('#allPrice').html());
+            var number=parseInt($('#number').html());
+            var info={};
+            info.price=allPrice;
+            info.number=number;
+            ajaxAction("post",'/api/order/goods',info,false,function(data,textStatus){
+                location.href=wxPath('/web/pay/'+data.orderId);
+            },function(errno,errmsg){
+
+            });
+        });
+        function sub(){
+            var number=parseInt($('#number').html());
+            var price=parseInt($('#price').html());
+            var allPrice=parseInt($('#allPrice').html());
+            if(number>1){
+                $('#number').html(--number);
+                $('#allPrice').html(allPrice-price);
+            }
+        }
+        function add() {
+            var number=parseInt($('#number').html());
+            var price=parseInt($('#price').html());
+            var allPrice=parseInt($('#allPrice').html());
+            $('#number').html(++number);
+            $('#allPrice').html(allPrice+price);
+        }
+
+
+    </script>
 {% endblock  %}

@@ -37,23 +37,26 @@ class OrderService
     private $goodsModel;
     private $userModel;
     private $logger;
+    private $fileService;
     /**
      * @InjectParams({
      *     "orderModel"=@Inject("order_model"),
      *     "goodsModel"=@Inject("goods_model"),
      *     "userModel"=@Inject("user_model"),
-     *     "logger"=@Inject("logger")
+     *     "logger"=@Inject("logger"),
+     *     "fileService"=@Inject("file_service")
      * })
      * OrderService constructor.
      * @param OrderModel $orderModel
      * @param GoodsModel $goodsModel
      */
-    public function __construct(OrderModel $orderModel,GoodsModel $goodsModel,UserModel $userModel,Logger $logger)
+    public function __construct(OrderModel $orderModel,GoodsModel $goodsModel,UserModel $userModel,Logger $logger,FileService $fileService)
     {
         $this->goodsModel=$goodsModel;
         $this->orderModel=$orderModel;
         $this->userModel=$userModel;
         $this->logger=$logger;
+        $this->fileService=$fileService;
     }
 
     /**
@@ -65,10 +68,6 @@ class OrderService
         $rr=new ReturnResult();
         if(!$openId){
             $rr->errno=Code::$openId_null;
-            return $rr;
-        }
-        if(!$order->getAddress()){
-            $rr->errno=Code::$address_null;
             return $rr;
         }
         $user=$this->userModel->getOneByProperty('openId',$openId);
@@ -83,7 +82,7 @@ class OrderService
             $rr->errno=Code::$goods_not_exist;
             return $rr;
         }
-        $order=$this->orderModel->add($order->getAddress(),$user,$goods,$order->getRemark());
+        $order=$this->orderModel->add('',$user,$goods,$order->getRemark(),$order->getNumber());
         $rr->result=array('orderId'=>$order->getId());
         return $rr;
     }
@@ -143,11 +142,15 @@ class OrderService
         $rr=new ReturnResult();
         $goods=$this->goodsModel->getById(Constant::$goods_id);
         /**@var $goods \Mirror\ApiBundle\Entity\Goods*/
+        $logo=$this->fileService->getFullUrlById($goods->getLogo());
+        $banner=$this->fileService->getFullUrlById($goods->getBanner());
         $arr=array(
             'name'=>$goods->getName(),
             'price'=>$goods->getPrice(),
             'oldPrice'=>$goods->getOldPrice(),
-            'desc'=>$goods->getDesc()
+            'desc'=>$goods->getDesc(),
+            'logo'=>$logo,
+            'banner'=>$banner
         );
         $rr->result=$arr;
         return $rr;

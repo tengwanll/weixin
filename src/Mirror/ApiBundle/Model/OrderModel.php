@@ -35,7 +35,7 @@ class OrderModel extends BaseModel
      * @param $remark
      * @return mixed
      */
-    public function add($address,User $user,Goods $goods,$remark){
+    public function add($address,User $user,Goods $goods,$remark,$number){
         $order=new Orders();
         $date=new \DateTime();
         $orderNo=OrderHelper::generateTradeNo();
@@ -51,6 +51,7 @@ class OrderModel extends BaseModel
         $order->setRemark($remark?$remark:'');
         $order->setPayTime(0);
         $order->setReport(0);
+        $order->setNumber($number);
         return $this->save($order);
     }
 }

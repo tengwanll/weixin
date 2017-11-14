@@ -64,6 +64,13 @@ class Orders
     private $price;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="number", type="integer", nullable=false)
+     */
+    private $number;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="address", type="string", length=255, nullable=false)
@@ -266,6 +273,30 @@ class Orders
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     *
+     * @return Orders
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 
     /**

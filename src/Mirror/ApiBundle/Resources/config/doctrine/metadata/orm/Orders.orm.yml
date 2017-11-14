@@ -60,6 +60,11 @@ Orders:
             nullable: false
             precision: 11
             scale: 2
+        number:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
         address:
             type: string
             nullable: false
