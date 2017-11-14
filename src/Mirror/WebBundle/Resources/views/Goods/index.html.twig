@@ -41,9 +41,10 @@
 {% block script %}
     <script>
         ajaxAction("get",'/api/order/goods','',false,function(data,textStatus){
-            $('#name').val(data.name);
-            $('#price').val(data.price);
-            $('#oldPrice').val(data.oldPrice);
+            $('#name').html(data.name);
+            $('#price').html(data.price);
+            $('#oldPrice').html(data.oldPrice);
+            $('#allPrice').html(data.price);
             $('.goodsImg').css("background-url:"+data.banner);
         },function(errno,errmsg){
 
