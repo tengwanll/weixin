@@ -84,10 +84,10 @@ monolog:
     handlers:
         applog:
             type: stream
-            path: "%kernel.root_dir%/logs/symfony.log"
+            path: "%kernel.logs_dir%/info.log"
             level: info
-            channels: [app,request]
-        debuglog:
+            channels: [app]
+        errorlog:
             type: stream
-            path: "%kernel.root_dir%/logs/dev.log"
-            level: debug
+            path: "%kernel.logs_dir%/error.log"
+            level: error
