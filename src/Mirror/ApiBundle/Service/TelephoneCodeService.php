@@ -107,6 +107,7 @@ class TelephoneCodeService {
         $telephoneCode->setValidity(0);
         $telephoneCode->setValidEndTime($expire);
         $telephoneCode->setStatus(1);
+        $telephoneCode->setValidTime(new \DateTime());
         $telephoneCode->setCreateTime(new \DateTime());
         $telephoneCode->setUpdateTime(new \DateTime());
         $this->telephoneCodeModel->save($telephoneCode);
