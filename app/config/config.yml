@@ -85,4 +85,4 @@ monolog:
         applog:
             type: stream
             path: "%kernel.root_dir%/logs/symfony.log"
-            level: debug
+            level: info
