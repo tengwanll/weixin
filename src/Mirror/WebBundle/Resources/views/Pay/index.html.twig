@@ -1,90 +1,115 @@
 {% extends 'MirrorWebBundle:Base:base.html.twig' %}
-
-{% block script %}
-<script type="text/javascript">
-	var orderId='{{ orderId }}';
-	var openId='{{ openId }}';
-	var JS_PARAM={};
-	checkWeiXinId(openId);
-	ajaxAction("get",'/api/order/'+orderId,'',false,function(data,textStatus){
-		//获取订单信息填充进页面
-	},function(errno,errmsg){
-
-	});
-	
-	$('.detail-service').click(function () {
-		var info={};
-		info.orderId=orderId;
-		ajaxAction("post",'/api/order/pay',info,false,function(data,textStatus){
-			JS_PARAM = data.jsApiParameters;
-			JS_PARAM = $.evalJSON(JS_PARAM);
-			callPay(orderId);
-		},function(errno,errmsg){
-
-		});
-
-	});
-	function jsApiCall($orderId)
-	{
-		WeixinJSBridge.invoke(
-			'getBrandWCPayRequest',
-			JS_PARAM,
-			function(res){
-				 if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-					location.href= wxPath('/web/user/login');
-				 }
-				 if(res.err_msg == "get_brand_wcpay_request:cancel" || res.err_msg == "get_brand_wcpay_request:fail"){
-					location.href= wxPath('/web/pay/'+$orderId);
-				 }
-			}
-		);
-	}
-
-	function callPay($orderId)
-	{
-		var target=$('.detail-service');
-		changeBind(target,true);
-		if (typeof WeixinJSBridge == "undefined"){
-			if( document.addEventListener ){
-				document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
-			}else if (document.attachEvent){
-				document.attachEvent('WeixinJSBridgeReady', jsApiCall);
-				document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
-			}
-			changeBind(target,false);
-		}else{
-			jsApiCall($orderId);
-			changeBind(target,false);
-		}
-	}
-</script>
+{% block title %}支付页面{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/orderPay.css') }}">
 {% endblock %}
-
 {% block body %}
-	<div class="detail-top">
-		订单号:
-	</div>
-	<table class="detail-table">
-		<tr>
-			<td>下单时间:</td><td></td>
-		</tr>
-		<tr>
-			<td>订单金额:</td><td>元</td>
-		</tr>
-		<tr>
-			<td>优惠金额:</td><td>元</td>
-		</tr>
-		<tr>
-			<td>收货人姓名:</td><td></td>
-		</tr>
-		<tr>
-			<td>收货人电话:</td><td></td>
-		</tr>
-		<tr>
-			<td>收货地址:</td><td></td>
-		</tr>
-		<tr>
-			<td colspan="2"><button class="detail-service">立即支付</button></td>
-		</tr>
-	</table>
+<div id="container">
+    <div class="orderPay">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="orderNum">订单号：345654545</div>
+            </div>
+            <div class="col-xs-12">
+                <div class="userAddr">
+                    请输入联系人地址及收货地址
+                </div>
+            </div>
+            <div class="col-xs-7">
+                <div class="productName">
+                    微采HPV基因检测服务
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="productNumAndPrice">
+                    <ul>
+                        <li>x1</li>
+                        <li><span>优惠：</span><span>￥0.00</span></li>
+                        <li><span>总计：</span><span>￥399.00</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12 payTypeSelect">
+                <div class="payType">
+                    选择支付方式
+                </div>
+                <ul>
+                    <li>
+                        <span>
+                            <img src="{{ asset('/bundles/mirrorweb/images/wechat.png') }}" alt="">
+                        </span>
+                        <div class="payAppInfo">
+                            <p>微信</p>
+                            <p>支持有微信，网银的用户使用</p>
+                        </div>
+                        <span><input type="radio"/></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12">
+                <div class="goodsInfoBuyButton">
+                    <span><a href="javascript;">< 上一步</a></span><span>总计：</span><span>399.00</span>
+                    <button class="btn btn-default btn-block detail-service">立即支付</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+{% block script %}
+<script>
+    var orderId='{{ orderId }}';
+    var JS_PARAM={};
+    ajaxAction("get",'/api/order/'+orderId,'',false,function(data,textStatus){
+        //获取订单信息填充进页面
+    },function(errno,errmsg){
+
+    });
+
+    $('.detail-service').click(function () {
+        var info={};
+        info.orderId=orderId;
+        ajaxAction("post",'/api/order/pay',info,false,function(data,textStatus){
+            JS_PARAM = data.jsApiParameters;
+            JS_PARAM = $.evalJSON(JS_PARAM);
+            callPay(orderId);
+        },function(errno,errmsg){
+
+        });
+
+    });
+    function jsApiCall($orderId)
+    {
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                JS_PARAM,
+                function(res){
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                        location.href= wxPath('/web/index');
+                    }
+                    if(res.err_msg == "get_brand_wcpay_request:cancel" || res.err_msg == "get_brand_wcpay_request:fail"){
+                        location.href= wxPath('/web/pay/'+$orderId);
+                    }
+                }
+        );
+    }
+
+    function callPay($orderId)
+    {
+        var target=$('.detail-service');
+        changeBind(target,true);
+        if (typeof WeixinJSBridge == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }else if (document.attachEvent){
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+            changeBind(target,false);
+        }else{
+            jsApiCall($orderId);
+            changeBind(target,false);
+        }
+    }
+</script>
+{% endblock  %}

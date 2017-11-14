@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.goodsInfo{
+    width: 100%;
+    overflow: hidden;
+}
+.goodsImg{
+    background-color: rgba(27, 56, 53, 0.67);
+    width: 100%;
+    height: 4rem;
+}
+.goodsInfoTitle{
+    padding: .3rem;
+}
+.goodsInfoTitle p{
+    font-size: .28rem;
+    color: #9dcbc1;
+}
+.goodsInfoTitle .goodsInfoPrice span:first-child{
+    color: #000;
+    font-size: .36rem;
+}
+.goodsInfoTitle .goodsInfoPrice span:last-child{
+    color: #ccc;
+    font-size: .24rem;
+    margin-left:.2rem;
+    text-decoration:line-through;
+}
+.goodsInfoBuyButton{
+    width: 100%;
+    padding: .1rem .2rem;
+    position: fixed;
+    bottom: .2rem;
+}
+.goodsInfoBuyButton span:first-child{
+    color: #000;
+    font-size:.28rem;
+    margin-right:1.5rem;
+}
+.goodsInfoBuyButton span:nth-child(3){
+    margin-right:.2rem;
+    font-size: .36rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: #E00;
+}
+.goodsInfoBuyButton button{
+    width: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #fc4f73;
+    color: #fff;
+}
+.buyNum{
+    padding: .3rem .2rem;
+}
+.numChange{
+    width: 100%;
+    border-radius: 3px;
+    border:1px solid #9dcbc1;
+    height: .6rem;
+    font-size: .28rem;
+}
+.numChange span{
+    display: inline-block;
+    text-align: center;
+}
+.numChange span:first-child{
+    line-height: .58rem;
+    border-right: 1px solid #9dcbc1;
+    width: .8rem;
+}
+.numChange span:nth-child(2){
+    width: 1.4rem;
+    line-height: .58rem;
+    border-right: 1px solid #9dcbc1;
+    text-align: center;
+}
+.numChange span:last-child{
+    text-align: center;
+    line-height: .58rem;
+    width: .8rem;
+}

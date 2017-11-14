@@ -17,11 +17,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/index")
+ * @Route("/address")
  * Class IndexController
  * @package Mirror\WebBundle\Controller
  */
-class IndexController extends Controller
+class AddressController extends Controller
 {
     /**
      * @Route()
@@ -36,6 +36,10 @@ class IndexController extends Controller
             $result = WeixinHelper::getWeixinId ( $code );
             $openId=Helper::getc($result,'openid','');
             $this->getRequest ()->getSession ()->set ( 'openId', $openId );
+        }
+        $status=$this->get('user_service')->checkLogin($openId);
+        if($status){
+            return $this->render('WebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
         return array('openId'=>$openId);
     }

@@ -1,0 +1,96 @@
+*{
+    margin:0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+#container{
+    background-image: url("../images/rootBg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 100%;
+}
+.margint3{
+    margin-top:3rem;
+}
+.margint4{
+    margin-top:4rem;
+}
+.margint1{
+    margin-top: 1rem;
+}
+.logoBox{
+    width: 3.34rem;
+    height: 1.29rem;
+}
+.logoBox img{
+    width: 100%;
+    height: 100%;
+}
+.userInput,.codeInput{
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+.userInput input,.codeInput input{
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: 4.5rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+}
+.userInput input:focus,.codeInput input:focus{
+    border: none;
+    box-shadow: none;
+}
+.userInput input::placeholder,.codeInput input::placeholder{
+    color: #ffffff;
+}
+.userInput:before{
+    content: '';
+    background-image: url("../images/phoneIco.png");
+    background-repeat: no-repeat;
+    background-size: .44rem .43rem;
+    background-position: center;
+    width: .55rem;
+    height: .43rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.codeInput:before{
+    content: '1234';
+    background-image: url("../images/codeBg.png");
+    background-repeat: no-repeat;
+    background-size: .55rem .38rem;
+    background-position: center;
+    width: .55rem;
+    height: .38rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: .12rem;
+    line-height: .5rem;
+}
+.codeInput:after{
+    content: '';
+    background-image: url("../images/ic_sent.png");
+    background-repeat: no-repeat;
+    background-size: .49rem .43rem;
+    background-position: center;
+    width: .49rem;
+    height: .43rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    font-size: .12rem;
+}
+.loginButton{
+    background-color: #9dcbc1;
+    color: #fff;
+}

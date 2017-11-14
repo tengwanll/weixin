@@ -34,8 +34,12 @@ class IndexController extends Controller
         $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
         if (!$openId) {
             $result = WeixinHelper::getWeixinId ( $code );
-            $openId=Helper::getc($result,'weixinId','');
+            $openId=Helper::getc($result,'openid','');
             $this->getRequest ()->getSession ()->set ( 'openId', $openId );
+        }
+        $status=$this->get('user_service')->checkLogin($openId);
+        if($status){
+            return $this->render('WebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
         $status=$this->get('user_service')->checkLogin($openId);
         if($status){

@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.orderNum{
+    font-weight: bold;
+    color: #999;
+    font-size: .36rem;
+    padding: .2rem;
+
+
+}
+.userAddr{
+    border-bottom: 1px solid #DDD;
+    padding-left: .2rem;
+    font-size:.28rem ;
+    line-height: .6rem;
+    color: #999;
+}
+.userAddr:before{
+    content: '';
+    background-image: url("../images/addrIco.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: .32rem .32rem;
+    width: .32rem;
+    height: .32rem;
+    display: inline-block;
+}
+.productName{
+    color: #666;
+    font-size: .38rem;
+    padding-left: .2rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+}
+.productNumAndPrice{
+    margin-top:.2rem;
+    margin-right:.2rem;
+}
+.productNumAndPrice ul li{
+    list-style: none;
+    text-align: right;
+}
+.productNumAndPrice ul li:first-child{
+    color: #666;
+    font-size: .36rem;
+}
+.productNumAndPrice ul li span:last-child{
+    color: #E00;
+}
+.payType{
+    width: 100%;
+    line-height: 1rem;
+    background-color: #EEE;
+    font-size: .28rem;
+    padding-left: .2rem;
+    margin-bottom:.3rem;
+}
+.payTypeSelect ul li span:first-child{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left:.2rem;
+}
+.payTypeSelect ul li img{
+    width: .8rem;
+    height: .8rem;
+    margin-right:.3rem;
+}
+.payAppInfo{
+    display: inline-block;
+    width: 5rem;
+    vertical-align: middle;
+}
+.goodsInfoBuyButton{
+    width: 100%;
+    padding: .1rem .2rem;
+    position: fixed;
+    bottom: .2rem;
+}
+.goodsInfoBuyButton span:first-child{
+    color: #000;
+    font-size:.28rem;
+    margin-right:1.7rem;
+}
+.goodsInfoBuyButton  a{
+    color: #666666;
+}
+.goodsInfoBuyButton span:nth-child(3){
+    margin-right:.2rem;
+    font-size: .36rem;
+    display: inline-block;
+    vertical-align: middle;
+    color: #E00;
+}
+.goodsInfoBuyButton button{
+    width: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #fc4f73;
+    color: #fff;
+}

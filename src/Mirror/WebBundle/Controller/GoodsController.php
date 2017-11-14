@@ -17,11 +17,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * @Route("/index")
+ * @Route("/goods")
  * Class IndexController
  * @package Mirror\WebBundle\Controller
  */
-class IndexController extends Controller
+class AddressController extends Controller
 {
     /**
      * @Route()

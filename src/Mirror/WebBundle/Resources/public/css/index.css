@@ -1,0 +1,116 @@
+*{
+    margin:0;
+    padding: 0;
+}
+html{
+    height: 100%;
+    overflow: hidden;
+}
+.topContentBox{
+    background-image: url("../images/topContentBg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    width: 100%;
+    height: 5rem;
+}
+.topContent .logo{
+    width: 3.34rem;
+    height: 1.29rem;
+    margin-top: 1.2rem;
+    margin-left: .7rem;
+}
+.topContent .logo img{
+    width: 100%;
+    height: 100%;
+}
+.sologen{
+    width: 2.5rem;
+    margin-top:.4rem;
+    margin-left: .6rem;
+    color: #fff;
+    font-size: .12rem;
+}
+.sologen span{
+    margin-right:.2rem;
+}
+.sologen span:nth-child(2n){
+    margin-right:0;
+}
+.sologen span:nth-child(3){
+    margin-right:.4rem;
+}
+.mainContentBox{
+    width: 100%;
+    background-color: #fff;
+    height: 6rem;
+    transform: skewY(-15deg);
+    position: relative;
+    top:-1.1rem;
+    z-index: 2;
+    position: relative;
+}
+.mainContentBox .buyTitle,.mainContentBox p{
+    transform: skewY(15deg);
+}
+.mainContentBox .buyTitle{
+    margin-top:1rem;
+    margin-left: 1.4rem;
+}
+.mainContentBox .buyTitle span{
+    font-size: .32rem;
+}
+.mainContentBox .buyTitle span:nth-child(3){
+    background-color: #83e3e0;
+    padding: 0.1rem 0.2rem;
+    border-radius: .3rem;
+    margin-left: .1rem;
+}
+.mainContentBox p{
+    font-size: .12rem;
+    margin: .1rem 1.4rem;
+    line-height: .36rem;
+}
+.mainContentBox hr{
+    position: absolute;
+    left: 2rem;
+    bottom: -0.9rem;
+    width: 3rem;
+    border: 1px solid #9fe9e7;
+}
+.phoneImg{
+    width: 1.84rem;
+    height: 3.62rem;
+    position: absolute;
+    right: .85rem;
+    top: -1.5rem;
+    transform: skewY(15deg);
+}
+.phoneImg img{
+    width: 100%;
+    height: 100%;
+}
+.bottmContentBox{
+    background-image: url(../images/bottomContentBg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    width: 100%;
+    height: 5rem;
+    position: relative;
+    top: -2.1rem;
+    z-index: 1;
+    color: #fff;
+    padding-top: 2rem;
+    font-size: .12rem;
+    line-height: .2rem;
+    padding-left:.6rem;
+    position: relative;
+}
+.bottmContentBox img{
+    position: absolute;
+    right: .67rem;
+    bottom: .25rem;
+    width: .92rem;
+    height: .92rem;
+}

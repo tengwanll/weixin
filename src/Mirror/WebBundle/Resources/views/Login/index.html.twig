@@ -1,9 +1,40 @@
 {% extends 'MirrorWebBundle:Base:base.html.twig' %}
+{% block title %}登录页面{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/login.css') }}">
+{% endblock %}
+{% block body %}
+    <div id="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3 text-center margint3">
+                    <div class="logoBox">
+                        <img src="{{ asset('/bundles/mirrorweb/images/LOGO.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 margint1">
+                    <div class="form-group">
+                        <!--<label for="exampleInputName2">Name</label>-->
+                        <div class="userInput">
+                            <input type="text" class="form-control" id="exampleInputName1" placeholder="请输入电话号码">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div class="form-group">
+                        <!--<label for="exampleInputName2">code</label>-->
+                        <div class="codeInput">
+                            <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入验证码">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-10 col-xs-offset-1 text-center margint1">
+                    <button type="submit" class="btn btn-default btn-block loginButton">确认提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 {% block script %}
-<script>
-    var openId='{{ openId }}';
-    checkWeiXinId(openId);
-    var data;
-    ajaxAction();
-</script>
+
 {% endblock  %}

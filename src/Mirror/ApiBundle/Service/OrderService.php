@@ -207,4 +207,34 @@ class OrderService
         return $xml;
     }
 
+    public function getUserOrderList($openId){
+        $rr=new ReturnResult();
+        if(!$openId){
+            $rr->errno=Code::$openId_null;
+            return $rr;
+        }
+        $user=$this->userModel->getOneByProperty('openId',$openId);
+        if(!$user){
+            $rr->errno=Code::$user_not_exist;
+            return $rr;
+        }
+        $list=$this->orderModel->getByCriteria(array('status'=>Constant::$order_status_success,'userId'=>$user->getId()));
+        $arr=array();
+        foreach ($list as $order){
+            /**@var $order \Mirror\ApiBundle\Entity\Orders*/
+            $arr[]=array(
+                'orderId'=>$order->getId(),
+                'name'=>$order->getName(),
+                'orderNo'=>$order->getOrderNo(),
+                'price'=>$order->getPrice(),
+                'address'=>$order->getAddress(),
+                'payTime'=>$order->getPayTime(),
+                'remark'=>$order->getRemark()
+            );
+        }
+        $rr->result=array(
+            'list'=>$arr
+        );
+        return $rr;
+    }
 }

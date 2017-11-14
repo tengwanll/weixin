@@ -28,7 +28,7 @@ class LoginController extends Controller
         $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
         if (!$openId&&$code) {
             $result = WeixinHelper::getWeixinId ( $code );
-            $openId=Helper::getc($result,'weixinId','');
+            $openId=Helper::getc($result,'openid','');
             $this->getRequest ()->getSession ()->set ( 'openId', $openId );
         }
         $status=$this->get('user_service')->checkLogin($openId);

@@ -1,0 +1,43 @@
+{% extends 'MirrorWebBundle:Base:base.html.twig' %}
+{% block title %}商品信息{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/goodsInfo.css') }}">
+{% endblock %}
+{% block body %}
+    <div id="container">
+        <div class="goodsInfo">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="goodsImg">
+
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="goodsInfoTitle">
+                        <p>HPV自检套装</p>
+                        <div class="goodsInfoPrice">
+                            <span>￥399</span><span>￥699</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="buyNum">
+                    <span class="numLabel">数量：</span>
+                    <div class="numChange">
+                        <span>-</span><span>1</span><span>+</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="goodsInfoBuyButton">
+                        <span>优惠：0元</span><span>总计：</span><span>399.00</span>
+                        <button class="btn btn-default btn-block">下一步</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+
+{% endblock  %}

@@ -69,7 +69,7 @@ class WeixinHelper {
 		$openId = Helper::getc($json,'openid','');
 		$token=Helper::getc($json,'access_token','');
 
-		return array('token'=>$token,'weixinId'=>$openId);
+		return array('token'=>$token,'openid'=>$openId);
 	}
 
 	public static function getJsToken()

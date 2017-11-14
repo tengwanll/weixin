@@ -43,9 +43,27 @@ class UserController extends BaseController
         return $this->buildResponse($rr);
     }
 
+    /**
+     * @Route("/logout")
+     * @Method("POST")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function logout(Request $request){
         $openId=$this->sessionGet($request,'openId','');
         $rr=$this->get('user_service')->logout($openId);
+        return $this->buildResponse($rr);
+    }
+
+    /**
+     * @Route("/order")
+     * @Method("GET")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function getOrderList(Request $request){
+        $openId=$this->sessionGet($request,'openId','');
+        $rr=$this->get('order_service')->getUserOrderList($openId);
         return $this->buildResponse($rr);
     }
 }
