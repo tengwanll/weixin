@@ -51,8 +51,8 @@
         });
 
         $('.btn-block').click(function(){
-            var allPrice=parseInt($('#allPrice').html());
-            var number=parseInt($('#number').html());
+            var allPrice=parseFloat($('#allPrice').html());
+            var number=parseFloat($('#number').html());
             var info={};
             info.price=allPrice;
             info.number=number;
@@ -63,18 +63,18 @@
             });
         });
         function sub(){
-            var number=parseInt($('#number').html());
-            var price=parseInt($('#price').html());
-            var allPrice=parseInt($('#allPrice').html());
+            var number=parseFloat($('#number').html());
+            var price=parseFloat($('#price').html());
+            var allPrice=parseFloat($('#allPrice').html());
             if(number>1){
                 $('#number').html(--number);
                 $('#allPrice').html(allPrice-price);
             }
         }
         function add() {
-            var number=parseInt($('#number').html());
-            var price=parseInt($('#price').html());
-            var allPrice=parseInt($('#allPrice').html());
+            var number=parseFloat($('#number').html());
+            var price=parseFloat($('#price').html());
+            var allPrice=parseFloat($('#allPrice').html());
             $('#number').html(++number);
             $('#allPrice').html(allPrice+price);
         }
