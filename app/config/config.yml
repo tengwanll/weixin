@@ -86,3 +86,4 @@ monolog:
             type: stream
             path: "%kernel.root_dir%/logs/symfony.log"
             level: info
+            channels: [app,request]
