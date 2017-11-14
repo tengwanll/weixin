@@ -2,6 +2,11 @@
     padding: 0;
     margin: 0;
 }
+#container{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
 .goodsInfo{
     width: 100%;
     overflow: hidden;
@@ -37,7 +42,7 @@
 .goodsInfoBuyButton span:first-child{
     color: #000;
     font-size:.28rem;
-    margin-right:1.5rem;
+    margin-left: 3rem;
 }
 .goodsInfoBuyButton span:nth-child(3){
     margin-right:.2rem;
@@ -81,5 +86,5 @@
 .numChange span:last-child{
     text-align: center;
     line-height: .58rem;
-    width: .8rem;
+    width: .7rem;
 }
