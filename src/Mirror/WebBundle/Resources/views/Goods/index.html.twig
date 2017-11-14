@@ -68,7 +68,7 @@
             var allPrice=parseFloat($('#allPrice').html());
             if(number>1){
                 $('#number').html(--number);
-                $('#allPrice').html(allPrice-price);
+                $('#allPrice').html((allPrice-price).toFixed(2));
             }
         }
         function add() {
@@ -76,7 +76,7 @@
             var price=parseFloat($('#price').html());
             var allPrice=parseFloat($('#allPrice').html());
             $('#number').html(++number);
-            $('#allPrice').html(allPrice+price);
+            $('#allPrice').html((allPrice+price).toFixed(2));
         }
 
 
