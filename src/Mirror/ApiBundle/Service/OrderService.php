@@ -96,7 +96,6 @@ class OrderService
      */
     public function pay($orderId,$openId){
         $rr=new ReturnResult();
-        $this->logger->info(222);
         $order=$this->orderModel->getById($orderId);
         /**@var $order \Mirror\ApiBundle\Entity\Orders*/
         if(!$order)
@@ -155,11 +154,10 @@ class OrderService
     }
 
     public function notify($xml){
-        $this->logger->info(111);
         try {
             $params = WxPayResults::Init($xml);
         } catch (\Exception $e){
-            //TODO log
+            $this->logger->info('微信回调报错--'.$e->getMessage().'--'.date('Y-m-d H:i:s'));
             return $msg = $e->getMessage();
         }
         $transaction_id=$params['transaction_id'];
@@ -185,14 +183,14 @@ class OrderService
                         'return_code'=>$params['result_code'],
                         'return_msg'=>isset($params['return_msg'])?$params['return_msg']:'OK'
                     );
-                    //TODO log
+                    $this->logger->info('微信回调报错--订单状态修改失败--'.date('Y-m-d H:i:s'));
                     return  $this->toxml($data);
                 }else{
-                    //TODO log
+                    $this->logger->info('微信回调报错--订单已经支付过--'.date('Y-m-d H:i:s'));
                 }
             }
         }else{
-            //TODO log
+            $this->logger->info('微信回调报错--微信支付回调未成功--'.date('Y-m-d H:i:s'));
         }
     }
 
