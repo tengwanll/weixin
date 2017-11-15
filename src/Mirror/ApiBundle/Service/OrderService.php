@@ -210,7 +210,7 @@ class OrderService
         return $xml;
     }
 
-    public function getUserOrderList($openId){
+    public function getUserOrderList($openId,$orderBy){
         $rr=new ReturnResult();
         if(!$openId){
             $rr->errno=Code::$openId_null;
@@ -221,7 +221,7 @@ class OrderService
             $rr->errno=Code::$user_not_exist;
             return $rr;
         }
-        $list=$this->orderModel->getByCriteria(array('status'=>Constant::$order_status_success,'userId'=>$user->getId()));
+        $list=$this->orderModel->getByCriteria(array('status'=>Constant::$order_status_success,'userId'=>$user->getId()),$orderBy);
         $arr=array();
         foreach ($list as $order){
             /**@var $order \Mirror\ApiBundle\Entity\Orders*/

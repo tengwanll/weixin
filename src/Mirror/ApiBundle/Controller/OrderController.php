@@ -37,6 +37,7 @@ class OrderController extends BaseController
     }
 
     /**
+     * 获取订单详情
      * @Route("/{orderId}",requirements={"orderId":"\d+"})
      * @Method("GET")
      * @param $orderId
@@ -87,6 +88,7 @@ class OrderController extends BaseController
     }
 
     /**
+     * 修改订单地址
      * @Route()
      * @Method("PUT")
      * @param Request $request
