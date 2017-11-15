@@ -95,8 +95,8 @@ class OrderController extends BaseController
     public function update(Request $request){
         $json = $this->getJson($request);
         $address=$json->get('address','');
-        $orderid=$json->get('orderId','');
-        $rr=$this->get('order_service')->update($address,$orderid);
-        return new Response($rr);
+        $orderId=$json->get('orderId','');
+        $rr=$this->get('order_service')->update($address,$orderId);
+        return $this->buildResponse($rr);
     }
 }
