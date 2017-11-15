@@ -108,3 +108,11 @@ body{
     border-radius: .5rem;
     display: none;
 }
+.sendSetTimeOut{
+    font-size: .16rem;
+    color: #fff;
+    width: .49rem;
+    height: .43rem;
+    display: inline-block;
+    vertical-align: middle;
+}
