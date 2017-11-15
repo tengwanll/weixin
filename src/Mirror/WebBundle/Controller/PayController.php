@@ -36,7 +36,7 @@ class PayController extends Controller
         if (!$openId) {
             $result = WeixinHelper::getWeixinId ( $code );
             $openId=Helper::getc($result,'openid','');
-            $this->getRequest ()->getSession ()->set ( 'openId', $openId );
+            $request->getSession ()->set ( 'openId', $openId );
         }
         $status=$this->get('user_service')->checkLogin($openId);
         if(!$status){
