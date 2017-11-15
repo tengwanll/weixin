@@ -86,6 +86,12 @@ class OrderController extends BaseController
         return new Response($rr);
     }
 
+    /**
+     * @Route()
+     * @Method("PUT")
+     * @param Request $request
+     * @return Response
+     */
     public function update(Request $request){
         $json = $this->getJson($request);
         $address=$json->get('address','');
