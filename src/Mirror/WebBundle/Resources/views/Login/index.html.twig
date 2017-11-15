@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <!--<label for="exampleInputName2">code</label>-->
                         <div class="codeInput">
-                            <span class="codeNum">1234</span><input type="text" class="form-control" id="code" placeholder="请输入验证码"><span class="codeSend" style="display: none"></span><span class="sendSetTimeOut">59</span>
+                            <span class="codeNum">1234</span><input type="text" class="form-control" id="code" placeholder="请输入验证码"><span class="codeSend"></span><span class="sendSetTimeOut">59</span>
                         </div>
                     </div>
                 </div>
@@ -47,6 +47,7 @@
                 //阴影错误提示
                 return;
             }
+            settime();
             ajaxAction("get",'/api/sms/code/'+telephone,'',false,function(data,textStatus){
                 //写一个定时器关闭发送验证码功能,60秒后打开
             },function(errno,errmsg){
@@ -78,6 +79,26 @@
             },function(errno,errmsg){
                 //阴影错误提示
             });
+
+
+            var countdown=60;
+            function settime() {
+                if (countdown == 0) {
+                    $('.codeSend').show();
+                    countdown = 60;
+                    return;
+                } else {
+                    $('.codeSend').hide();
+                    $('.sendSetTimeOut').html(countdown);
+                    countdown--;
+                }
+                setTimeout(function() {
+                    settime();
+                },1000)
+            }
+
+
+
         });
     </script>
 {% endblock  %}
