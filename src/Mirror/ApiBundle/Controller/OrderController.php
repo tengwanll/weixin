@@ -37,6 +37,17 @@ class OrderController extends BaseController
     }
 
     /**
+     * @Route("/{orderId}",requirements={"orderId":"\d+"})
+     * @Method("GET")
+     * @param $orderId
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function getInfo($orderId){
+        $rr=$this->get('order_service')->getInfo($orderId);
+        return $this->buildResponse($rr);
+    }
+
+    /**
      * 调起支付
      * @Route("/pay")
      * @Method("POST")

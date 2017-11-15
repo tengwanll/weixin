@@ -8,7 +8,7 @@
     <div class="orderPay">
         <div class="row">
             <div class="col-xs-12">
-                <div class="orderNum">订单号：345654545</div>
+                <div>订单号：<span class="orderNo"></span></div>
             </div>
             <div class="col-xs-12">
                 <div class="userAddr">
@@ -17,15 +17,13 @@
             </div>
             <div class="col-xs-7">
                 <div class="productName">
-                    微采HPV基因检测服务
                 </div>
             </div>
             <div class="col-xs-5">
                 <div class="productNumAndPrice">
                     <ul>
-                        <li>x1</li>
-                        <li><span>优惠：</span><span>￥0.00</span></li>
-                        <li><span>总计：</span><span>￥399.00</span></li>
+                        <li id="number"></li>
+                        <li><span>总计：</span><span class="price"></span></li>
                     </ul>
                 </div>
             </div>
@@ -48,7 +46,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="goodsInfoBuyButton">
-                    <span>￥399.00</span>
+                    <span class="price"></span>
                     <button class="btn btn-default btn-block detail-service">立即支付</button>
                 </div>
             </div>
@@ -62,6 +60,10 @@
     var JS_PARAM={};
     ajaxAction("get",'/api/order/'+orderId,'',false,function(data,textStatus){
         //获取订单信息填充进页面
+        $('.orderNo').html(data.orderNo);
+        $('#number').html('x'+data.number);
+        $('.price').html('￥'+data.price);
+        $('.productName').html(data.name);
     },function(errno,errmsg){
 
     });

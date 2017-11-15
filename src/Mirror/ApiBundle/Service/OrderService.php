@@ -240,4 +240,22 @@ class OrderService
         );
         return $rr;
     }
+
+    public function getInfo($orderId){
+        $rr=new ReturnResult();
+        $order=$this->orderModel->getById($orderId);
+        /**@var $order \Mirror\ApiBundle\Entity\Orders*/
+        if(!$order){
+            $rr->errno=Code::$order_not_exist;
+            return $rr;
+        }
+        $arr=array(
+            'orderNo'=>$order->getOrderNo(),
+            'number'=>$order->getNumber(),
+            'price'=>$order->getPrice(),
+            'name'=>$order->getName(),
+        );
+        $rr->result=$arr;
+        return $rr;
+    }
 }
