@@ -10,18 +10,6 @@
         </div>
         <div class="goodsListCon">
             <ul>
-<<<<<<< HEAD
-                <li><span>
-                    <img src="{{ asset('/bundles/mirrorweb/images/LOGO.png') }}" alt="">
-                </span>
-                    <div class="priceTitle">
-                        <p></p>
-                        <span class="downOrderTime"></span>
-                        <span class="orderPrice"></span>
-                        <a href="javascript:;"></a>
-                    </div>
-=======
->>>>>>> 2f3b4742d42392073d55715ba5ad9896dc20f391
 
             </ul>
         </div>
@@ -29,18 +17,6 @@
 {% endblock %}
 {% block script %}
     <script>
-<<<<<<< HEAD
-        ajaxAction("get",'/api/user/order','',false,function(data,textStatus){
-            console.log(data);
-            var dataList = data.list;
-            var orderListHtml = '';
-            $.each(dataList,function (idx,obj) {
-                orderListHtml += ' <li><span><img src="'+obj.logo+'" alt=""></span><div class="priceTitle"><p>'+obj.name+'</p><span class="downOrderTime">'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span><span class="productNum">数量：'+obj.number+'</span><span class="orderPrice">￥'+obj.price+'</span><a href="javascript:;">下载报表</a></div></li>';
-            });
-            $('.goodsListCon ul').html(orderListHtml);
-        },function(errno,errmsg){
-            console.log(errmsg);
-=======
         getList('payTime-desc');
         var priceStatus=1;
         var timeStatus=1;
@@ -61,7 +37,6 @@
                 getList('payTime-desc');
                 timeStatus=1;
             }
->>>>>>> 2f3b4742d42392073d55715ba5ad9896dc20f391
         });
         function getList(orderBy){
             ajaxAction("get",'/api/user/order?orderBy='+orderBy,'',false,function(data,textStatus){
