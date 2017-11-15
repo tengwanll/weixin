@@ -26,5 +26,11 @@
     </div>
 {% endblock %}
 {% block script %}
+    <script>
+        ajaxAction("get",'/api/user/order','',false,function(data,textStatus){
+            console.log(data);
+        },function(errno,errmsg){
 
+        });
+    </script>
 {% endblock  %}
