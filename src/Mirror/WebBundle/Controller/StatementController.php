@@ -31,11 +31,11 @@ class StatementController extends Controller
      */
     public function indexAction(Request $request){
         $code=$request->get('code','');
-        $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
+        $openId = $request->getSession ()->get ( 'openId', '' );
         if (!$openId) {
             $result = WeixinHelper::getWeixinId ( $code );
             $openId=Helper::getc($result,'openid','');
-            $this->getRequest ()->getSession ()->set ( 'openId', $openId );
+            $request->getSession ()->set ( 'openId', $openId );
         }
         $status=$this->get('user_service')->checkLogin($openId);
         if(!$status){

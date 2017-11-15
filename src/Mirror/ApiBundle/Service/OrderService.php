@@ -221,7 +221,8 @@ class OrderService
             $rr->errno=Code::$user_not_exist;
             return $rr;
         }
-        $list=$this->orderModel->getByCriteria(array('status'=>Constant::$order_status_success,'userId'=>$user->getId()),$orderBy);
+        $orderByArr=explode('-',$orderBy);
+        $list=$this->orderModel->getByCriteria(array('status'=>Constant::$order_status_success,'userId'=>$user->getId()),array($orderByArr[0]=>$orderByArr[1]));
         $arr=array();
         foreach ($list as $order){
             /**@var $order \Mirror\ApiBundle\Entity\Orders*/

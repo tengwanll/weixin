@@ -6,10 +6,11 @@
 {% block body %}
     <div id="container">
         <div class="goodsListFilter">
-            <span>产品价格</span><span>下单时间</span>
+            <span id="priceOrder">产品价格</span><span id="timeOrder">下单时间</span>
         </div>
         <div class="goodsListCon">
             <ul>
+<<<<<<< HEAD
                 <li><span>
                     <img src="{{ asset('/bundles/mirrorweb/images/LOGO.png') }}" alt="">
                 </span>
@@ -19,14 +20,16 @@
                         <span class="orderPrice"></span>
                         <a href="javascript:;"></a>
                     </div>
+=======
+>>>>>>> 2f3b4742d42392073d55715ba5ad9896dc20f391
 
-                </li>
             </ul>
         </div>
     </div>
 {% endblock %}
 {% block script %}
     <script>
+<<<<<<< HEAD
         ajaxAction("get",'/api/user/order','',false,function(data,textStatus){
             console.log(data);
             var dataList = data.list;
@@ -37,6 +40,44 @@
             $('.goodsListCon ul').html(orderListHtml);
         },function(errno,errmsg){
             console.log(errmsg);
+=======
+        getList('payTime-desc');
+        var priceStatus=1;
+        var timeStatus=1;
+        $('#priceOrder').click(function(){
+            if(priceStatus==1){
+                getList('price-asc');
+                priceStatus=2;
+            }else{
+                getList('price-desc');
+                priceStatus=1;
+            }
         });
+        $('#timeOrder').click(function(){
+            if(timeStatus==1){
+                getList('payTime-asc');
+                timeStatus=2;
+            }else{
+                getList('payTime-desc');
+                timeStatus=1;
+            }
+>>>>>>> 2f3b4742d42392073d55715ba5ad9896dc20f391
+        });
+        function getList(orderBy){
+            ajaxAction("get",'/api/user/order?orderBy='+orderBy,'',false,function(data,textStatus){
+                var dataList = data.list;
+                var orderListHtml = '';
+                $.each(dataList,function (idx,obj) {
+                    var report='';
+                    if(obj.report){
+                        report='<a href="'+obj.report+'">下载报表</a>';
+                    }
+                    orderListHtml += ' <li><span><img src="'+obj.logo+'" alt=""></span><div class="priceTitle"><p>'+obj.name+'</p><span class="downOrderTime">'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span><span class="orderPrice">￥'+obj.price+'</span>'+report+'</div></li>';
+                });
+                $('.goodsListCon ul').html(orderListHtml);
+            },function(errno,errmsg){
+                console.log(errmsg);
+            });
+        }
     </script>
 {% endblock  %}
