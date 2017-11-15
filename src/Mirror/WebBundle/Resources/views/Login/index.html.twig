@@ -82,8 +82,7 @@
             });
 
 
-
-            function settime() {
+            function settimes() {
                 if (countdown == 0) {
                     $('.codeSend').show();
                     countdown = 60;
@@ -94,7 +93,7 @@
                     countdown--;
                 }
                 setTimeout(function() {
-                    settime();
+                    settimes();
                 },1000)
             }
 
