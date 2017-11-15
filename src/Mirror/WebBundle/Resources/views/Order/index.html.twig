@@ -29,8 +29,24 @@
     <script>
         ajaxAction("get",'/api/user/order','',false,function(data,textStatus){
             console.log(data);
+            var dataList = data.list;
+            var orderListHtml = '';
+            $.each(dataList,function (idx,obj) {
+                orderListHtml += ' <li><span>\n' +
+                    '                    <img src="{{ asset(\' / bundles / mirrorweb / images / LOGO.png\') }}" alt="">\n' +
+                '                </span>\n' +
+                '                    <div class="priceTitle">\n' +
+                '                        <p>'+obj.name+'</p>\n' +
+                '                        <span class="downOrderTime">'+formatter(obj.payTime,'YYYY MM DD')+'</span>\n' +
+                '                        <span class="orderPrice">￥'+obj.price+'</span>\n' +
+                '                        <a href="javascript:;">下载报表</a>\n' +
+                '                    </div>\n' +
+                '\n' +
+                '                </li>'
+            });
+            $('.goodsListCon ul').html(orderListHtml);
         },function(errno,errmsg){
-
+            console.log(errmsg);
         });
     </script>
 {% endblock  %}
