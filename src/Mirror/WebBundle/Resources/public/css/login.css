@@ -95,3 +95,11 @@ body{
     background-color: #9dcbc1;
     color: #fff;
 }
+.error{
+    width: 100%;
+    margin:0 .2rem;
+    position: fixed;
+    bottom: 1rem;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+}
