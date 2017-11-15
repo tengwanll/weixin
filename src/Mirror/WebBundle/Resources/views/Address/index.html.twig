@@ -76,27 +76,37 @@
         <script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/fastclick-min.js')}}"></script>
         <script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/mw.js')}}"></script>
         <script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/area.js')}}"></script>
-        <script type="text/javascript">
-            $(function(){
-                var hpvfrm2 = $('#hpvpay2form');
-                var action = hpvfrm2.attr('action');
-                $('#hpvpay2btn').on('click',function(){
-                    var province = $(".address-shen").find(".address-content").text();
-                    var city = $(".address-shi").find(".address-content").text();
-                    var district = $(".address-xian").find(".address-content").text();
-                    var detail = $("#detail").val();
-                    var recipient = $("#recipient").val();
-                    var id = $("#hpvid").val();
-                    if("请选择"!=province&&"请选择"!=city&&"请选择"!=district&&""!=detail&&""!=recipient){
-                        var addr = province+city+district+detail;
-                        MW.post(action,{addr:addr,id:id,recipient:recipient},function(i,object){
-                            location.href=ctx+object;
-                        });
-                    }else{
-                        alert("联系人姓名或者收货地址错误，请重试！");
-                    }
-                });
-            });
-        </script>
+
     </div>
 {% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        $(function(){
+            var orderId='{{ orderId }}';
+            var hpvfrm2 = $('#hpvpay2form');
+            var action = hpvfrm2.attr('action');
+            $('#hpvpay2btn').on('click',function(){
+                var province = $(".address-shen").find(".address-content").text();
+                var city = $(".address-shi").find(".address-content").text();
+                var district = $(".address-xian").find(".address-content").text();
+                var detail = $("#detail").val();
+                var recipient = $("#recipient").val();
+                var id = $("#hpvid").val();
+                if("请选择"!=province&&"请选择"!=city&&"请选择"!=district&&""!=detail&&""!=recipient){
+                    var addr = province+city+district+detail;
+                    var info={};
+                    info.address=addr;
+                    info.orderId=orderId;
+                    ajaxAction("put",'/api/order/',info,false,function(data,textStatus){
+                        location.href=wxPath('/web/pay/'+orderId+'?addr='+addr);
+                    },function(errno,errmsg){
+
+                    });
+                }else{
+                    alert("联系人姓名或者收货地址错误，请重试！");
+                }
+            });
+        });
+    </script>
+{% endblock %}
+

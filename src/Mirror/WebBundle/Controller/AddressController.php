@@ -24,12 +24,12 @@ use Symfony\Component\HttpFoundation\Request;
 class AddressController extends Controller
 {
     /**
-     * @Route()
+     * @Route("/{orderId}")
      * @Template()
      * @param Request $request
      * @return array|\Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request){
+    public function indexAction(Request $request,$orderId){
         $code=$request->get('code','');
         $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
         if (!$openId) {
@@ -41,6 +41,6 @@ class AddressController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId);
+        return array('openId'=>$openId,'orderId'=>$orderId);
     }
 }

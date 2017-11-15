@@ -258,4 +258,17 @@ class OrderService
         $rr->result=$arr;
         return $rr;
     }
+
+    public function update($address,$orderId){
+        $rr=new ReturnResult();
+        $order=$this->orderModel->getById($orderId);
+        /**@var $order \Mirror\ApiBundle\Entity\Orders*/
+        if(!$order){
+            $rr->errno=Code::$order_not_exist;
+            return $rr;
+        }
+        $order->setAddress($address);
+        $this->orderModel->save($order);
+        return $rr;
+    }
 }

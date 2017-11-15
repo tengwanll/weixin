@@ -85,4 +85,12 @@ class OrderController extends BaseController
         $rr=$this->get('order_service')->notify($xml);
         return new Response($rr);
     }
+
+    public function update(Request $request){
+        $json = $this->getJson($request);
+        $address=$json->get('address','');
+        $orderid=$json->get('orderId','');
+        $rr=$this->get('order_service')->update($address,$orderid);
+        return new Response($rr);
+    }
 }
