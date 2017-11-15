@@ -82,7 +82,7 @@ class OrderService
             $rr->errno=Code::$goods_not_exist;
             return $rr;
         }
-        $order=$this->orderModel->add('',$user,$goods,$order->getRemark(),$order->getNumber());
+        $order=$this->orderModel->add('',$user,$goods,$order->getRemark(),$order->getNumber(),$order->getPrice());
         $rr->result=array('orderId'=>$order->getId());
         return $rr;
     }
