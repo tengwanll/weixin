@@ -31,6 +31,7 @@ class PayController extends Controller
      */
     public function indexAction(Request $request,$orderId){
         $code=$request->get('code','');
+        $address=$request->get('addr','');
         $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
         if (!$openId) {
             $result = WeixinHelper::getWeixinId ( $code );
@@ -41,6 +42,6 @@ class PayController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId,'orderId'=>$orderId);
+        return array('openId'=>$openId,'orderId'=>$orderId,'address'=>$address);
     }
 }
