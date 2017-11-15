@@ -31,7 +31,6 @@ class OrderController extends BaseController
     public function create(Request $request){
         $order=$goods=$this->serializerByJson($request,'Orders');
         $openId=$this->sessionGet($request,'openId','');
-        $openId='ob0nEw5dVJjsD6Z96o_BEwgSWjMM';
         $rr=$this->get('order_service')->create($order,$openId);
         return $this->buildResponse($rr);
     }
@@ -59,7 +58,6 @@ class OrderController extends BaseController
         $json=$this->getJson($request);
         $orderId=$json->get('orderId',0);
         $openId=$this>$this->sessionGet($request,'openId','');
-        $openId='ob0nEw5dVJjsD6Z96o_BEwgSWjMM';
         $rr=$this->get('order_service')->pay($orderId,$openId);
         return $this->buildResponse($rr);
     }
