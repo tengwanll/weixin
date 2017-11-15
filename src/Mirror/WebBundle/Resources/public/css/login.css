@@ -96,10 +96,15 @@ body{
     color: #fff;
 }
 .error{
-    width: 100%;
     margin:0 .2rem;
     position: fixed;
     bottom: 1rem;
     background: rgba(0,0,0,0.5);
     color: #fff;
+    text-align: center;
+    left: 0;
+    right: 0;
+    padding: .1rem 0;
+    border-radius: .5rem;
+    display: none;
 }
