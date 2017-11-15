@@ -81,7 +81,7 @@
 {% block script %}
     <script type="text/javascript">
         $(function(){
-            var orderId='{{ orderId }}';
+            var orderId={{ orderId }};
             var hpvfrm2 = $('#hpvpay2form');
             var action = hpvfrm2.attr('action');
             $('#hpvpay2btn').on('click',function(){

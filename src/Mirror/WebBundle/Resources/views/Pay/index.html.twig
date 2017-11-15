@@ -55,7 +55,7 @@
 {% endblock %}
 {% block script %}
 <script>
-    var orderId='{{ orderId }}';
+    var orderId={{ orderId }};
     var address='{{ address }}'?'{{ address }}':'请输入联系人地址及收货地址';
     $('.userAddr').html(address);
     var JS_PARAM={};

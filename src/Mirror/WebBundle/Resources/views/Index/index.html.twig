@@ -61,7 +61,7 @@
 {% endblock %}
 {% block script %}
     <script>
-        var status='{{ status }}'?'{{ status }}':0;
+        var status={{ status }}?{{ status }}:0;
         if(status){
             $('.loginOut').show();
         }else{
