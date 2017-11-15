@@ -17,7 +17,7 @@
 {% endblock %}
 {% block script %}
     <script>
-        getList('createTime-desc');
+        getList('payTime-desc');
         var priceStatus=1;
         var timeStatus=1;
         $('#priceOrder').click(function(){
@@ -31,10 +31,10 @@
         });
         $('#timeOrder').click(function(){
             if(timeStatus==1){
-                getList('createTime-asc');
+                getList('payTime-asc');
                 timeStatus=2;
             }else{
-                getList('createTime-desc');
+                getList('payTime-desc');
                 timeStatus=1;
             }
         });
