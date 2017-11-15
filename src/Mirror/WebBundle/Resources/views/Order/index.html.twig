@@ -17,7 +17,7 @@
 {% endblock %}
 {% block script %}
     <script>
-        getList('createTime desc');
+        getList('createTime-desc');
         function getList(orderBy){
             ajaxAction("get",'/api/user/order?orderBy='+orderBy,'',false,function(data,textStatus){
                 var dataList = data.list;
