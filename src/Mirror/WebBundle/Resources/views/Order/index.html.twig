@@ -10,33 +10,25 @@
         </div>
         <div class="goodsListCon">
             <ul>
-                <li><span>
-                    <img src="{{ asset('/bundles/mirrorweb/images/LOGO.png') }}" alt="">
-                </span>
-                    <div class="priceTitle">
-                        <p>HPV自检套装</p>
-                        <span class="downOrderTime">2017-12-12</span>
-                        <span class="orderPrice">￥399</span>
-                        <a href="javascript:;">下载报表</a>
-                    </div>
 
-                </li>
             </ul>
         </div>
     </div>
 {% endblock %}
 {% block script %}
     <script>
-        ajaxAction("get",'/api/user/order','',false,function(data,textStatus){
-            console.log(data);
-            var dataList = data.list;
-            var orderListHtml = '';
-            $.each(dataList,function (idx,obj) {
-                orderListHtml += ' <li><span><img src="'+obj.logo+'" alt=""></span><div class="priceTitle"><p>'+obj.name+'</p><span class="downOrderTime">'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span><span class="orderPrice">￥'+obj.price+'</span><a href="javascript:;">下载报表</a></div></li>';
+        getList('createTime desc');
+        function getList(orderBy){
+            ajaxAction("get",'/api/user/order?orderBy='+orderBy,'',false,function(data,textStatus){
+                var dataList = data.list;
+                var orderListHtml = '';
+                $.each(dataList,function (idx,obj) {
+                    orderListHtml += ' <li><span><img src="'+obj.logo+'" alt=""></span><div class="priceTitle"><p>'+obj.name+'</p><span class="downOrderTime">'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span><span class="orderPrice">￥'+obj.price+'</span><a href="'+obj.report+'">下载报表</a></div></li>';
+                });
+                $('.goodsListCon ul').html(orderListHtml);
+            },function(errno,errmsg){
+                console.log(errmsg);
             });
-            $('.goodsListCon ul').html(orderListHtml);
-        },function(errno,errmsg){
-            console.log(errmsg);
-        });
+        }
     </script>
 {% endblock  %}
