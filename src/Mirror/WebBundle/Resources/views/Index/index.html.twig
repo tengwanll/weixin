@@ -61,8 +61,22 @@
 {% endblock %}
 {% block script %}
     <script>
+        var status='{{ status }}'?'{{ status }}':0;
+        if(status){
+            $('.loginOut').show();
+        }else{
+            $('.loginOut').hidden();
+        }
         $('.buyIndex').click(function(){
              location.href=wxPath('/web/goods');
+        });
+        
+        $('.loginOut').click(function () {
+            ajaxAction("post",'/api/user/logout','',false,function(data,textStatus){
+                location.href=wxPath('/web/index');
+            },function(errno,errmsg){
+
+            });
         });
 
     </script>

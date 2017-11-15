@@ -37,6 +37,7 @@ class IndexController extends Controller
             $openId=Helper::getc($result,'openid','');
             $this->getRequest ()->getSession ()->set ( 'openId', $openId );
         }
-        return array('openId'=>$openId);
+        $status=$this->get('user_service')->checkLogin($openId);
+        return array('openId'=>$openId,'status'=>$status);
     }
 }
