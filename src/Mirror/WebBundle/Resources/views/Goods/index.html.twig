@@ -45,7 +45,8 @@
             $('#price').html(data.price);
             $('#oldPrice').html(data.oldPrice);
             $('#allPrice').html(data.price);
-            $('.goodsImg').css("background-image:url("+data.banner+")");
+
+            $('.goodsImg').html('<img src="'+data.banner+'">');
         },function(errno,errmsg){
 
         });
