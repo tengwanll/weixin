@@ -72,7 +72,7 @@ class UserService
 
     public function logout($openId){
         $rr=new ReturnResult();
-        $user=$this->userModel->getByProperty('openId',$openId);
+        $user=$this->userModel->getOneByProperty('openId',$openId);
         /**@var $user \Mirror\ApiBundle\Entity\User*/
         if($user){
             $user->setTelephone('');
