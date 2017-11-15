@@ -32,7 +32,7 @@
             var dataList = data.list;
             var orderListHtml = '';
             $.each(dataList,function (idx,obj) {
-                orderListHtml += ' <li><span><img src="'+obj.logo+'" alt=""></span><div class="priceTitle"><p>'+obj.name+'</p><span class="downOrderTime">'+formatter(obj.payTime,'YYYY MM DD')+'</span><span class="orderPrice">￥'+obj.price+'</span><a href="javascript:;">下载报表</a></div></li>';
+                orderListHtml += ' <li><span><img src="'+obj.logo+'" alt=""></span><div class="priceTitle"><p>'+obj.name+'</p><span class="downOrderTime">'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span><span class="orderPrice">￥'+obj.price+'</span><a href="javascript:;">下载报表</a></div></li>';
             });
             $('.goodsListCon ul').html(orderListHtml);
         },function(errno,errmsg){
