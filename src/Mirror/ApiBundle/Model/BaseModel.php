@@ -181,10 +181,11 @@ abstract class BaseModel {
 
     /**
      * @param array $criteria
+     * @param $orderBy
      * @return array
      */
-    public function getByCriteria(array $criteria) {
-        return $this->getEntityRepository()->findBy($criteria);
+    public function getByCriteria(array $criteria,$orderBy=null) {
+        return $this->getEntityRepository()->findBy($criteria,$orderBy);
     }
 
     /**
