@@ -127,7 +127,7 @@ class TelephoneCodeService {
         $appId = Constant::$UCPAAS_APP_ID;
         $to = $telephone;
         $templateId = Constant::$UCPAAS_TEMPLATE_ID;
-        $param = $code.',1';
+        $param = $code;
         $result = $ucpass->templateSMS($appId, $to, $templateId, $param);
     }
 
