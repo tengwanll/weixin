@@ -57,7 +57,7 @@ class OrderController extends BaseController
     public function pay(Request $request){
         $json=$this->getJson($request);
         $orderId=$json->get('orderId',0);
-        $openId=$this>$this->sessionGet($request,'openId','');
+        $openId=$this->sessionGet($request,'openId','');
         $rr=$this->get('order_service')->pay($orderId,$openId);
         return $this->buildResponse($rr);
     }

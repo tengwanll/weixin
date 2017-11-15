@@ -32,7 +32,7 @@ class PayController extends Controller
     public function indexAction(Request $request,$orderId){
         $code=$request->get('code','');
         $address=$request->get('addr','');
-        $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
+        $openId = $request->getSession ()->get ( 'openId', '' );
         if (!$openId) {
             $result = WeixinHelper::getWeixinId ( $code );
             $openId=Helper::getc($result,'openid','');

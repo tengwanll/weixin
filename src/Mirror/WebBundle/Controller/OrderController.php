@@ -31,7 +31,7 @@ class OrderController extends Controller
      */
     public function indexAction(Request $request){
         $code=$request->get('code','');
-        $openId = $this->getRequest ()->getSession ()->get ( 'openId', '' );
+        $openId = $request->getSession ()->get ( 'openId', '' );
         if (!$openId) {
             $result = WeixinHelper::getWeixinId ( $code );
             $openId=Helper::getc($result,'openid','');
