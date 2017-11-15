@@ -43,10 +43,12 @@
         function settimes() {
             if (countdown == 0) {
                 $('.codeSend').show();
+                $('.sendSetTimeOut').hide()
                 countdown = 60;
                 return;
             } else {
                 $('.codeSend').hide();
+                $('.sendSetTimeOut').show();
                 $('.sendSetTimeOut').html(countdown);
                 countdown--;
             }
