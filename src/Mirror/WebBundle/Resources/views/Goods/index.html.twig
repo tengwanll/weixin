@@ -44,7 +44,7 @@
             $('#name').html(data.name);
             $('#price').html(data.price);
             $('#oldPrice').html(data.oldPrice);
-            $('#allPrice').html(data.price);
+            $('#allPrice').html('￥'+data.price);
             $('.goodsImg').css("background-url:"+data.banner);
         },function(errno,errmsg){
 
