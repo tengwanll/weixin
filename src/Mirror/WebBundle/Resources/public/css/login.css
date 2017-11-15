@@ -115,4 +115,5 @@ body{
     height: .43rem;
     display: inline-block;
     vertical-align: middle;
+    display: none;
 }
