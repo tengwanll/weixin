@@ -38,6 +38,25 @@
 {% endblock %}
 {% block script %}
     <script>
+
+        var countdown=60;
+        function settimes() {
+            if (countdown == 0) {
+                $('.codeSend').show();
+                countdown = 60;
+                return;
+            } else {
+                $('.codeSend').hide();
+                $('.sendSetTimeOut').html(countdown);
+                countdown--;
+            }
+            setTimeout(function() {
+                settimes();
+            },1000)
+        }
+
+
+
         $('.codeSend').click(function(){
             var telephone=$('#telephone').val();
             if(!(/^1[34578]\d{9}$/.test(telephone))){
@@ -79,24 +98,6 @@
             },function(errno,errmsg){
                 //阴影错误提示
             });
-
-
-            var countdown=60;
-            function settimes() {
-                if (countdown == 0) {
-                    $('.codeSend').show();
-                    countdown = 60;
-                    return;
-                } else {
-                    $('.codeSend').hide();
-                    $('.sendSetTimeOut').html(countdown);
-                    countdown--;
-                }
-                setTimeout(function() {
-                    settimes();
-                },1000)
-            }
-
 
 
         });
