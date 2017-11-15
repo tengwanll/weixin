@@ -234,6 +234,7 @@ class OrderService
                 'address'=>$order->getAddress(),
                 'payTime'=>$order->getPayTime(),
                 'remark'=>$order->getRemark(),
+                'number'=>$order->getNumber(),
                 'report'=>$report
             );
         }
