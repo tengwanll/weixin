@@ -47,9 +47,10 @@
                 //阴影错误提示
                 return;
             }
-            settime();
             ajaxAction("get",'/api/sms/code/'+telephone,'',false,function(data,textStatus){
                 //写一个定时器关闭发送验证码功能,60秒后打开
+                var countdown=60;
+                settime();
             },function(errno,errmsg){
 
             });
@@ -81,7 +82,7 @@
             });
 
 
-            var countdown=60;
+
             function settime() {
                 if (countdown == 0) {
                     $('.codeSend').show();
