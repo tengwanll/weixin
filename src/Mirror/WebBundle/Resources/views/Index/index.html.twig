@@ -62,10 +62,10 @@
 {% block script %}
     <script>
         var status={{ status }}?{{ status }}:0;
-        if(status){
+        if(status!=0){
             $('.loginOut').show();
         }else{
-            $('.loginOut').hidden();
+            $('.loginOut').hide();
         }
         $('.buyIndex').click(function(){
              location.href=wxPath('/web/goods');
