@@ -225,6 +225,7 @@ class OrderService
         $arr=array();
         foreach ($list as $order){
             /**@var $order \Mirror\ApiBundle\Entity\Orders*/
+            $report=$this->fileService->getFullUrlById($order->getReport());
             $arr[]=array(
                 'orderId'=>$order->getId(),
                 'name'=>$order->getName(),
@@ -232,7 +233,9 @@ class OrderService
                 'price'=>$order->getPrice(),
                 'address'=>$order->getAddress(),
                 'payTime'=>$order->getPayTime(),
-                'remark'=>$order->getRemark()
+                'remark'=>$order->getRemark(),
+                'number'=>$order->getNumber(),
+                'report'=>$report
             );
         }
         $rr->result=array(
