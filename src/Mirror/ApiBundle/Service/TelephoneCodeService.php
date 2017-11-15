@@ -107,6 +107,7 @@ class TelephoneCodeService {
         $telephoneCode->setValidity(0);
         $telephoneCode->setValidEndTime($expire);
         $telephoneCode->setStatus(1);
+        $telephoneCode->setValidTime(new \DateTime());
         $telephoneCode->setCreateTime(new \DateTime());
         $telephoneCode->setUpdateTime(new \DateTime());
         $this->telephoneCodeModel->save($telephoneCode);
@@ -126,7 +127,7 @@ class TelephoneCodeService {
         $appId = Constant::$UCPAAS_APP_ID;
         $to = $telephone;
         $templateId = Constant::$UCPAAS_TEMPLATE_ID;
-        $param = $code.',1';
+        $param = $code;
         $result = $ucpass->templateSMS($appId, $to, $templateId, $param);
     }
 

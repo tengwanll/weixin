@@ -48,7 +48,7 @@ class UserService
             $rr->errno=Code::$openId_null;
             return $rr;
         }
-        $user=$this->userModel->getByProperty('openId',$openId);
+        $user=$this->userModel->getOneByProperty('openId',$openId);
         /**@var $user \Mirror\ApiBundle\Entity\User*/
         if($user){
             $user->setTelephone($telephone);

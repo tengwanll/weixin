@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="goodsInfoBuyButton">
-                        <span>总计：</span><span id="allPrice"></span>
+                        <span>总计：￥</span><span id="allPrice"></span>
                         <button class="btn btn-default btn-block">下一步</button>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
 
         $('.btn-block').click(function(){
             var allPrice=parseFloat($('#allPrice').html());
-            var number=parseFloat($('#number').html());
+            var number=parseInt($('#number').html());
             var info={};
             info.price=allPrice;
             info.number=number;
@@ -63,7 +63,7 @@
             });
         });
         function sub(){
-            var number=parseFloat($('#number').html());
+            var number=parseInt($('#number').html());
             var price=parseFloat($('#price').html());
             var allPrice=parseFloat($('#allPrice').html());
             if(number>1){
