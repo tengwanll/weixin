@@ -1,113 +1,106 @@
-{% extends 'MirrorWebBundle:Base:base.html.twig' %}
-{% block title %}选择地址{% endblock %}
-{% block css %}
-<link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/normalize.min.css')}}">
-<link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/selectAddr2.css')}}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1,user-scalable = 0"/>
+    <title>选择地址</title>
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/normalize.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/selectAddr2.css')}}">
     <script type="text/javascript">
         var ctx = '';
     </script>
-{% endblock %}
-{% block body %}
-    <div class="age-pay">
-        <form action="editUserAddr.do" method="post" id="hpvpay2form">
-            <div class="block-gray t-gray9">收货地址和联系人:</div>
-            <ul class="address-list">
-                <li class="clearfix address-shen">
-                    <div class="fl address-label">省/直辖市</div>
-                    <div class="fr address-content t-gray9">请选择</div>
-                </li>
-                <li class="clearfix address-shi">
-                    <div class="fl address-label">市</div>
-                    <div class="fr address-content t-gray9">请选择</div>
-                </li>
-                <li class="clearfix address-xian">
-                    <div class="fl address-label">区/县</div>
-                    <div class="fr address-content t-gray9">请选择</div>
-                </li>
-                <li class="addrass-detail">
-                    <textarea id="detail" placeholder="请填写详细地址"></textarea>
-                </li>
-                <li class="addrass-detail">
-                    <input name="recipient" id="recipient" type="text" placeholder="请填写联系人姓名">
-                </li>
-            </ul>
+</head>
+<body class="page-pay">
+<form action="editUserAddr.do" method="post" id="hpvpay2form">
+    <div class="block-gray t-gray9">收货地址和联系人:</div>
+    <ul class="address-list">
+        <li class="clearfix address-shen">
+            <div class="fl address-label">省/直辖市</div>
+            <div class="fr address-content t-gray9">请选择</div>
+        </li>
+        <li class="clearfix address-shi">
+            <div class="fl address-label">市</div>
+            <div class="fr address-content t-gray9">请选择</div>
+        </li>
+        <li class="clearfix address-xian">
+            <div class="fl address-label">区/县</div>
+            <div class="fr address-content t-gray9">请选择</div>
+        </li>
+        <li class="addrass-detail">
+            <textarea id="detail" placeholder="请填写详细地址"></textarea>
+        </li>
+        <li class="addrass-detail">
+            <input name="recipient" id="recipient" type="text" placeholder="请填写联系人姓名">
+        </li>
+    </ul>
 
-            <!-- 省/直辖市 -->
-            <div class="out-page out-address-shen" data-btn="address-shen">
-                <header class="out-header">
-                    <b class="fl">关闭</b>
-                    <h3 class="fl">省/直辖市</h3>
-                </header>
-                <section class="out-body">
-                    <ul id="shen-list" class="out-address-list"></ul>
-                </section>
-            </div>
-
-            <!-- 市 -->
-            <div class="out-page out-address-shi" data-btn="address-shi">
-                <header class="out-header">
-                    <b class="fl">关闭</b>
-                    <h3 class="fl">市</h3>
-                </header>
-                <section class="out-body">
-                    <ul id="shi-list" class="out-address-list"></ul>
-                </section>
-            </div>
-
-            <!-- 区/县 -->
-            <div class="out-page out-address-xian" data-btn="address-xian">
-                <header class="out-header">
-                    <b class="fl">关闭</b>
-                    <h3 class="fl">区/县</h3>
-                </header>
-                <section class="out-body">
-                    <ul id="xian-list" class="out-address-list">
-                    </ul>
-                </section>
-            </div>
-
-            <footer class="pay-footer">
-                <div class="fr">
-                    <a id="hpvpay2btn" href="javascript:;" class="btn btn-pink">确认</a>
-                </div>
-            </footer>
-        </form>
-        <!-- js -->
-        <script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/zepto.min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/fastclick-min.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/mw.js')}}"></script>
-        <script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/area.js')}}"></script>
-
+    <!-- 省/直辖市 -->
+    <div class="out-page out-address-shen" data-btn="address-shen">
+        <header class="out-header">
+            <b class="fl">关闭</b>
+            <h3 class="fl">省/直辖市</h3>
+        </header>
+        <section class="out-body">
+            <ul id="shen-list" class="out-address-list"></ul>
+        </section>
     </div>
-{% endblock %}
-{% block script %}
-    <script type="text/javascript">
-        $(function(){
-            var orderId={{ orderId }};
-            var hpvfrm2 = $('#hpvpay2form');
-            var action = hpvfrm2.attr('action');
-            $('#hpvpay2btn').on('click',function(){
-                var province = $(".address-shen").find(".address-content").text();
-                var city = $(".address-shi").find(".address-content").text();
-                var district = $(".address-xian").find(".address-content").text();
-                var detail = $("#detail").val();
-                var recipient = $("#recipient").val();
-                var id = $("#hpvid").val();
-                if("请选择"!=province&&"请选择"!=city&&"请选择"!=district&&""!=detail&&""!=recipient){
-                    var addr = province+city+district+detail;
-                    var info={};
-                    info.address=addr;
-                    info.orderId=orderId;
-                    ajaxAction("put",'/api/order',info,false,function(data,textStatus){
-                        location.href=wxPath('/web/pay/'+orderId+'?addr='+addr);
-                    },function(errno,errmsg){
 
-                    });
-                }else{
-                    alert("联系人姓名或者收货地址错误，请重试！");
-                }
-            });
+    <!-- 市 -->
+    <div class="out-page out-address-shi" data-btn="address-shi">
+        <header class="out-header">
+            <b class="fl">关闭</b>
+            <h3 class="fl">市</h3>
+        </header>
+        <section class="out-body">
+            <ul id="shi-list" class="out-address-list"></ul>
+        </section>
+    </div>
+
+    <!-- 区/县 -->
+    <div class="out-page out-address-xian" data-btn="address-xian">
+        <header class="out-header">
+            <b class="fl">关闭</b>
+            <h3 class="fl">区/县</h3>
+        </header>
+        <section class="out-body">
+            <ul id="xian-list" class="out-address-list">
+            </ul>
+        </section>
+    </div>
+
+    <footer class="pay-footer">
+        <div class="fl"><a href="toPayPage.do">&lt;返回</a></div>
+        <div class="fr">
+            <a id="hpvpay2btn" href="javascript:;" class="btn btn-pink">确认</a>
+        </div>
+    </footer>
+</form>
+<!-- js -->
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/zepto.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/fastclick-min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/mw.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/area.js')}}"></script>
+<script type="text/javascript">
+    $(function(){
+        var hpvfrm2 = $('#hpvpay2form');
+        var action = hpvfrm2.attr('action');
+        $('#hpvpay2btn').on('click',function(){
+            var province = $(".address-shen").find(".address-content").text();
+            var city = $(".address-shi").find(".address-content").text();
+            var district = $(".address-xian").find(".address-content").text();
+            var detail = $("#detail").val();
+            var recipient = $("#recipient").val();
+            var id = $("#hpvid").val();
+            if("请选择"!=province&&"请选择"!=city&&"请选择"!=district&&""!=detail&&""!=recipient){
+                var addr = province+city+district+detail;
+                MW.post(action,{addr:addr,id:id,recipient:recipient},function(i,object){
+                    location.href=ctx+object;
+                });
+            }else{
+                alert("联系人姓名或者收货地址错误，请重试！");
+            }
         });
-    </script>
-{% endblock %}
-
+    });
+</script>
+</body>
+</html>
