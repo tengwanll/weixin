@@ -19,6 +19,7 @@ html{
     width: 100%;
     height: 5rem;
 }
+
 .topContent .logo{
     width: 3.34rem;
     height: 1.29rem;
@@ -31,10 +32,24 @@ html{
 }
 .loginOut{
     font-size: .18rem;
-    position: fixed;
-    right: .2rem;
-    top:.4rem;
-    color: #fff;
+    position: absolute;
+    right: -0.6rem;
+    top: -0.7rem;
+    color: #000;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: #fff;
+    transform: rotate(51deg);
+    display: inline-block;
+}
+.loginOut i {
+    font-style: normal;
+    position: absolute;
+    left: 29px;
+    top: 59px;
+    display: inline-block;
+    width: .6rem;
+    height: .6rem;
 }
 .sologen{
     width: 2.5rem;
