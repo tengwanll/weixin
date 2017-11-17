@@ -17,13 +17,13 @@ html{
     background-size: 100% 100%;
     background-position: center;
     width: 100%;
-    height: 5rem;
+    height: 4rem;
 }
 
 .topContent .logo{
     width: 3.34rem;
     height: 1.29rem;
-    margin-top: 1.2rem;
+    margin-top: .6rem;
     margin-left: .7rem;
 }
 .topContent .logo img{
@@ -52,7 +52,7 @@ html{
     height: .6rem;
 }
 .sologen{
-    width: 2.5rem;
+    width: 2.4rem;
     margin-top:.4rem;
     margin-left: .6rem;
     color: #fff;
@@ -70,7 +70,7 @@ html{
 .mainContentBox{
     width: 100%;
     background-color: #fff;
-    height: 6rem;
+    height: 5.24rem;
     transform: skewY(-15deg);
     position: relative;
     top:-1.1rem;
