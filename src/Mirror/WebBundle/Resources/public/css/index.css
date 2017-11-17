@@ -77,7 +77,6 @@ html{
     top:-1.1rem;
     z-index: 2;
     position: relative;
-    overflow: hidden;
 }
 .mainContentBox .buyTitle,.mainContentBox p{
     transform: skewY(15deg);
