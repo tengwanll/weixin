@@ -67,8 +67,8 @@ class UserController extends BaseController
     public function getOrderList(Request $request){
         $openId=$this->sessionGet($request,'openId','');
         $openId='ob0nEw5dVJjsD6Z96o_BEwgSWjMM';
-        $orderBy=$request->get('orderBy',null);
-        $rr=$this->get('order_service')->getUserOrderList($openId,$orderBy);
+        $status=$request->get('status',null);
+        $rr=$this->get('order_service')->getUserOrderList($openId,$status);
         return $this->buildResponse($rr);
     }
 }

@@ -210,7 +210,7 @@ class OrderService
         return $xml;
     }
 
-    public function getUserOrderList($openId,$orderBy){
+    public function getUserOrderList($openId,$status){
         $rr=new ReturnResult();
         if(!$openId){
             $rr->errno=Code::$openId_null;
@@ -221,8 +221,9 @@ class OrderService
             $rr->errno=Code::$user_not_exist;
             return $rr;
         }
-        $orderByArr=explode('-',$orderBy);
-        $list=$this->orderModel->getByCriteria(array('status'=>Constant::$order_status_success,'userId'=>$user->getId()),array($orderByArr[0]=>$orderByArr[1]));
+        $list=$this->orderModel->getByCriteria(array('status'=>$status,'userId'=>$user->getId()));
+        $orderCn=$this->orderModel->getCountBy(array('userId'=>$user->getId(),'>'=>array('status'=>1)));
+        $reportCn=$this->orderModel->getCountBy(array('status'=>Constant::$order_status_report,'userId'=>$user->getId()));
         $arr=array();
         foreach ($list as $order){
             /**@var $order \Mirror\ApiBundle\Entity\Orders*/
@@ -243,7 +244,9 @@ class OrderService
             );
         }
         $rr->result=array(
-            'list'=>$arr
+            'list'=>$arr,
+            'orderCn'=>$orderCn,
+            'reportCn'=>$reportCn
         );
         return $rr;
     }
