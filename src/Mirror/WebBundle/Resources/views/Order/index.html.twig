@@ -6,7 +6,7 @@
 {% block body %}
     <div id="container">
         <div class="goodsListFilter">
-            <span>产品价格</span><span>下单时间</span>
+            <span class="orderStatus" status="2">待完成</span><span class="orderStatus" status="3">已完成</span>
         </div>
         <div class="goodsListCon">
             <ul>
@@ -17,29 +17,13 @@
 {% endblock %}
 {% block script %}
     <script>
-        getList('payTime-desc');
-        var priceStatus=1;
-        var timeStatus=1;
-        $('#priceOrder').click(function(){
-            if(priceStatus==1){
-                getList('price-asc');
-                priceStatus=2;
-            }else{
-                getList('price-desc');
-                priceStatus=1;
-            }
+        getList(3);
+        $('.orderStatus').click(function(){
+            var status=$(this).attr('status');
+            getList(status);
         });
-        $('#timeOrder').click(function(){
-            if(timeStatus==1){
-                getList('payTime-asc');
-                timeStatus=2;
-            }else{
-                getList('payTime-desc');
-                timeStatus=1;
-            }
-        });
-        function getList(orderBy){
-            ajaxAction("get",'/api/user/order?orderBy='+orderBy,'',false,function(data,textStatus){
+        function getList(status){
+            ajaxAction("get",'/api/user/order?status='+status,'',false,function(data,textStatus){
                 var dataList = data.list;
                 var orderListHtml = '';
                 $.each(dataList,function (idx,obj) {

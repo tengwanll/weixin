@@ -14,6 +14,7 @@ class Constant {
 
     public static $order_status_wait=1;//待支付
     public static $order_status_success=2;//支付成功
+    public static $order_status_report=3;//已经导入报表
     public static $order_status_invalid=0;//无效订单
 
     //固定的商品id
