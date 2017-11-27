@@ -70,7 +70,7 @@ class ExceptionListener {
                     $format = 'file:%s line:%d message:%s<br/>';
                     $format = $format.$exception->getTraceAsString();
                     $message = sprintf($format, $file, $line, $message);
-                    $response->setContent($message);
+//                    $response->setContent($message);
                     $this->logger->error($message);
                 }
             }
