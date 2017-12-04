@@ -10,18 +10,19 @@
                 <div class="col-xs-12">
                     <div class="topContent">
                         <div class="logo">
-                            <img src="{{ asset('/bundles/mirrorweb/images/LOGO.png') }}" alt="">
+                            <img src={{ asset('/bundles/mirrorweb/images/LOGO.png') }} alt="">
                         </div>
                         <div class="sologen">
                             <span>远离宫颈癌</span>
                             <span>检测HPV</span>
+                            <br>
                             <span>保护家人</span>
                             <span>保护自己</span>
                         </div>
-                        <span class="loginOut"><i>退出</i></span>
                     </div>
                 </div>
             </div>
+            <a class="logout">登出</a>
         </div>
         <div class="mainContentBox">
             <div class="row">
@@ -30,14 +31,11 @@
                         <div class="buyTitle">
                             <span>仅售</span>
                             <span>￥399</span>
-                            <span class="buyIndex">立即购买</span>
+                            <span>立即购买</span>
                         </div>
                         <p>爱默HPV基因检测服务是由爱默基因（厦门）生物科技有限公司和上海之江生物科技股份有限公司联合推出，专门针对宫颈癌高发人群女性群体所推出的HPV基因检测和预防管理服务。</p>
                         <p>检测者通过使用爱默HPV-DNA采样器，借助PCR病毒基因检测技术，将体内存在的亚临床型和潜伏型病毒检测出来，避免慢性并发症，辅以科学周密的健康管理，能有效预防宫颈癌，为女性群体的健康提供重要保障。</p>
                         <hr/>
-                        <span class="phoneImg">
-                            <img src="{{ asset('/bundles/mirrorweb/images/phoneImg.png') }}" alt="">
-                        </span>
                     </div>
                 </div>
             </div>
@@ -52,11 +50,14 @@
                         <p>地址：厦门市厦门大学翔安校区庄瑾楼442</p>
                         <p>注册证编号：浙械注准20162411052</p>
                         <p>许可证编号：浙食药监械生产许20160043号</p>
-                        <img src="{{ asset('/bundles/mirrorweb/images/twocode.png') }}" alt="">
+                        <img src={{ asset('/bundles/mirrorweb/images/twocode.png') }} alt="">
                     </div>
                 </div>
             </div>
         </div>
+        <span class="phoneImg">
+                            <img src={{ asset('/bundles/mirrorweb/images/phoneImg.png') }} alt="">
+                        </span>
     </div>
 {% endblock %}
 {% block script %}
