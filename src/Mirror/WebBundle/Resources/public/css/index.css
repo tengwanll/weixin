@@ -18,7 +18,7 @@ htm,body,#container{
 .topContent .logo{
     width: 3.34rem;
     height: 1.29rem;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     margin-left: .7rem;
 }
 .topContent .logo img{
@@ -26,13 +26,14 @@ htm,body,#container{
     height: 100%;
 }
 .sologen{
-    margin-top:.4rem;
+    margin-top:.2rem;
     margin-left: .6rem;
     color: #fff;
     font-size: .12rem;
 }
 .sologen span{
     margin-right:.2rem;
+    display: inline-block;
 }
 .sologen span:nth-child(2n){
     margin-right: 0.36rem;
@@ -68,13 +69,14 @@ htm,body,#container{
 }
 .mainContentBox p{
     font-size: .12rem;
-    margin: .1rem 1.4rem;
+    margin: .1rem .5rem;
     line-height: .36rem;
+    display: inline-block;
 }
 .mainContentBox hr{
     position: absolute;
     left: 2rem;
-    bottom: -0.9rem;
+    bottom: 0rem;
     width: 3rem;
     border: 1px solid #9fe9e7;
 }

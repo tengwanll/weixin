@@ -109,6 +109,12 @@
                 alert("联系人姓名或者收货地址错误，请重试！");
             }
         });
+
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+
+        }, false);
+
     });
 </script>
 </body>
