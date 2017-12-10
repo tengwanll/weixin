@@ -1,75 +1,116 @@
-*{
+htm,body,#container{
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    background-color: rgb(186, 186, 188);
+}
+header{
+    width: 100%;
+    overflow: hidden;
+    background-color: rgb(250,250,251);
+}
+.top{
+    box-sizing: border-box;
+    padding: .4rem;
+    margin:0 .4rem;
+    display: inline-block;
+    border-bottom: 0.01rem solid #6e6e6e;
+}
+
+.top-left{
+    width: 2.45rem;
+    height: .95rem;
+    display: inline-block;
+    vertical-align: top;
+    margin-right:.6rem;
+}
+.top-left img{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.top-right{
+    display: inline-block;
+    vertical-align: top;
+}
+.top-right .orderInfo span{
+    display: inline-block;
+    font-size: .32rem;
+
+}
+.top-right .orderInfo span:first-child{
+    font-size: .36rem;
+    margin-right:.4rem;
+    display: inline-block;
+    width: 2rem;
+}
+.top-right .orderInfo span:last-child{
+    font-size: .42rem;
+}
+.tabs{
+    text-align: center;
+}
+.tabs ul{
     margin:0;
+    display:-webkit-flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    width: 100%;
+    padding: .2rem 2rem;
+}
+.tabs ul li{
+    display: inline-block;
+    list-style: none;
+    font-size: .4rem;
+}
+.tabs ul li.active{
+    color: #3bc3bb;
+}
+.orderList ul{
+    margin: 0;
     padding: 0;
 }
-#container{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.orderList ul li{
+    list-style: none;
+    margin: .4rem;
+    background-color: rgb(250,250,251);
+    padding: .2rem;
+    box-sizing: border-box;
+    border-radius: .3rem;
 }
-.goodsListFilter{
-    height: .6rem;
-    overflow: hidden;
-    width: 100%;
-    border-bottom: 1px solid #9dcbc1;
+.orderList ul li h3{
+    border-bottom: 0.01rem solid #6e6e6e;
+    margin: 0 .2rem;
+    margin-bottom:.2rem;
+    padding-bottom:.2rem;
 }
-.goodsListFilter span{
+.orderList ul li h3 span:first-child{
+    font-size: .4rem;
+    display: inline-block;
+    width: 5rem;
+
+}
+.orderList ul li h3 span:last-child{
+    font-size: .2rem;
+    display: inline-block;
+    color: #3bc3bb;
+}
+.orderListInfo{
+    padding: 0 .2rem;
+}
+.orderListInfo .orderListInfoItem span{
     display: inline-block;
     vertical-align: top;
-    height: 100%;
-    font-size: .18rem;
-    width: 3.75rem;
-    text-align: center;
-    border-right: 1px solid #9dcbc1;
-    line-height: .6rem;
 }
-.goodsListFilter span:last-child{
-    border: 0;
+.orderListInfo .orderListInfoItem span:first-child{
+    width: 2rem;
 }
-.goodsListFilter span:first-child:after{
-    content: '\25BC';
-    margin-left: .1rem;
-    color: #ccc;
-}
-.goodsListCon li{
-    padding:.2rem;
-    border-bottom: 1px solid #83e3e0;
-}
-.goodsListCon span:first-child{
+span.orderItemTime {
     display: inline-block;
-    width: 1.2rem;
-    height: 1.5rem;
-    vertical-align: top;
-    margin-right: .1rem;
+    width: 2.8rem;
 }
-.goodsListCon span:first-child img{
-    width: 100%;
-    height: 100%;
-    border: 1px solid;
-}
-.priceTitle{
+.viewTable{
+    color: #a7e2df;
+    font-size: .16rem;
     display: inline-block;
-    vertical-align: top;
-    width: 5.8rem;
-    position: relative;
-}
-.priceTitle p{
-    font-size: .18rem;
-    color: #9dcbc1;
-    width: 4rem;
-}
-.priceTitle .downOrderTime{
-    position: absolute;
-    right:0;
-    top: 0;
-}
-.orderPrice{
-    color: #000;
-    font-size: .36rem;
-    display: inline-block;
-    width: 4.6rem;
-}
-.productNum{
-    display: block;
-    margin-bottom: .1rem;
 }

@@ -5,9 +5,43 @@
 {% endblock %}
 {% block body %}
     <div id="container">
-        <div class="goodsListFilter">
-            <span class="orderStatus" status="2">待完成</span><span class="orderStatus" status="3">已完成</span>
-        </div>
+        <header>
+            <section class="top">
+                <div class="top-left">
+                    <img src={{ asset('/bundles/mirrorweb/images/logo1.png') }} alt="">
+                </div>
+                <div class="top-right">
+                    <div class="orderInfo">
+                        <span>订单数</span><span>8</span>
+                    </div>
+                    <div class="orderInfo">
+                        <span>已出报告数</span><span>5</span>
+                    </div>
+                </div>
+            </section>
+            <section class="tabs">
+                <ul>
+                    <li class="active" status="2">待完成</li>
+                    <li status="3">已完成</li>
+                </ul>
+            </section>
+        </header>
+        <main>
+            <section class="orderList">
+                <ul>
+                    <li>
+                        <h3>
+                            <span>HPV检测- 疼完LL</span><span>检测中</span>
+                        </h3>
+                        <div class="orderListInfo">
+                            <div class="orderListInfoItem"><span>订单编号&nbsp;&nbsp;:</span><span>1709431115204330</span></div>
+                            <div class="orderListInfoItem"><span>下单时间&nbsp;&nbsp;:</span><span>2017-11-14 19:00</span></div>
+                            <div class="orderListInfoItem"><span>价格/数量&nbsp;:</span><span class="orderItemTime">1995 / 5</span><span class="viewTable">查看报表</span></div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
         <div class="goodsListCon">
             <ul>
 
@@ -18,22 +52,24 @@
 {% block script %}
     <script>
         getList(3);
-        $('.orderStatus').click(function(){
+        $('.tabs ul li').click(function(){
+            $(this).addClass('active').siblings('li').removeClass('active');
             var status=$(this).attr('status');
             getList(status);
         });
         function getList(status){
             ajaxAction("get",'/api/user/order?status='+status,'',false,function(data,textStatus){
                 var dataList = data.list;
-                var orderListHtml = '';
+                var orderListHtmls = '';
                 $.each(dataList,function (idx,obj) {
                     var report='';
                     if(obj.report){
-                        report='<a href="'+obj.report+'">下载报表</a>';
+                        report='<a class="viewTable" href="'+obj.report+'">下载报表</a>';
                     }
-                    orderListHtml += ' <li><span><img src="'+obj.logo+'" alt=""></span><div class="priceTitle"><p>'+obj.name+'</p><span class="downOrderTime">'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span><span class="productNum">数量：'+obj.number+'</span><span class="orderPrice">￥'+obj.price+'</span>'+report+'</div></li>';
+
+                    orderListHtmls += '<li><h3><span>'+obj.name+'</span><span>检测中</span></h3><div class="orderListInfo"><div class="orderListInfoItem"><span>订单编号&nbsp;&nbsp;:</span><span>1709431115204330</span></div><div class="orderListInfoItem"><span>下单时间&nbsp;&nbsp;:</span><span>'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span></div><div class="orderListInfoItem"><span>价格/数量&nbsp;:</span><span class="orderItemTime">'+obj.price+'/'+obj.number+'</span><span class="viewTable">'+report+'</span></div></div></li>' ;
                 });
-                $('.goodsListCon ul').html(orderListHtml);
+                $('.goodsListCon ul').html(orderListHtmls);
             },function(errno,errmsg){
                 console.log(errmsg);
             });
