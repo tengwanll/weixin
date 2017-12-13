@@ -61,15 +61,15 @@
     <script>
         var status={{ status }}?{{ status }}:0;
         if(status!=0){
-            $('.loginOut').show();
+            $('.logout').show();
         }else{
-            $('.loginOut').hide();
+            $('.logout').hide();
         }
         $('.buyIndex').click(function(){
              location.href=wxPath('/web/goods');
         });
         
-        $('.loginOut').click(function () {
+        $('.logout').click(function () {
             ajaxAction("post",'/api/user/logout','',false,function(data,textStatus){
                 location.href=wxPath('/web/index');
             },function(errno,errmsg){
