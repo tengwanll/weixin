@@ -101,6 +101,27 @@ class Orders
     /**
      * @var integer
      *
+     * @ORM\Column(name="user_age", type="integer", nullable=false)
+     */
+    private $userAge;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="user_name", type="string", length=255, nullable=false)
+     */
+    private $userName;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="is_married", type="integer", nullable=false)
+     */
+    private $isMarried;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="status", type="integer", nullable=false)
      */
     private $status;
@@ -393,6 +414,78 @@ class Orders
     public function getReport()
     {
         return $this->report;
+    }
+
+    /**
+     * Set userAge
+     *
+     * @param integer $userAge
+     *
+     * @return Orders
+     */
+    public function setUserAge($userAge)
+    {
+        $this->userAge = $userAge;
+
+        return $this;
+    }
+
+    /**
+     * Get userAge
+     *
+     * @return integer
+     */
+    public function getUserAge()
+    {
+        return $this->userAge;
+    }
+
+    /**
+     * Set userName
+     *
+     * @param string $userName
+     *
+     * @return Orders
+     */
+    public function setUserName($userName)
+    {
+        $this->userName = $userName;
+
+        return $this;
+    }
+
+    /**
+     * Get userName
+     *
+     * @return string
+     */
+    public function getUserName()
+    {
+        return $this->userName;
+    }
+
+    /**
+     * Set isMarried
+     *
+     * @param integer $isMarried
+     *
+     * @return Orders
+     */
+    public function setIsMarried($isMarried)
+    {
+        $this->isMarried = $isMarried;
+
+        return $this;
+    }
+
+    /**
+     * Get isMarried
+     *
+     * @return integer
+     */
+    public function getIsMarried()
+    {
+        return $this->isMarried;
     }
 
     /**

@@ -52,6 +52,9 @@ class OrderModel extends BaseModel
         $order->setPayTime(0);
         $order->setReport(0);
         $order->setNumber($number);
+        $order->setUserName('');
+        $order->setUserAge(0);
+        $order->setIsMarried(0);
         return $this->save($order);
     }
 }

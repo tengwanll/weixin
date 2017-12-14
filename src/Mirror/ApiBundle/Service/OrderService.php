@@ -225,11 +225,12 @@ class OrderService
         $orderCn=$this->orderModel->getCountBy(array('userId'=>$user->getId(),'>'=>array('status'=>1)));
         $reportCn=$this->orderModel->getCountBy(array('status'=>Constant::$order_status_report,'userId'=>$user->getId()));
         $arr=array();
+        $goods=$this->goodsModel->getById(Constant::$goods_id);
+        $logo=$this->fileService->getFullUrlById($goods->getLogo());
         foreach ($list as $order){
             /**@var $order \Mirror\ApiBundle\Entity\Orders*/
             $report=$this->fileService->getFullUrlById($order->getReport());
-            $goods=$this->goodsModel->getById($order->getGoodsId());
-            $logo=$this->fileService->getFullUrlById($goods->getLogo());
+
             $arr[]=array(
                 'orderId'=>$order->getId(),
                 'name'=>$order->getName(),
@@ -239,12 +240,12 @@ class OrderService
                 'payTime'=>$order->getPayTime(),
                 'remark'=>$order->getRemark(),
                 'number'=>$order->getNumber(),
-                'report'=>$report,
-                'logo'=>$logo
+                'report'=>$report
             );
         }
         $rr->result=array(
             'list'=>$arr,
+            'logo'=>$logo,
             'orderCn'=>$orderCn,
             'reportCn'=>$reportCn
         );
@@ -269,7 +270,7 @@ class OrderService
         return $rr;
     }
 
-    public function update($address,$orderId){
+    public function update($address,$orderId,$userName,$userAge,$isMarried){
         $rr=new ReturnResult();
         $order=$this->orderModel->getById($orderId);
         /**@var $order \Mirror\ApiBundle\Entity\Orders*/
@@ -278,6 +279,9 @@ class OrderService
             return $rr;
         }
         $order->setAddress($address);
+        $order->setIsMarried($isMarried);
+        $order->setUserAge($userAge);
+        $order->setUserName($userName);
         $this->orderModel->save($order);
         return $rr;
     }

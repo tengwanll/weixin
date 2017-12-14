@@ -92,6 +92,25 @@ Orders:
                 unsigned: false
                 comment: 报表
                 default: 'NULL'
+        userAge:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: user_age
+        userName:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: user_name
+        isMarried:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: is_married
         status:
             type: integer
             nullable: false

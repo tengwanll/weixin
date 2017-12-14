@@ -95,8 +95,11 @@ class OrderController extends BaseController
     public function update(Request $request){
         $json = $this->getJson($request);
         $address=$json->get('address','');
+        $userName=$json->get('userName','');
+        $userAge=$json->get('userAge','');
+        $isMarried=$json->get('isMarried','');
         $orderId=$json->get('orderId','');
-        $rr=$this->get('order_service')->update($address,$orderId);
+        $rr=$this->get('order_service')->update($address,$orderId,$userName,$userAge,$isMarried);
         return $this->buildResponse($rr);
     }
 }
