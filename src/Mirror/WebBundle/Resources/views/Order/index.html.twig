@@ -27,7 +27,7 @@
             </section>
         </header>
         <main>
-            <section class="goodsListCon">
+            <section class="orderList">
                 <ul>
 
                 </ul>
@@ -55,7 +55,7 @@
 
                     orderListHtmls += '<li><h3><span>'+obj.name+'</span><span>检测中</span></h3><div class="orderListInfo"><div class="orderListInfoItem"><span>订单编号&nbsp;&nbsp;:</span><span>1709431115204330</span></div><div class="orderListInfoItem"><span>下单时间&nbsp;&nbsp;:</span><span>'+formatter(obj.payTime*1000,'YYYY MM DD')+'</span></div><div class="orderListInfoItem"><span>价格/数量&nbsp;:</span><span class="orderItemTime">'+obj.price+'/'+obj.number+'</span><span class="viewTable">'+report+'</span></div></div></li>' ;
                 });
-                $('.goodsListCon ul').html(orderListHtmls);
+                $('.orderList ul').html(orderListHtmls);
             },function(errno,errmsg){
                 console.log(errmsg);
             });
