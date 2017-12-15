@@ -18,11 +18,3 @@ services:
         class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
         tags:
             - { name: serializer.normalizer }
-
-    # Session 存储
-    session.handler.pdo:
-        class: Symfony\Component\HttpFoundation\Session\Storage\Handler\PdoSessionHandler
-        public: false
-        arguments:
-           - 'mysql:host=%session_database_host%;port=%session_database_port%;dbname=%session_database_name%'
-           - { db_username: '%session_database_user%', db_password: '%session_database_password%' }
