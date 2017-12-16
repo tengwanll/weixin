@@ -7,6 +7,11 @@
     height: 100%;
     overflow: hidden;
 }
+.orderNumBox {
+    padding-left: .2rem;
+    font-size: .3rem;
+    margin-top: .2rem;
+}
 .orderNum{
     font-weight: bold;
     color: #999;
