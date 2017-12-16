@@ -13,19 +13,19 @@
             <div class="col-xs-12">
                 <div class="input-box nameIco">
                     <!--<label for="">姓名</label>-->
-                    <input type="text" placeholder="姓名">
+                    <input type="text" placeholder="姓名" class="nameInput">
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="input-box ageIco">
                     <!--<label for="">年龄</label>-->
-                    <input type="text" placeholder="年龄">
+                    <input type="text" placeholder="年龄" class="ageInput">
                 </div>
             </div>
             <div class="col-xs-12">
                 <div class="input-box marriageIco">
                     <!--<label for="">婚姻状况</label>-->
-                    <input type="text" placeholder="婚姻状况">
+                    <input type="text" placeholder="婚姻状况" class="marriageInput">
                 </div>
             </div>
             <div class="col-xs-12">
@@ -108,8 +108,25 @@
             JS_PARAM = $.evalJSON(JS_PARAM);
             callPay(orderId);
         },function(errno,errmsg){
-
+            console.log(errmsg);
         });
+
+        var orderInfo={};
+
+        orderInfo.Address = $('.userAddr').text();
+        orderInfo.IsMarried = $('.marriedIput').val();
+        orderInfo.UserAge = $('.ageInput').val();
+        orderInfo.UserName = $('.nameInput').val();
+
+        ajaxAction("put",'/api/order',info,false,function(data,textStatus){
+            JS_PARAM = data.jsApiParameters;
+            JS_PARAM = $.evalJSON(JS_PARAM);
+            callPay(orderId);
+        },function(errno,errmsg){
+            console.log(errmsg);
+        });
+
+
     });
     function jsApiCall($orderId)
     {
