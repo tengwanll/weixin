@@ -215,8 +215,8 @@ function ajaxAction(method,url,json,async,success_func,error_func)
 		timeout: 600000,
 		cache: true,
 		success: function (resp, textStatus) {
-			var errno = resp.errno;
-			var errmsg = resp.errmsg;
+			var errno = resp.errno||'出错';
+			var errmsg = resp.errmsg||'出错';
 			if (errno==0){
 				success_func(resp, textStatus);
 			}else{

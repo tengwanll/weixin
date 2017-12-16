@@ -102,7 +102,7 @@
                 info.orderId=orderId;
                 ajaxAction("put",'/api/order',info,false,function(data,textStatus){
                     location.href=wxPath('/web/pay/'+orderId+'?addr='+addr);
-                },function(errmsg){
+                },function(errno,errmsg){
 
                 });
             }else{
