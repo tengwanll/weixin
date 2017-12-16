@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/face.css') }}">
+</head>
+
+<body>
+    <div id="page1" class="page" style="display: none">
+        <div class="wrap">
+            <header>
+                <img src="{{ asset('/bundles/mirrorweb/css/face_logo.png') }}">
+            </header>
+            <form action="" method="post" class="pannel">
+                <div class="basic">
+                    <div>
+                        <label for="name">姓名</label>
+                        <input type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="age">年龄</label>
+                        <input type="number" name="age">
+                    </div>
+                    <div>
+                        <label>性别</label>
+                        <div class="radio-group">
+                            <div>
+                                <label><input type="radio" name="sex" value="0">男</label>
+                            </div>
+                            <div>
+                                <label><input type="radio" name="sex" value="1">女</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email">邮箱</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div>
+                        <label for="phone">电话</label>
+                        <input type="tel" name="phone">
+                    </div>
+                </div>
+
+                <div class="ability">
+                    <div>
+                        <label><input type="checkbox" value="0" name="ability">皮肤抗紫外线能力</label>
+                    </div>
+
+                    <div>
+                        <label><input type="checkbox" value="1" name="ability">皮肤抗敏感能力</label>
+                    </div>
+
+                    <div>
+                        <label><input type="checkbox" value="2" name="ability">皮肤抗氧化能力</label>
+                    </div>
+
+                    <div>
+                        <label><input type="checkbox" value="3" name="ability">皮肤锁水能力</label>
+                    </div>
+
+                    <div>
+                        <label><input type="checkbox" value="4" name="ability">皮肤色斑风险</label>
+                    </div>
+
+                    <div>
+                        <label><input type="checkbox" value="5" name="ability">皮肤弹性</label>
+                    </div>
+                </div>
+                <div class="info">
+                    <button type="submit"><span id="now"></span>确认提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="page2" class="page">
+        <div class="wrap">
+            <header>
+                <img src="{{ asset('/bundles/mirrorweb/css/face_log.png') }}">
+            </header>
+            <div class="pannel">
+                <h4>邮寄地址：</h4>
+                <div class="address">
+                    <span>福建省厦门市翔安区</span>
+                    <span>厦门大学（翔安校区）</span>
+                    <span>药学院442</span>
+                    <span>爱默基因生物科技有限公司</span>
+                </div>
+                <div class="note">
+                    感谢您的填写，我们收到您的样品后会第一时间进行检测。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{ asset('/bundles/mirrorweb/css/face.js') }}"></script>
+</body>
+
+</html>
