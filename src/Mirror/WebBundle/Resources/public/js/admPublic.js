@@ -215,14 +215,14 @@ function ajaxAction(method,url,json,async,success_func,error_func)
 		timeout: 600000,
 		cache: true,
 		success: function (resp, textStatus) {
-			// var errno = resp.errno||'出错1111';
-			// var errmsg = resp.errmsg||'出错111';
+			var errno = resp.errno||0;
+			var errmsg = resp.errmsg||'出错';
 			console.log(resp);
-			// if (errno==0){
-			// 	success_func(resp, textStatus);
-			// }else{
-			// 	error_func(errno, errmsg);
-			// }
+			if (errno==0){
+				success_func(resp, textStatus);
+			}else{
+				error_func(errno, errmsg);
+			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			var errno = 10000;
