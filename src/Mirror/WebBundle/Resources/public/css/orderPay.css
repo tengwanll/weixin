@@ -15,12 +15,19 @@
 
 
 }
-.userAddr{
+.userAddr,.input-box{
     border-bottom: 1px solid #DDD;
-    padding-left: .2rem;
+    padding: 0 .2rem;
     font-size:.28rem ;
-    line-height: .6rem;
     color: #999;
+    width: 100%;
+    overflow: hidden;
+    height: 1rem;
+}
+.userAddr{
+    padding-top: .4rem;
+    font-size: .3rem;
+    box-sizing: border-box;
 }
 .userAddr:before{
     content: '';
@@ -31,6 +38,47 @@
     width: .32rem;
     height: .32rem;
     display: inline-block;
+}
+.input-box:before{
+    content: '';
+    background-image: url("../images/addrIco.png");
+    background-repeat: no-repeat;
+    background-position: left 0.5rem;
+    width: .65rem;
+    height: 100%;
+    display: inline-block;
+}
+.nameIco:before{
+    background-image: url("../images/nameIco.png");
+    background-size: .59rem .37rem;
+}
+.ageIco:before{
+    background-image: url("../images/ageIco.png");
+    background-size: .61rem .37rem;
+
+}
+.marriageIco:before{
+    background-image: url("../images/marriageIco.png");
+    background-size: .51rem .51rem;
+    background-position: left 0.4rem;
+}
+.input-box input{
+    width: 89%;
+    border: none;
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    padding-top: .4rem;
+    font-size: .3rem;
+    box-sizing: border-box;
+    background-color: rgba(255,255,255,0);
+}
+.input-box input:focus,.input-box input:active,.input-box input:visited{
+    border: none;
+    outline-style: none;
+}
+.input-box input::-webkit-input-placeholder{
+    vertical-align: bottom;
 }
 .productName{
     color: #666;
@@ -85,10 +133,8 @@
 }
 .goodsInfoBuyButton span:first-child{
     color: #000;
-    font-size: .28rem;
-    position: absolute;
-    right: 2.5rem;
-    bottom: .2rem;
+    font-size:.28rem;
+    margin-right:1.5rem;
 }
 .goodsInfoBuyButton  a{
     color: #666666;
@@ -101,15 +147,14 @@
     color: #E00;
 }
 .goodsInfoBuyButton button{
+    width: 2rem;
     display: inline-block;
     vertical-align: middle;
     background-color: #fc4f73;
     color: #fff;
-    width: 1.9rem;
-    position: absolute;
-    right: .3rem;
-    bottom: .1rem;
 }
-.orderNumBox{
-    margin: .3rem;
+.top-bg{
+    background-image: url("../images/500717465.png");
+    background-size: 100% 185%;
+    background-repeat: no-repeat;
 }
