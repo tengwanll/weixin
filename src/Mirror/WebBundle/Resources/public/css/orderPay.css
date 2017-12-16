@@ -157,6 +157,9 @@
     vertical-align: middle;
     background-color: #fc4f73;
     color: #fff;
+    position: absolute;
+    bottom: .01rem;
+    right: .2rem;
 }
 .top-bg{
     background-image: url("../images/500717465.png");
