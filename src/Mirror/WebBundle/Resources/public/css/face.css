@@ -10,7 +10,7 @@ body,
 }
 
 .page {
-    background: url('./bg.png');
+    background: url('../images/face_bg.png');
     background-size: cover;
 }
 
