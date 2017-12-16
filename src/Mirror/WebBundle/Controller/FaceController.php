@@ -25,7 +25,7 @@ class FaceController extends Controller
      * @Route("/{boxId}")
      * @return array
      */
-    public function info($boxId){
+    public function infoAction($boxId){
         return array('boxId'=>$boxId);
     }
 }
