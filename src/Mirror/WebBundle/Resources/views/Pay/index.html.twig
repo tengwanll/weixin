@@ -97,19 +97,22 @@
     });
 
     $('.detail-service').click(function () {
+        if($('.nameInput').val()==''){
+            alert('请输入您的姓名');
+            return;
+        }
+        if($('.ageInput').val()==''){
+            alert('请输入您的年纪');
+            return;
+        }
+        if($('.marriedIput').val()==''){
+            alert('请输入您的婚姻状态');
+            return;
+        }
         if($('.userAddr').html()=='请输入联系人地址及收货地址'){
             alert('请选择收货地址');
             return;
         }
-        var info={};
-        info.orderId=orderId;
-        ajaxAction("post",'/api/order/pay',info,false,function(data,textStatus){
-            JS_PARAM = data.jsApiParameters;
-            JS_PARAM = $.evalJSON(JS_PARAM);
-            callPay(orderId);
-        },function(errno,errmsg){
-            console.log(errmsg);
-        });
 
         var orderInfo={};
 
@@ -120,6 +123,16 @@
 
         ajaxAction("put",'/api/order',orderInfo,false,function(data,textStatus){
             console.log(data);
+        },function(errno,errmsg){
+            console.log(errmsg);
+        });
+
+        var info={};
+        info.orderId=orderId;
+        ajaxAction("post",'/api/order/pay',info,false,function(data,textStatus){
+            JS_PARAM = data.jsApiParameters;
+            JS_PARAM = $.evalJSON(JS_PARAM);
+            callPay(orderId);
         },function(errno,errmsg){
             console.log(errmsg);
         });
