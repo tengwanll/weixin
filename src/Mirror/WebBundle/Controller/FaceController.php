@@ -28,7 +28,6 @@ class FaceController extends Controller
      */
     public function infoAction($boxId){
         $boxId=base64_decode($boxId);
-        var_dump($boxId);
         return array('boxId'=>$boxId);
     }
 }
