@@ -218,11 +218,11 @@ function ajaxAction(method,url,json,async,success_func,error_func)
 			// var errno = resp.errno||'出错1111';
 			// var errmsg = resp.errmsg||'出错111';
 			console.log(resp);
-			if (errno==0){
-				success_func(resp, textStatus);
-			}else{
-				error_func(errno, errmsg);
-			}
+			// if (errno==0){
+			// 	success_func(resp, textStatus);
+			// }else{
+			// 	error_func(errno, errmsg);
+			// }
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			var errno = 10000;
