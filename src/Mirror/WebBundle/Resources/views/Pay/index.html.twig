@@ -118,10 +118,9 @@
         orderInfo.UserAge = $('.ageInput').val();
         orderInfo.UserName = $('.nameInput').val();
 
-        ajaxAction("put",'/api/order',info,false,function(data,textStatus){
-            JS_PARAM = data.jsApiParameters;
-            JS_PARAM = $.evalJSON(JS_PARAM);
-            callPay(orderId);
+        ajaxAction("put",'/api/order',orderInfo,false,function(data,textStatus){
+           alert(11111111111111);
+            console.log(data);
         },function(errno,errmsg){
             console.log(errmsg);
         });
