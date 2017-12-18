@@ -33,4 +33,10 @@ class Constant {
     public static $appId = 'wx8c06263e253e080d';
     public static $secret = '1ebfe6bec0c027b9a97750d183b56ce9';
     public static $WX_NOTIFY_PATH='weixin.amogene.com/api/order/notify';
+
+    //盒子
+    public static $box_status_start=1;//盒子初始生成
+    public static $box_status_filled=2;//用户已经填写
+    public static $box_status_result=3;//检测结果已出
+    public static $box_status_report=4;//报表已经上传
 }

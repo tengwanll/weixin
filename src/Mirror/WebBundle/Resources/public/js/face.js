@@ -4,4 +4,5 @@ $(document).ready(function () {
         now.getFullYear() + '-' + now.getMonth()+ '-' + now.getDate() + ' '  +
         now.getHours() + ':' + now.getMinutes() + ':' +now.getSeconds() 
     );
+    
 })

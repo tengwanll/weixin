@@ -20,60 +20,60 @@
                 <div class="basic">
                     <div>
                         <label for="name">姓名</label>
-                        <input type="text" name="name">
+                        <input type="text" name="name" id="name">
                     </div>
                     <div>
                         <label for="age">年龄</label>
-                        <input type="number" name="age">
+                        <input type="number" name="age" id="age">
                     </div>
                     <div>
                         <label>性别</label>
                         <div class="radio-group">
                             <div>
-                                <label><input type="radio" name="sex" value="0">男</label>
+                                <label><input type="radio" name="sex" value="1">男</label>
                             </div>
                             <div>
-                                <label><input type="radio" name="sex" value="1">女</label>
+                                <label><input type="radio" name="sex" value="0" checked="checked">女</label>
                             </div>
                         </div>
                     </div>
                     <div>
                         <label for="email">邮箱</label>
-                        <input type="email" name="email">
+                        <input type="email" name="email" id="email">
                     </div>
                     <div>
                         <label for="phone">电话</label>
-                        <input type="tel" name="phone">
+                        <input type="tel" name="phone" id="phone">
                     </div>
                 </div>
 
                 <div class="ability">
                     <div>
-                        <label><input type="checkbox" value="0" name="ability">皮肤抗紫外线能力</label>
+                        <label><input type="checkbox" value="1" name="isUltraviolet" id="isUltraviolet">皮肤抗紫外线能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="1" name="ability">皮肤抗敏感能力</label>
+                        <label><input type="checkbox" value="1" name="isSensitive" id="isSensitive">皮肤抗敏感能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="2" name="ability">皮肤抗氧化能力</label>
+                        <label><input type="checkbox" value="1" name="isOxidation" id="isOxidation">皮肤抗氧化能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="3" name="ability">皮肤锁水能力</label>
+                        <label><input type="checkbox" value="1" name="isLock" id="isLock">皮肤锁水能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="4" name="ability">皮肤色斑风险</label>
+                        <label><input type="checkbox" value="1" name="isStain" id="isStain">皮肤色斑风险</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="5" name="ability">皮肤弹性</label>
+                        <label><input type="checkbox" value="1" name="isElasticity" id="isElasticity">皮肤弹性</label>
                     </div>
                 </div>
                 <div class="info">
-                    <button type="submit"><span id="now"></span>确认提交</button>
+                    <button type="submit" class="commit"><span id="now"></span>确认提交</button>
                 </div>
             </form>
         </div>
@@ -97,7 +97,66 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            var boxId={{ boxId }}?{{ boxId }}:0;
+            ajaxAction("get",'/api/face/'+boxId,'',true,function(data,textStatus){
+                if(data.status){
+                    $('#name').value(data.name);
+                    $('#age').value(data.age);
+                    $("input[name='sex'][value='"+data.gender+"']").attr("checked",true);
+                    $('#email').value(data.email);
+                    $('#phone').value(data.telephone);
+                    $('#isUltraviolet').attr('checked',true);
+                    $('#isSensitive').attr('checked',true);
+                    $('#isOxidation').attr('checked',true);
+                    $('#isLock').attr('checked',true);
+                    $('#isStain').attr('checked',true);
+                    $('#isElasticity').attr('checked',true);
+                }
+            },function(errno,errmsg){
 
+            });
+            $('.commit').click(function(event){
+                event.preventDefault();
+                var info={};
+                info.name=$.trim($('#name').value());
+                if(!info.name){
+                    alert('姓名不能为空');
+                    return;
+                }
+                info.age=$.trim($('#age').value());
+                if(!info.age){
+                    alert('年龄不能为空');
+                    return;
+                }
+                info.gender=$("input[name='sex']:checked").val();
+                info.email=$.trim($('#email').value());
+                if(!info.email){
+                    alert('邮箱不能为空');
+                    return;
+                }
+                info.telephone=$.trim($('#phone').value());
+                if(!info.telephone){
+                    alert('电话号码不能为空');
+                    return;
+                }
+                info.isUltraviolet=$('#isUltraviolet').attr('checked');
+                info.isSensitive=$('#isSensitive').attr('checked');
+                info.isOxidation=$('#isOxidation').attr('checked');
+                info.isLock=$('#isLock').attr('checked');
+                info.isStain=$('#isStain').attr('checked');
+                info.isElasticity=$('#isElasticity').attr('checked');
+                ajaxAction("post",'/api/face',info,false,function(data,textStatus){
+                    $('#page1').hide();
+                    $('#page2').show();
+                },function(errno,errmsg){
+
+                });
+            });
+
+        })
+    </script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('/bundles/mirrorweb/js/face.js') }}"></script>
 </body>
