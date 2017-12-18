@@ -37,7 +37,7 @@ class BoxInfoModel extends BaseModel
         $info->setGender($boxInfo->getGender());
         $info->setBoxId($boxInfo->getBoxId());
         $info->setEmail($boxInfo->getEmail());
-        $info->setTelephone($boxInfo->getTelephone());
+        $info->setTelephone((int)$boxInfo->getTelephone());
         $info->setAbility($boxInfo->getAbility());
         $info->setStatus(Constant::$status_normal);
         $info->setCreateTime($date);
@@ -55,7 +55,7 @@ class BoxInfoModel extends BaseModel
         $info->setAge($boxInfo->getAge());
         $info->setGender($boxInfo->getGender());
         $info->setEmail($boxInfo->getEmail());
-        $info->setTelephone($boxInfo->getTelephone());
+        $info->setTelephone((int)$boxInfo->getTelephone());
         $info->setAbility($boxInfo->getAbility());
         return $this->save($info);
     }
