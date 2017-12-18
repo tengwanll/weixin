@@ -11,7 +11,7 @@ $(document).ready(function () {
         handleWidth: 10
     });
 
-    $('#info-form').on('submit', e => {
+    $('#info-form').on('submit', function(e) {
         e.preventDefault();
 
     var result = $('#info-form').serializeArray().reduce(function(obj, item) {
