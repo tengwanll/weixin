@@ -38,12 +38,12 @@ class BoxInfoModel extends BaseModel
         $info->setBoxId($boxInfo->getBoxId());
         $info->setEmail($boxInfo->getEmail());
         $info->setTelephone($boxInfo->getTelephone());
-        $info->setIsElasticity($boxInfo->getIsElasticity());
-        $info->setIsLock($boxInfo->getIsLock());
-        $info->setIsOxidation($boxInfo->getIsOxidation());
-        $info->setIsSensitive($boxInfo->getIsSensitive());
-        $info->setIsStain($boxInfo->getIsStain());
-        $info->setIsUltraviolet($boxInfo->getIsUltraviolet());
+        $info->setIsElasticity($boxInfo->getIsElasticity()?1:0);
+        $info->setIsLock($boxInfo->getIsLock()?1:0);
+        $info->setIsOxidation($boxInfo->getIsOxidation()?1:0);
+        $info->setIsSensitive($boxInfo->getIsSensitive()?1:0);
+        $info->setIsStain($boxInfo->getIsStain()?1:0);
+        $info->setIsUltraviolet($boxInfo->getIsUltraviolet()?1:0);
         $info->setStatus(Constant::$status_normal);
         $info->setCreateTime($date);
         $info->setUpdateTime($date);
