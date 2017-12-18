@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-switch/3.3.4/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/face.css') }}">
 </head>
 
@@ -20,56 +21,56 @@
                 <div class="basic">
                     <div>
                         <label for="name">姓名</label>
-                        <input type="text" name="name" id="name">
+                        <input type="text" name="name" id="name" required>
                     </div>
                     <div>
                         <label for="age">年龄</label>
-                        <input type="number" name="age" id="age">
+                        <input type="number" name="age" id="age" required>
                     </div>
                     <div>
                         <label>性别</label>
                         <div class="radio-group">
                             <div>
-                                <label><input type="radio" name="sex" value="1">男</label>
+                                <label><input type="radio" name="gender" value="1">男</label>
                             </div>
                             <div>
-                                <label><input type="radio" name="sex" value="0" checked="checked">女</label>
+                                <label><input type="radio" name="gender" value="0" checked="checked">女</label>
                             </div>
                         </div>
                     </div>
                     <div>
                         <label for="email">邮箱</label>
-                        <input type="email" name="email" id="email">
+                        <input type="email" name="email" id="email" required>
                     </div>
                     <div>
                         <label for="phone">电话</label>
-                        <input type="tel" name="phone" id="phone">
+                        <input type="tel" name="telephone" id="telephone" required>
                     </div>
                 </div>
 
                 <div class="ability">
                     <div>
-                        <label><input type="checkbox" value="1" name="isUltraviolet" id="isUltraviolet">皮肤抗紫外线能力</label>
+                        <label><input type="checkbox" value="1" name="ability" id="isUltraviolet">皮肤抗紫外线能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="1" name="isSensitive" id="isSensitive">皮肤抗敏感能力</label>
+                        <label><input type="checkbox" value="2" name="ability" id="isSensitive">皮肤抗敏感能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="1" name="isOxidation" id="isOxidation">皮肤抗氧化能力</label>
+                        <label><input type="checkbox" value="3" name="ability" id="isOxidation">皮肤抗氧化能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="1" name="isLock" id="isLock">皮肤锁水能力</label>
+                        <label><input type="checkbox" value="4" name="ability" id="isLock">皮肤锁水能力</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="1" name="isStain" id="isStain">皮肤色斑风险</label>
+                        <label><input type="checkbox" value="5" name="ability" id="isStain">皮肤色斑风险</label>
                     </div>
 
                     <div>
-                        <label><input type="checkbox" value="1" name="isElasticity" id="isElasticity">皮肤弹性</label>
+                        <label><input type="checkbox" value="6" name="ability" id="isElasticity">皮肤弹性</label>
                     </div>
                 </div>
                 <div class="info">
@@ -99,6 +100,7 @@
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
     <script src="{{ asset('/bundles/mirrorweb/js/face.js') }}"></script>
     <script src="{{ asset('/bundles/mirrorweb/js/admPublic.js') }}"></script>
     <script src="{{ asset('/bundles/mirrorweb/js/jquery.json.js') }}"></script>
@@ -122,44 +124,45 @@
             },function(errno,errmsg){
 
             });
-            $('.commit').click(function(event){
-                event.preventDefault();
-                var info={};
-                info.boxId=boxId;
-                info.name=$.trim($('#name').val());
-                if(!info.name){
-                    alert('姓名不能为空');
-                    return;
-                }
-                info.age=$.trim($('#age').val());
-                if(!info.age){
-                    alert('年龄不能为空');
-                    return;
-                }
-                info.gender=$("input[name='sex']:checked").val();
-                info.email=$.trim($('#email').val());
-                if(!info.email){
-                    alert('邮箱不能为空');
-                    return;
-                }
-                info.telephone=$.trim($('#phone').val());
-                if(!info.telephone){
-                    alert('电话号码不能为空');
-                    return;
-                }
-                info.isUltraviolet=$('#isUltraviolet').attr('checked');
-                info.isSensitive=$('#isSensitive').attr('checked');
-                info.isOxidation=$('#isOxidation').attr('checked');
-                info.isLock=$('#isLock').attr('checked');
-                info.isStain=$('#isStain').attr('checked');
-                info.isElasticity=$('#isElasticity').attr('checked');
-                ajaxAction("post",'/api/face',info,false,function(data,textStatus){
-                    $('#page1').hide();
-                    $('#page2').show();
-                },function(errno,errmsg){
 
-                });
-            });
+//            $('.commit').click(function(event){
+//                event.preventDefault();
+//                var info={};
+//                info.boxId=boxId;
+//                info.name=$.trim($('#name').val());
+//                if(!info.name){
+//                    alert('姓名不能为空');
+//                    return;
+//                }
+//                info.age=$.trim($('#age').val());
+//                if(!info.age){
+//                    alert('年龄不能为空');
+//                    return;
+//                }
+//                info.gender=$("input[name='sex']:checked").val();
+//                info.email=$.trim($('#email').val());
+//                if(!info.email){
+//                    alert('邮箱不能为空');
+//                    return;
+//                }
+//                info.telephone=$.trim($('#phone').val());
+//                if(!info.telephone){
+//                    alert('电话号码不能为空');
+//                    return;
+//                }
+//                info.isUltraviolet=$('#isUltraviolet').attr('checked');
+//                info.isSensitive=$('#isSensitive').attr('checked');
+//                info.isOxidation=$('#isOxidation').attr('checked');
+//                info.isLock=$('#isLock').attr('checked');
+//                info.isStain=$('#isStain').attr('checked');
+//                info.isElasticity=$('#isElasticity').attr('checked');
+//                ajaxAction("post",'/api/face',info,false,function(data,textStatus){
+//                    $('#page1').hide();
+//                    $('#page2').show();
+//                },function(errno,errmsg){
+//
+//                });
+//            });
 
         })
     </script>
