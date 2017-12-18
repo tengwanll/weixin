@@ -57,9 +57,9 @@ class BoxInfo
     private $email;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="telephone", type="integer", nullable=false)
+     * @ORM\Column(name="telephone", type="string", length=11, nullable=false)
      */
     private $telephone;
 
@@ -226,7 +226,7 @@ class BoxInfo
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param string $telephone
      *
      * @return BoxInfo
      */
@@ -240,7 +240,7 @@ class BoxInfo
     /**
      * Get telephone
      *
-     * @return integer
+     * @return string
      */
     public function getTelephone()
     {
