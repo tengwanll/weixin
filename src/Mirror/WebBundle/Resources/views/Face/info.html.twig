@@ -125,6 +125,7 @@
             $('.commit').click(function(event){
                 event.preventDefault();
                 var info={};
+                info.boxId=boxId;
                 info.name=$.trim($('#name').val());
                 if(!info.name){
                     alert('姓名不能为空');
