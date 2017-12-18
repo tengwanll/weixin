@@ -106,6 +106,13 @@ class BoxInfo
     private $isElasticity = '0';
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="ability", type="string", length=150, nullable=false)
+     */
+    private $ability;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="status", type="integer", nullable=false)
@@ -424,6 +431,30 @@ class BoxInfo
     public function getIsElasticity()
     {
         return $this->isElasticity;
+    }
+
+    /**
+     * Set ability
+     *
+     * @param string $ability
+     *
+     * @return BoxInfo
+     */
+    public function setAbility($ability)
+    {
+        $this->ability = $ability;
+
+        return $this;
+    }
+
+    /**
+     * Get ability
+     *
+     * @return string
+     */
+    public function getAbility()
+    {
+        return $this->ability;
     }
 
     /**

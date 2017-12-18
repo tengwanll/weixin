@@ -24,10 +24,13 @@ $(document).ready(function () {
             return obj;
         }, {});
         result.ability = result.ability || [];
+        result.boxId=boxId;
 
-        console.log(result);
+        ajaxAction("post",'/api/face',result,false,function(data,textStatus){
+            $('#page1').hide();
+            $('#page2').show();
+        },function(errno,errmsg){
 
-        // send request
-        // todo
+        });
     })
 })

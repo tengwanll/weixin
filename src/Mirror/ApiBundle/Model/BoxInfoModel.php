@@ -44,6 +44,7 @@ class BoxInfoModel extends BaseModel
         $info->setIsSensitive($boxInfo->getIsSensitive()?1:0);
         $info->setIsStain($boxInfo->getIsStain()?1:0);
         $info->setIsUltraviolet($boxInfo->getIsUltraviolet()?1:0);
+        $info->setAbility(json_encode($boxInfo->getAbility()));
         $info->setStatus(Constant::$status_normal);
         $info->setCreateTime($date);
         $info->setUpdateTime($date);
@@ -67,6 +68,7 @@ class BoxInfoModel extends BaseModel
         $info->setIsSensitive($boxInfo->getIsSensitive());
         $info->setIsStain($boxInfo->getIsStain());
         $info->setIsUltraviolet($boxInfo->getIsUltraviolet());
+        $info->setAbility(json_encode($boxInfo->getAbility()));
         return $this->save($info);
     }
 }

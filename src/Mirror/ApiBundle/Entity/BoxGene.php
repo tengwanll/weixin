@@ -45,7 +45,7 @@ class BoxGene
     /**
      * @var string
      *
-     * @ORM\Column(name="MMP1", type="string", length=2, nullable=false)
+     * @ORM\Column(name="MMP1", type="string", length=5, nullable=false)
      */
     private $mmp1;
 
