@@ -137,7 +137,7 @@
                     obj[item.name] = item.value;
                     return obj;
                 }, {});
-                result.ability = result.ability || [];
+                result.abilities = result.ability || [];
                 result.boxId=boxId;
 
                 ajaxAction("post",'/api/face',result,false,function(data,textStatus){
