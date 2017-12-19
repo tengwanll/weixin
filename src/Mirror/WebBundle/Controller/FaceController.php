@@ -36,7 +36,7 @@ class FaceController extends Controller
         $openId=Helper::getc($result,'openid','');
         $token=WeixinHelper::getToken();
         $userInfo=WeixinHelper::getUserInfo($openId,$token);
-        var_dump($token);
+        var_dump($userInfo);
         return array('boxId'=>$boxId,'openId'=>$openId);
     }
 }
