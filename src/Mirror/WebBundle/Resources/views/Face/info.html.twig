@@ -107,6 +107,8 @@
     <script>
         $(document).ready(function () {
             var boxId={{ boxId }}?{{ boxId }}:0;
+            var openId='{{ openId }}';
+            checkWeiXinId(openId);
             ajaxAction("get",'/api/face/'+boxId,'',true,function(data,textStatus){
                 if(data.status){
                     $('#name').val(data.name);
