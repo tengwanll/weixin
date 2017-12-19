@@ -11,6 +11,7 @@ class WeixinHelper {
 		$url = Constant::$accessTokenUrl;
 		$url = sprintf($url,Constant::$appId,Constant::$secret);
 		$rr = CurlHelper::httpGet($url);
+		var_dump($rr);
 		$result = Helper::getc($rr,'result');
 		$json = json_decode($result,true);
 		$token = Helper::getc($json,'access_token','');
