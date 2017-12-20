@@ -116,11 +116,11 @@
                     $('#age').val(data.age);
                     $("input[name='sex'][value='"+data.gender+"']").attr("checked",true);
                     $('#email').val(data.email);
-                    $('#phone').val(data.telephone);
+                    $('#telephone').val(data.telephone);
                     var abilities=data.ability;
                     $('input[name=ability]').each(function(index,obj){
                         if($.inArray($(obj).val(),abilities)!=-1){
-                            $(obj).attr("checked",true);
+                            $(obj).bootstrapSwitch('toggleState');
                         }
                     });
                 }
