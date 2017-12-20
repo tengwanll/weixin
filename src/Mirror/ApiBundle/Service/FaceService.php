@@ -55,12 +55,7 @@ class FaceService
                 'gender'=>$boxInfo->getGender(),
                 'email'=>$boxInfo->getEmail(),
                 'telephone'=>$boxInfo->getTelephone(),
-                'isElasticity'=>$boxInfo->getIsElasticity(),
-                'isLock'=>$boxInfo->getIsLock(),
-                'isOxidation'=>$boxInfo->getIsOxidation(),
-                'isSensitive'=>$boxInfo->getIsSensitive(),
-                'isStain'=>$boxInfo->getIsStain(),
-                'isUltraviolet'=>$boxInfo->getIsUltraviolet(),
+                'ability'=>json_decode($boxInfo->getAbility()),
                 'status'=>true
             );
         }
