@@ -9,6 +9,11 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap-switch/3.3.4/css/bootstrap3/bootstrap-switch.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/face.css') }}">
+    <script src="{{ asset('/bundles/mirrorweb/js/admPublic.js') }}"></script>
+    <script>
+        var openId='{{ openId }}';
+        checkWeiXinId(openId);
+    </script>
 </head>
 
 <body>
@@ -102,11 +107,9 @@
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
     <script src="{{ asset('/bundles/mirrorweb/js/face.js') }}"></script>
-    <script src="{{ asset('/bundles/mirrorweb/js/admPublic.js') }}"></script>
+
     <script src="{{ asset('/bundles/mirrorweb/js/jquery.json.js') }}"></script>
     <script>
-        var openId='{{ openId }}';
-        checkWeiXinId(openId);
         $(document).ready(function () {
             var boxId={{ boxId }}?{{ boxId }}:0;
             ajaxAction("get",'/api/face/'+boxId,'',true,function(data,textStatus){
