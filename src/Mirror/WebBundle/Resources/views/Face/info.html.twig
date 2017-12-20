@@ -114,7 +114,7 @@
                 if(data.status){
                     $('#name').val(data.name);
                     $('#age').val(data.age);
-                    $("input[name='sex'][value='"+data.gender+"']").attr("checked",true);
+                    $("input[name='gender'][value='"+data.gender+"']").attr("checked",'checked');
                     $('#email').val(data.email);
                     $('#telephone').val(data.telephone);
                     var abilities=data.ability;
