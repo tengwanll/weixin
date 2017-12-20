@@ -38,7 +38,9 @@ class FaceController extends Controller
             $openId=Helper::getc($result,'openid','');
             $token=WeixinHelper::getToken();
             $userInfo=WeixinHelper::getUserInfo($openId,$token);
-            var_dump($userInfo);
+            if(!$userInfo['subscribe']){
+                return $this->render('MirrorWebBundle:Face:attention.html.twig',array());
+            }
         }
         return array('boxId'=>$boxId,'openId'=>$openId);
     }
