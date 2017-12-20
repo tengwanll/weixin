@@ -35,7 +35,7 @@ class Constant {
     public static $WX_NOTIFY_PATH='weixin.amogene.com/api/order/notify';
     public static $accessTokenUrl = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s';
     public static $userInfoUrl='https://api.weixin.qq.com/cgi-bin/user/info?access_token=%s&openid=%s';
-    
+
     //盒子
     public static $box_status_start=1;//盒子初始生成
     public static $box_status_filled=2;//用户已经填写
