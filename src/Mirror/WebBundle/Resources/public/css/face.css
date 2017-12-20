@@ -19,11 +19,11 @@ body,
     font-size: 0.7rem;
 }
 
-.page header {
+.page .logo {
     padding: 2rem 0;
 }
 
-.page header img {
+.page .logo img {
     display: block;
     width: 60%;
     margin: 0 auto;
@@ -34,6 +34,24 @@ body,
     margin: 0 auto;
     border-radius: 0.5rem;
     overflow: hidden;
+}
+
+.page .pannel header {
+    background: rgba(255, 255, 255, 0.65);
+    padding: 0.5rem 0.5rem;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.page .pannel .content {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+}
+
+.page .pannel footer {
+    background: rgba(255, 255, 255, 0.65);
+    font-size: 0.7rem;
+    padding: 0.5rem;
 }
 
 .page .radio-group {
@@ -139,17 +157,6 @@ body,
     display: none;
 }
 
-#page2 h4 {
-    background: rgba(255, 255, 255, 0.65);
-    padding: 0.5rem 0 0.5rem 1rem;
-    margin: 0;
-}
-
-#page2 .address {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1rem;
-}
-
 #page2 span {
     display: block;
     color: white;
@@ -157,8 +164,12 @@ body,
     line-height: 1.6rem;
 }
 
-#page2 .note {
-    background: rgba(255, 255, 255, 0.65);
-    font-size: 0.7rem;
-    padding: 0.5rem;
+
+/* page 3 */
+
+#page3 .content {}
+
+#page3 .content img {
+    display: block;
+    width: 100%;
 }
