@@ -20,12 +20,12 @@ body,
 }
 
 .page .logo {
-    padding: 2rem 0;
+    padding: 2rem 0 1rem;
 }
 
 .page .logo img {
     display: block;
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
 }
 
