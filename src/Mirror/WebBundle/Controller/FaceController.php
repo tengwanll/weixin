@@ -32,11 +32,10 @@ class FaceController extends Controller
     public function infoAction($boxId,Request $request){
         $boxId=base64_decode($boxId);
         $code=$request->get('code','');
-        $openId = $request->getSession ()->get ( 'openId', '' );
-        if (!$openId) {
+        $openId='';
+        if($code){
             $result = WeixinHelper::getWeixinId ( $code );
             $openId=Helper::getc($result,'openid','');
-            $request->getSession ()->set ( 'openId', $openId );
             $token=WeixinHelper::getToken();
             $userInfo=WeixinHelper::getUserInfo($openId,$token);
             if(!$userInfo['subscribe']){
