@@ -105,10 +105,10 @@
     <script src="{{ asset('/bundles/mirrorweb/js/admPublic.js') }}"></script>
     <script src="{{ asset('/bundles/mirrorweb/js/jquery.json.js') }}"></script>
     <script>
+        var openId='{{ openId }}';
+        checkWeiXinId(openId);
         $(document).ready(function () {
             var boxId={{ boxId }}?{{ boxId }}:0;
-            var openId='{{ openId }}';
-            checkWeiXinId(openId);
             ajaxAction("get",'/api/face/'+boxId,'',true,function(data,textStatus){
                 if(data.status){
                     $('#name').val(data.name);
