@@ -116,7 +116,6 @@
             var boxId={{ boxId }}?{{ boxId }}:0;
             $('input[name=ability]').each(function(index,obj){
                 $(obj).bootstrapSwitch('toggleState');
-                $(obj).bootstrapSwitch('setActive', false);
             });
             ajaxAction("get",'/api/face/'+boxId,'',true,function(data,textStatus){
                 if(data.status){
