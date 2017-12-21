@@ -114,6 +114,11 @@
     <script>
         $(document).ready(function () {
             var boxId={{ boxId }}?{{ boxId }}:0;
+            $('input[name=ability]').each(function(index,obj){
+                $(obj).bootstrapSwitch('toggleState');
+                $(obj).bootstrapSwitch('setActive', false);
+            });
+            $('#disable-switch').bootstrapSwitch('setActive', false);
             ajaxAction("get",'/api/face/'+boxId,'',true,function(data,textStatus){
                 if(data.status){
                     $('#name').val(data.name);
@@ -121,12 +126,6 @@
                     $("input[name='gender'][value='"+data.gender+"']").attr("checked",'checked');
                     $('#email').val(data.email);
                     $('#telephone').val(data.telephone);
-                    var abilities=data.ability;
-                    $('input[name=ability]').each(function(index,obj){
-                        if($.inArray($(obj).val(),abilities)!=-1){
-                            $(obj).bootstrapSwitch('toggleState');
-                        }
-                    });
                 }
             },function(errno,errmsg){
 
