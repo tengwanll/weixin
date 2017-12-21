@@ -33,15 +33,15 @@ class FaceController extends Controller
         $boxId=base64_decode($boxId);
         $code=$request->get('code','');
         $openId='';
-        if($code){
-            $result = WeixinHelper::getWeixinId ( $code );
-            $openId=Helper::getc($result,'openid','');
-            $token=WeixinHelper::getToken();
-            $userInfo=WeixinHelper::getUserInfo($openId,$token);
-            if(!$userInfo['subscribe']){
-                return $this->render('MirrorWebBundle:Face:attention.html.twig',array());
-            }
-        }
+//        if($code){
+//            $result = WeixinHelper::getWeixinId ( $code );
+//            $openId=Helper::getc($result,'openid','');
+//            $token=WeixinHelper::getToken();
+//            $userInfo=WeixinHelper::getUserInfo($openId,$token);
+//            if(!$userInfo['subscribe']){
+//                return $this->render('MirrorWebBundle:Face:attention.html.twig',array());
+//            }
+//        }
         return array('boxId'=>$boxId,'openId'=>$openId);
     }
 }
