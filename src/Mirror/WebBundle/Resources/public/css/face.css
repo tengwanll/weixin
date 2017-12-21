@@ -167,9 +167,13 @@ body,
 
 /* page 3 */
 
-#page3 .content {}
+/*#page3 .content {}*/
 
-#page3 .content img {
+/*#page3 .content img {*/
+    /*display: block;*/
+    /*width: 100%;*/
+/*}*/
+.qrCode img{
     display: block;
-    width: 100%;
+    width: 50%;
 }
