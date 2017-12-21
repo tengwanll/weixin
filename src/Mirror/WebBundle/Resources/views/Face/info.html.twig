@@ -118,7 +118,6 @@
                 $(obj).bootstrapSwitch('toggleState');
                 $(obj).bootstrapSwitch('setActive', false);
             });
-            $('#disable-switch').bootstrapSwitch('setActive', false);
             ajaxAction("get",'/api/face/'+boxId,'',true,function(data,textStatus){
                 if(data.status){
                     $('#name').val(data.name);
