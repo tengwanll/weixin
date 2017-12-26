@@ -12,10 +12,10 @@
                 </div>
                 <div class="top-right">
                     <div class="orderInfo">
-                        <span>订单数</span><span>8</span>
+                        <span>订单数</span><span id="orderCn"></span>
                     </div>
                     <div class="orderInfo">
-                        <span>已出报告数</span><span>5</span>
+                        <span>已出报告数</span><span id="reportCn"></span>
                     </div>
                 </div>
             </section>
@@ -45,6 +45,8 @@
         });
         function getList(status){
             ajaxAction("get",'/api/user/order?status='+status,'',false,function(data,textStatus){
+                $('#orderCn').html(data.orderCn);
+                $('#reportCn').html(data.reportCn);
                 var dataList = data.list;
                 var orderListHtmls = '';
                 $.each(dataList,function (idx,obj) {
