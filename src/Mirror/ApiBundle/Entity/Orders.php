@@ -113,9 +113,9 @@ class Orders
     private $userName;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="is_married", type="integer", nullable=false)
+     * @ORM\Column(name="is_married", type="string", length=10, nullable=false)
      */
     private $isMarried;
 
@@ -467,7 +467,7 @@ class Orders
     /**
      * Set isMarried
      *
-     * @param integer $isMarried
+     * @param string $isMarried
      *
      * @return Orders
      */
@@ -481,7 +481,7 @@ class Orders
     /**
      * Get isMarried
      *
-     * @return integer
+     * @return string
      */
     public function getIsMarried()
     {

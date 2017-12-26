@@ -106,10 +106,11 @@ Orders:
                 fixed: false
             column: user_name
         isMarried:
-            type: integer
+            type: string
             nullable: false
+            length: 10
             options:
-                unsigned: false
+                fixed: false
             column: is_married
         status:
             type: integer

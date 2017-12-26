@@ -31,7 +31,7 @@ class BoxGene
     /**
      * @var string
      *
-     * @ORM\Column(name="HLA-C", type="string", length=2, nullable=false)
+     * @ORM\Column(name="HLA_C", type="string", length=2, nullable=false)
      */
     private $hlaC;
 
