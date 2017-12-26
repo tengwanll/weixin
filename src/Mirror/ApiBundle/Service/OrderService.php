@@ -163,6 +163,7 @@ class OrderService
             $this->logger->info('微信回调报错--'.$e->getMessage().'--'.date('Y-m-d H:i:s'));
             return $msg = $e->getMessage();
         }
+        $this->logger->info('微信回调参数--'.json_encode($params).'--'.date('Y-m-d H:i:s'));
         $transaction_id=$params['transaction_id'];
         $orderNo=$params['out_trade_no'];
         $input = new WxPayOrderQuery();
