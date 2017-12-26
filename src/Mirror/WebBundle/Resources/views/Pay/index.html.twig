@@ -102,11 +102,10 @@
         console.log(errmsg);
     });
 
-
-    var isMarried = $('.marriedIput').val();
-    var userAge = $('.ageInput').val();
-    var userName = $('.nameInput').val();
     $('.userAddr').click(function(){
+        var isMarried = $('.marriedIput').val();
+        var userAge = $('.ageInput').val();
+        var userName = $('.nameInput').val();
         location.href=wxPath('/web/address/'+orderId+'?userName='+userName+'&userAge='+userAge+'&isMarried='+isMarried);
     });
 
