@@ -89,7 +89,7 @@
         $('.ageInput').val(UserAge);
     }
     if(IsMarried){
-        $('.marriedIput').val(IsMarried);
+        $('.marriageInput').val(IsMarried);
     }
     var JS_PARAM={};
     ajaxAction("get",'/api/order/'+orderId,'',false,function(data,textStatus){
@@ -103,7 +103,7 @@
     });
 
     $('.userAddr').click(function(){
-        var isMarried = $('.marriedIput').val();
+        var isMarried = $('.marriageInput').val();
         var userAge = $('.ageInput').val();
         var userName = $('.nameInput').val();
         location.href=wxPath('/web/address/'+orderId+'?userName='+userName+'&userAge='+userAge+'&isMarried='+isMarried);
@@ -118,7 +118,7 @@
             alert('请输入您的年纪');
             return;
         }
-        if($('.marriedIput').val()==''){
+        if($('.marriageInput').val()==''){
             alert('请输入您的婚姻状态');
             return;
         }
@@ -130,7 +130,7 @@
         var orderInfo={};
 
         orderInfo.Address = $('.userAddr').text();
-        orderInfo.IsMarried = $('.marriedIput').val();
+        orderInfo.IsMarried = $('.marriageInput').val();
         orderInfo.UserAge = $('.ageInput').val();
         orderInfo.UserName = $('.nameInput').val();
 
