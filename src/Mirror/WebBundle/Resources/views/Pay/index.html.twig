@@ -78,7 +78,19 @@
 <script>
     var orderId={{ orderId }};
     var address='{{ address }}'?'{{ address }}':'请输入联系人地址及收货地址';
+    var UserName={{ userName }}?{{ userName }}:'';
+    var UserAge={{ userAge }}?{{ userAge }}:'';
+    var IsMarried={{ isMarried }}?{{ isMarried }}:'';
     $('.userAddr').html(address);
+    if(UserName){
+        $('.nameInput').val(UserName);
+    }
+    if(UserAge){
+        $('.ageInput').val(UserAge);
+    }
+    if(IsMarried){
+        $('.marriedIput').val(IsMarried);
+    }
     var JS_PARAM={};
     ajaxAction("get",'/api/order/'+orderId,'',false,function(data,textStatus){
         //获取订单信息填充进页面
@@ -91,9 +103,11 @@
     });
 
 
-
+    var isMarried = $('.marriedIput').val();
+    var userAge = $('.ageInput').val();
+    var userName = $('.nameInput').val();
     $('.userAddr').click(function(){
-        location.href=wxPath('/web/address/'+orderId);
+        location.href=wxPath('/web/address/'+orderId+'?userName='+userName+'&userAge='+userAge+'&isMarried='+isMarried);
     });
 
     $('.detail-service').click(function () {

@@ -31,6 +31,9 @@ class AddressController extends Controller
      */
     public function indexAction(Request $request,$orderId){
         $code=$request->get('code','');
+        $userName=$request->get('userName','');
+        $userAge=$request->get('userAge','');
+        $isMarried=$request->get('isMarried','');
         $openId = $request->getSession ()->get ( 'openId', '' );
         if (!$openId) {
             $result = WeixinHelper::getWeixinId ( $code );
@@ -41,6 +44,6 @@ class AddressController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId,'orderId'=>$orderId);
+        return array('openId'=>$openId,'orderId'=>$orderId,'userName'=>$userName,'userAge'=>$userAge,'isMarried'=>$isMarried);
     }
 }

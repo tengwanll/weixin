@@ -86,6 +86,9 @@
 <script type="text/javascript">
     $(function(){
         var orderId={{ orderId }};
+        var userName={{ userName }};
+        var userAge={{ userAge }};
+        var isMarried={{ isMarried }};
         var hpvfrm2 = $('#hpvpay2form');
         var action = hpvfrm2.attr('action');
         $('#hpvpay2btn').on('click',function(){
@@ -101,7 +104,7 @@
                 info.address=addr;
                 info.orderId=orderId;
                 ajaxAction("put",'/api/order',info,false,function(data,textStatus){
-                    location.href=wxPath('/web/pay/'+orderId+'?addr='+addr);
+                    location.href=wxPath('/web/pay/'+orderId+'?addr='+addr+'&userName='+userName+'&userAge='+userAge+'&isMarried='+isMarried);
                 },function(errno,errmsg){
 
                 });

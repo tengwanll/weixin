@@ -31,6 +31,9 @@ class PayController extends Controller
      */
     public function indexAction(Request $request,$orderId){
         $code=$request->get('code','');
+        $userName=$request->get('userName','');
+        $userAge=$request->get('userAge','');
+        $isMarried=$request->get('isMarried','');
         $address=$request->get('addr','');
         $openId = $request->getSession ()->get ( 'openId', '' );
         if (!$openId) {
@@ -42,6 +45,6 @@ class PayController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId,'orderId'=>$orderId,'address'=>$address);
+        return array('openId'=>$openId,'orderId'=>$orderId,'address'=>$address,'userName'=>$userName,'userAge'=>$userAge,'isMarried'=>$isMarried);
     }
 }
