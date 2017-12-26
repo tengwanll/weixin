@@ -78,9 +78,9 @@
 <script>
     var orderId={{ orderId }};
     var address='{{ address }}'?'{{ address }}':'请输入联系人地址及收货地址';
-    var UserName={{ userName }}?{{ userName }}:'';
-    var UserAge={{ userAge }}?{{ userAge }}:'';
-    var IsMarried={{ isMarried }}?{{ isMarried }}:'';
+    var UserName='{{ userName }}';
+    var UserAge='{{ userAge }}';
+    var IsMarried='{{ isMarried }}';
     $('.userAddr').html(address);
     if(UserName){
         $('.nameInput').val(UserName);
