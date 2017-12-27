@@ -103,11 +103,7 @@
                 var info={};
                 info.address=addr;
                 info.orderId=orderId;
-                ajaxAction("put",'/api/order',info,false,function(data,textStatus){
-                    location.href=wxPath('/web/pay/'+orderId+'?addr='+addr+'&userName='+userName+'&userAge='+userAge+'&isMarried='+isMarried);
-                },function(errno,errmsg){
-
-                });
+                location.href=wxPath('/web/pay/'+orderId+'?addr='+addr+'&userName='+userName+'&userAge='+userAge+'&isMarried='+isMarried);
             }else{
                 alert("联系人姓名或者收货地址错误，请重试！");
             }

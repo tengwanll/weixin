@@ -129,10 +129,10 @@
 
         var orderInfo={};
 
-        orderInfo.Address = $('.userAddr').text();
-        orderInfo.IsMarried = $('.marriageInput').val();
-        orderInfo.UserAge = $('.ageInput').val();
-        orderInfo.UserName = $('.nameInput').val();
+        orderInfo.address = $('.userAddr').text();
+        orderInfo.isMarried = $('.marriageInput').val();
+        orderInfo.userAge = $('.ageInput').val();
+        orderInfo.userName = $('.nameInput').val();
         orderInfo.orderId=orderId;
 
         ajaxAction("put",'/api/order',orderInfo,false,function(data,textStatus){
