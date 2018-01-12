@@ -91,7 +91,7 @@ abstract class DbalBaseModel {
         foreach($fields as $key=>$field){
             $fieldString.=$key.'='.$field.',';
         }
-        $dql='update '.$this->getTableName().' set '.rtrim($fields,',');
+        $dql='update '.$this->getTableName().' set '.rtrim($fieldString,',');
         foreach ($parameters as $key => $equals) {
             if (is_array($equals)) {
                 foreach ($equals as $k => $value) {
