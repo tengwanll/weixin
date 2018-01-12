@@ -89,6 +89,7 @@ abstract class DbalBaseModel {
             return false;
         $fieldString='';
         foreach($fields as $key=>$field){
+            $field=is_string($field)?"'$field'":$field;
             $fieldString.=$key.'='.$field.',';
         }
         $dql='update '.$this->getTableName().' set '.rtrim($fieldString,',');
