@@ -10,15 +10,15 @@ namespace Mirror\ApiBundle\Model;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
- * @DI\Service("box_gene_model",parent="base_model")
+ * @DI\Service("box_gene_model",parent="dbal_base_model")
  * Class BoxModel
  * @package Mirror\ApiBundle\Model
  */
-class BoxGeneModel extends BaseModel
+class BoxGeneModel extends DbalBaseModel
 {
-    private $repositoryName = 'MirrorApiBundle:BoxGene';
+    private $tableName = 'box_gene';
 
-    public function getRepositoryName() {
-        return $this->repositoryName;
+    public function getTableName() {
+        return $this->tableName;
     }
 }

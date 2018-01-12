@@ -45,17 +45,17 @@ class FaceService
 
     public function getInfo($boxId){
         $rr=new ReturnResult();
-        $boxInfo=$this->boxInfoModel->getOneByProperty('boxId',$boxId);
+//        $boxInfo=$this->boxInfoModel->getOneByProperty('boxId',$boxId);
+        $boxInfo=$this->boxInfoModel->getOneByProperty('box_id',$boxId);
         $arr=array('status'=>false);
         if($boxInfo){
-            /**@var $boxInfo \Mirror\ApiBundle\Entity\BoxInfo*/
             $arr=array(
-                'name'=>$boxInfo->getName(),
-                'age'=>$boxInfo->getAge(),
-                'gender'=>$boxInfo->getGender(),
-                'email'=>$boxInfo->getEmail(),
-                'telephone'=>$boxInfo->getTelephone(),
-                'ability'=>json_decode($boxInfo->getAbility()),
+                'name'=>$boxInfo['name'],
+                'age'=>$boxInfo['age'],
+                'gender'=>$boxInfo['gender'],
+                'email'=>$boxInfo['email'],
+                'telephone'=>$boxInfo['telephone'],
+                'ability'=>json_decode($boxInfo['ability']),
                 'status'=>true
             );
         }
@@ -70,22 +70,38 @@ class FaceService
     public function update(BoxInfo $boxInfoE){
         $rr=new ReturnResult();
         $boxId=$boxInfoE->getBoxId();
-        $box=$this->boxModel->getOneByProperty('uniqueId',$boxId);
+        $box=$this->boxModel->getOneByProperty('unique_id',$boxId);
         /**@var $box \Mirror\ApiBundle\Entity\Box*/
         if(!$box){
             $rr->errno=Code::$box_not_exist;
             return $rr;
         }
-        $boxInfo=$this->boxInfoModel->getOneByProperty('boxId',$boxId);
+        $boxInfo=$this->boxInfoModel->getOneByProperty('box_id',$boxId);
         if($boxInfo){
+            $update=array(
+                'name'=>$boxInfoE->getName(),
+                'gender'=>$boxInfoE->getGender(),
+                'age'=>$boxInfoE->getAge(),
+                'email'=>$boxInfoE->getEmail(),
+                'telephone'=>(int)$boxInfoE->getTelephone(),
+                'ability'=>$boxInfoE->getAbility()
+            );
             /**@var $boxInfo \Mirror\ApiBundle\Entity\BoxInfo*/
-            $this->boxInfoModel->update($boxInfoE,$boxInfo);
+            $this->boxInfoModel->update($update,array('box_id'=>$boxId));
         }else{
-            $res=$this->boxInfoModel->add($boxInfoE);
-            if($res){
-                $box->setStatus(Constant::$box_status_filled);
-                $this->boxModel->save($box);
-            }
+            $date=date('Y-m-d H:i:s');
+            $add=array(
+                'name'=>$boxInfoE->getName(),
+                'gender'=>$boxInfoE->getGender(),
+                'age'=>$boxInfoE->getAge(),
+                'email'=>$boxInfoE->getEmail(),
+                'telephone'=>(int)$boxInfoE->getTelephone(),
+                'ability'=>$boxInfoE->getAbility(),
+                'status'=>Constant::$status_normal,
+                'create_time'=>$date,
+                'update_time'=>$date
+            );
+            $res=$this->boxInfoModel->save($add);
         }
         return $rr;
     }

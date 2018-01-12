@@ -11,15 +11,15 @@ namespace Mirror\ApiBundle\Model;
 use JMS\DiExtraBundle\Annotation as DI;
 
 /**
- * @DI\Service("box_model",parent="base_model")
+ * @DI\Service("box_model",parent="dbal_base_model")
  * Class BoxModel
  * @package Mirror\ApiBundle\Model
  */
-class BoxModel extends BaseModel
+class BoxModel extends DbalBaseModel
 {
-    private $repositoryName = 'MirrorApiBundle:Box';
+    private $tableName = 'box';
 
-    public function getRepositoryName() {
-        return $this->repositoryName;
+    public function getTableName() {
+        return $this->tableName;
     }
 }
