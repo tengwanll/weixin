@@ -16,7 +16,7 @@ use JMS\DiExtraBundle\Annotation as DI;
  */
 class BoxGeneModel extends DbalBaseModel
 {
-    private $tableName = 'box_gene';
+    private $tableName = 'weixin.box_gene';
 
     public function getTableName() {
         return $this->tableName;

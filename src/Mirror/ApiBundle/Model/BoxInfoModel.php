@@ -19,7 +19,7 @@ use Mirror\ApiBundle\Entity\BoxInfo;
  */
 class BoxInfoModel extends DbalBaseModel
 {
-    private $tableName = 'box_info';
+    private $tableName = 'weixin.box_info';
 
     public function getTableName() {
         return $this->tableName;

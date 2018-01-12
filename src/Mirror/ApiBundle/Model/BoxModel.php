@@ -17,7 +17,7 @@ use JMS\DiExtraBundle\Annotation as DI;
  */
 class BoxModel extends DbalBaseModel
 {
-    private $tableName = 'box';
+    private $tableName = 'weixin.box';
 
     public function getTableName() {
         return $this->tableName;
