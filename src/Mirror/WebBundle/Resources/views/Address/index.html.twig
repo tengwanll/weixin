@@ -110,7 +110,13 @@
         });
 
         document.addEventListener('touchmove', function (e) {
-            e.preventDefault();
+            var touch = event.targetTouches[0];
+            var endPos = {x:touch.pageX - 0,y:touch.pageY - 0};
+            var isScrolling = Math.abs(endPos.x) < Math.abs(endPos.y) ? 1:0;
+
+            if(isScrolling === 0){
+                event.preventDefault();
+            }
         }, false);
 
     });
