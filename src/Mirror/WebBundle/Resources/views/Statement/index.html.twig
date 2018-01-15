@@ -1,7 +1,7 @@
 {% extends 'MirrorWebBundle:Base:base.html.twig' %}
 {% block title %}报表列表{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/orderList.css') }}">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/orderList.css',null,false,version) }}">
 {% endblock %}
 {% block body %}
     <div id="container">
@@ -11,7 +11,7 @@
         <div class="goodsListCon">
             <ul>
                 <li><span>
-                    <img src="{{ asset('/bundles/mirrorweb/images/LOGO.png') }}" alt="">
+                    <img src="{{ asset('/bundles/mirrorweb/images/LOGO.png',null,false,version) }}" alt="">
                 </span>
                     <div class="priceTitle">
                         <p>HPV自检套装</p>
