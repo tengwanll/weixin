@@ -45,6 +45,6 @@ class PayController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId,'orderId'=>$orderId,'address'=>$address,'userName'=>$userName,'userAge'=>$userAge,'isMarried'=>$isMarried,'version'=>mt_rand(1000,9999));
+        return array('openId'=>$openId,'orderId'=>$orderId,'address'=>$address,'userName'=>$userName,'userAge'=>$userAge,'isMarried'=>$isMarried);
     }
 }

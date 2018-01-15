@@ -9,7 +9,6 @@
 namespace Mirror\WebBundle\Controller;
 
 
-use Mirror\ApiBundle\Common\Constant;
 use Mirror\ApiBundle\Util\Helper;
 use Mirror\ApiBundle\Util\WeixinHelper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -45,6 +44,6 @@ class AddressController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId,'orderId'=>$orderId,'userName'=>$userName,'userAge'=>$userAge,'isMarried'=>$isMarried,'version'=>mt_rand(1000,9999));
+        return array('openId'=>$openId,'orderId'=>$orderId,'userName'=>$userName,'userAge'=>$userAge,'isMarried'=>$isMarried);
     }
 }

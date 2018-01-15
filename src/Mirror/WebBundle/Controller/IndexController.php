@@ -38,6 +38,6 @@ class IndexController extends Controller
             $request->getSession ()->set ( 'openId', $openId );
         }
         $status=$this->get('user_service')->checkLogin($openId);
-        return array('openId'=>$openId,'status'=>$status,'version'=>mt_rand(1000,9999));
+        return array('openId'=>$openId,'status'=>$status);
     }
 }

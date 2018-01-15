@@ -42,6 +42,6 @@ class FaceController extends Controller
 //                return $this->render('MirrorWebBundle:Face:attention.html.twig',array());
 //            }
         }
-        return array('boxId'=>$boxId,'openId'=>$openId,'version'=>mt_rand(1000,9999));
+        return array('boxId'=>$boxId,'openId'=>$openId);
     }
 }
