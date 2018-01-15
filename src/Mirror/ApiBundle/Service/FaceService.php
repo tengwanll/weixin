@@ -91,6 +91,7 @@ class FaceService
         }else{
             $date=date('Y-m-d H:i:s');
             $add=array(
+                'box_id'=>$boxId,
                 'name'=>$boxInfoE->getName(),
                 'gender'=>$boxInfoE->getGender(),
                 'age'=>$boxInfoE->getAge(),
