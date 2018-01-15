@@ -1,7 +1,7 @@
 {% extends 'MirrorWebBundle:Base:base.html.twig' %}
 {% block title %}支付页面{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/orderPay.css') }}">
+<link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/orderPay.css',null,false,version) }}">
 {% endblock %}
 {% block body %}
 <div id="container">
@@ -54,7 +54,7 @@
                 <ul>
                     <li>
                         <span>
-                            <img src="{{ asset('/bundles/mirrorweb/images/wechat.png') }}" alt="">
+                            <img src="{{ asset('/bundles/mirrorweb/images/wechat.png',null,false,version) }}" alt="">
                         </span>
                         <div class="payAppInfo">
                             <p>微信</p>

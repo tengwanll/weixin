@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1,user-scalable = 0"/>
     <title>选择地址</title>
-    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/normalize.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/selectAddr2.css')}}">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/normalize.min.css',null,false,version)}}">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/selectAddr2.css',null,false,version)}}">
     <script type="text/javascript">
         var ctx = '';
     </script>
@@ -77,12 +77,12 @@
 </form>
 <!-- js -->
 <script src="//cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
-<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/zepto.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/fastclick-min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/mw.js')}}"></script>
-<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/area.js')}}"></script>
-<script src="{{ asset('/bundles/mirrorweb/js/admPublic.js') }}"></script>
-<script src="{{ asset('/bundles/mirrorweb/js/jquery.json.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/zepto.min.js',null,false,version)}}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/fastclick-min.js',null,false,version)}}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/mw.js',null,false,version)}}"></script>
+<script type="text/javascript" src="{{ asset('/bundles/mirrorweb/js/area.js',null,false,version)}}"></script>
+<script src="{{ asset('/bundles/mirrorweb/js/admPublic.js',null,false,version) }}"></script>
+<script src="{{ asset('/bundles/mirrorweb/js/jquery.json.js',null,false,version) }}"></script>
 <script type="text/javascript">
     $(function(){
         var orderId={{ orderId }};

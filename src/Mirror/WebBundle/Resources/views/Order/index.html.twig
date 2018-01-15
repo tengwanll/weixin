@@ -1,14 +1,14 @@
 {% extends 'MirrorWebBundle:Base:base.html.twig' %}
 {% block title %}订单列表{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/orderList.css') }}">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/orderList.css',null,false,version) }}">
 {% endblock %}
 {% block body %}
     <div id="container">
         <header>
             <section class="top">
                 <div class="top-left">
-                    <img src={{ asset('/bundles/mirrorweb/images/logo1.png') }} alt="">
+                    <img src={{ asset('/bundles/mirrorweb/images/logo1.png',null,false,version) }} alt="">
                 </div>
                 <div class="top-right">
                     <div class="orderInfo">

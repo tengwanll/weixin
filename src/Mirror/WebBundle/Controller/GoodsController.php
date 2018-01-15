@@ -41,6 +41,6 @@ class GoodsController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId);
+        return array('openId'=>$openId,'version'=>mt_rand(1000,9999));
     }
 }

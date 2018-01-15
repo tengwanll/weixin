@@ -1,7 +1,7 @@
 {% extends 'MirrorWebBundle:Base:base.html.twig' %}
 {% block title %}Amogene{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/index.css?a=') }}">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/index.css',null,false,version) }}">
 {% endblock %}
 {% block body %}
     <div id="container">
@@ -10,7 +10,7 @@
                 <div class="col-xs-12">
                     <div class="topContent">
                         <div class="logo">
-                            <img src={{ asset('/bundles/mirrorweb/images/LOGO.png') }} alt="">
+                            <img src={{ asset('/bundles/mirrorweb/images/LOGO.png',null,false,version) }} alt="">
                         </div>
                         <div class="sologen">
                             <span>远离宫颈癌 <br>检测HPV</span>
@@ -47,13 +47,13 @@
                         <p>地址：厦门市厦门大学翔安校区庄瑾楼442</p>
                         <p>注册证编号：浙械注准20162411052</p>
                         <p>许可证编号：浙食药监械生产许20160043号</p>
-                        <img src={{ asset('/bundles/mirrorweb/images/twocode.png') }} alt="">
+                        <img src={{ asset('/bundles/mirrorweb/images/twocode.png',null,false,version) }} alt="">
                     </div>
                 </div>
             </div>
         </div>
         <span class="phoneImg">
-                            <img src={{ asset('/bundles/mirrorweb/images/phoneImg.png') }} alt="">
+                            <img src={{ asset('/bundles/mirrorweb/images/phoneImg.png',null,false,version) }} alt="">
                         </span>
     </div>
 {% endblock %}
