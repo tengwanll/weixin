@@ -15,11 +15,15 @@ htm,body,#container{
     top:0;
     overflow: hidden;
 }
+.topContent{
+    width: 4rem;
+    padding-left: .7rem;
+    box-sizing: border-box;
+    text-align: center;
+}
 .topContent .logo{
-    width: 3.34rem;
     height: 1.29rem;
     margin-top: 1rem;
-    margin-left: .7rem;
 }
 .topContent .logo img{
     width: 100%;
@@ -27,13 +31,13 @@ htm,body,#container{
 }
 .sologen{
     margin-top:.2rem;
-    margin-left: .2rem;
     color: #fff;
     font-size: .12rem;
 }
 .sologen span{
     margin-right:.2rem;
     display: inline-block;
+    text-align: left;
 }
 .sologen span:nth-child(2n){
     margin-right: 0.36rem;
