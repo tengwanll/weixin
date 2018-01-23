@@ -24,12 +24,12 @@ use Symfony\Component\HttpFoundation\Request;
 class GoodsController extends Controller
 {
     /**
-     * @Route()
+     * @Route("/{id}",requirements={"id":"\d+"})
      * @Template()
      * @param Request $request
      * @return array|\Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request){
+    public function indexAction(Request $request,$id){
         $code=$request->get('code','');
         $openId = $request->getSession ()->get ( 'openId', '' );
         if (!$openId) {
@@ -41,6 +41,6 @@ class GoodsController extends Controller
         if(!$status){
             return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId,'version'=>mt_rand(1000,9999));
+        return array('openId'=>$openId,'version'=>mt_rand(1000,9999),'id'=>$id);
     }
 }

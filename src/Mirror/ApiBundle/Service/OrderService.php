@@ -76,7 +76,7 @@ class OrderService
             $rr->errno=Code::$user_not_exist;
             return $rr;
         }
-        $goods=$this->goodsModel->getById(Constant::$goods_id);
+        $goods=$this->goodsModel->getById($order->getGoodsId());
         /**@var $goods \Mirror\ApiBundle\Entity\Goods*/
         if(!$goods){
             $rr->errno=Code::$goods_not_exist;
@@ -138,9 +138,9 @@ class OrderService
         return $rr;
     }
     
-    public function getGoods(){
+    public function getGoods($id){
         $rr=new ReturnResult();
-        $goods=$this->goodsModel->getById(Constant::$goods_id);
+        $goods=$this->goodsModel->getById($id);
         /**@var $goods \Mirror\ApiBundle\Entity\Goods*/
         $logo=$this->fileService->getFullUrlById($goods->getLogo());
         $banner=$this->fileService->getFullUrlById($goods->getBanner());

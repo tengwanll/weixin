@@ -40,7 +40,8 @@
 {% endblock %}
 {% block script %}
     <script>
-        ajaxAction("get",'/api/order/goods','',false,function(data,textStatus){
+        var id={{ id }};
+        ajaxAction("get",'/api/order/goods/'+id,'',false,function(data,textStatus){
             $('#name').html(data.name);
             $('#price').html(data.price);
             $('#oldPrice').html(data.oldPrice);
@@ -57,6 +58,7 @@
             var info={};
             info.price=allPrice;
             info.number=number;
+            info.goodsId=id;
             ajaxAction("post",'/api/order',info,false,function(data,textStatus){
                 location.href=wxPath('/web/pay/'+data.orderId);
             },function(errno,errmsg){

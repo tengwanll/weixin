@@ -64,12 +64,12 @@ class OrderController extends BaseController
 
     /**
      * 获取商品信息
-     * @Route("/goods")
+     * @Route("/goods/{id}",requirements={"id":"\d+"})
      * @Method("GET")
      * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function getGoods(){
-        $rr=$this->get('order_service')->getGoods();
+    public function getGoods($id){
+        $rr=$this->get('order_service')->getGoods($id);
         return $this->buildResponse($rr);
     }
 

@@ -1,7 +1,7 @@
 {% extends 'MirrorWebBundle:Base:base.html.twig' %}
 {% block title %}Amogene{% endblock %}
 {% block css %}
-    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/index.css',null,false,version) }}">
+    <link rel="stylesheet" href="{{ asset('/bundles/mirrorweb/css/index2.css',null,false,version) }}">
 {% endblock %}
 {% block body %}
     <div id="container">
@@ -10,11 +10,12 @@
                 <div class="col-xs-12">
                     <div class="topContent">
                         <div class="logo">
-                            <img src={{ asset('/bundles/mirrorweb/images/LOGO.png',null,false,version) }} alt="">
+                            <img src="{{ asset('/bundles/mirrorweb/images/index2Logo.png',null,false,version) }}" alt="">
                         </div>
                         <div class="sologen">
-                            <span>远离宫颈癌 <br>检测HPV</span>
-                            <span>保护家人<br>保护自己</span>
+                            <p>破译美丽密码</p>
+                            <p>了解肌肤秘密</p>
+                            <p>实现精准护肤</p>
                         </div>
                     </div>
                 </div>
@@ -30,8 +31,7 @@
                             <span>￥399</span>
                             <span class="buyIndex">立即购买</span>
                         </div>
-                        <p>爱默HPV基因检测服务是由爱默基因（厦门）生物科技有限公司和上海之江生物科技股份有限公司联合推出，专门针对宫颈癌高发人群女性群体所推出的HPV基因检测和预防管理服务。</p>
-                        <p>检测者通过使用爱默HPV-DNA采样器，借助PCR病毒基因检测技术，将体内存在的亚临床型和潜伏型病毒检测出来，避免慢性并发症，辅以科学周密的健康管理，能有效预防宫颈癌，为女性群体的健康提供重要保障。</p>
+                        <p>爱默美肤基因检测服务包，专门为亚洲人量身定制的基因检测服务，通过科学手段对影响您皮肤美丽的12个基因进行检测，从而对您皮肤的六个功能进行评估；美肤基因检测，帮助您精确定位您的皮肤状态、分析出最适合您的护肤产品成分，为您独家制定美肤方案，最大程度上为您节省不必要的护肤产品支出，实现精准、高效护肤。</p>
                     </div>
                 </div>
             </div>
@@ -45,15 +45,16 @@
                         <p>Amogene Biotech Co., Ltd.</p>
                         <p>电话：0592-7821662</p>
                         <p>地址：厦门市厦门大学翔安校区庄瑾楼442</p>
-                        <p>注册证编号：浙械注准20162411052</p>
-                        <p>许可证编号：浙食药监械生产许20160043号</p>
-                        <img src={{ asset('/bundles/mirrorweb/images/twocode.png',null,false,version) }} alt="">
+                        <p>注册证编号：苏食药监械(准)字2013第2410224</p>
+                        <p>产品专利号：200520047258,3</p>
+                        <p>产品标准：YZB/苏0252-2013</p>
+                        <img src="{{ asset('/bundles/mirrorweb/images/twocode.png',null,false,version) }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
         <span class="phoneImg">
-                            <img src={{ asset('/bundles/mirrorweb/images/phoneImg.png',null,false,version) }} alt="">
+                            <img src="{{ asset('/bundles/mirrorweb/images/bookIco.png',null,false,version) }}" alt="">
                         </span>
     </div>
 {% endblock %}
@@ -66,12 +67,12 @@
             $('.logout').hide();
         }
         $('.buyIndex').click(function(){
-             location.href=wxPath('/web/goods/1');
+            location.href=wxPath('/web/goods/2');
         });
-        
+
         $('.logout').click(function () {
             ajaxAction("post",'/api/user/logout','',false,function(data,textStatus){
-                location.href=wxPath('/web/index');
+                location.href=wxPath('/web/face/index');
             },function(errno,errmsg){
 
             });
