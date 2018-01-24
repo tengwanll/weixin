@@ -45,21 +45,5 @@ class FaceController extends Controller
         return array('boxId'=>$boxId,'openId'=>$openId,'version'=>mt_rand(1000,9999));
     }
 
-    /**
-     * @Template()
-     * @Route("/index")
-     * @param Request $request
-     * @return array
-     */
-    public function indexAction(Request $request){
-        $code=$request->get('code','');
-        $openId = $request->getSession ()->get ( 'openId', '' );
-        if (!$openId) {
-            $result = WeixinHelper::getWeixinId ( $code );
-            $openId=Helper::getc($result,'openid','');
-            $request->getSession ()->set ( 'openId', $openId );
-        }
-        $status=$this->get('user_service')->checkLogin($openId);
-        return array('openId'=>$openId,'status'=>$status,'version'=>mt_rand(1000,9999));
-    }
+    
 }

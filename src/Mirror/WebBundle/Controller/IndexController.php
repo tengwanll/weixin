@@ -40,4 +40,22 @@ class IndexController extends Controller
         $status=$this->get('user_service')->checkLogin($openId);
         return array('openId'=>$openId,'status'=>$status,'version'=>mt_rand(1000,9999));
     }
+
+    /**
+     * @Template()
+     * @Route("/face")
+     * @param Request $request
+     * @return array
+     */
+    public function faceAction(Request $request){
+        $code=$request->get('code','');
+        $openId = $request->getSession ()->get ( 'openId', '' );
+        if (!$openId) {
+            $result = WeixinHelper::getWeixinId ( $code );
+            $openId=Helper::getc($result,'openid','');
+            $request->getSession ()->set ( 'openId', $openId );
+        }
+        $status=$this->get('user_service')->checkLogin($openId);
+        return array('openId'=>$openId,'status'=>$status,'version'=>mt_rand(1000,9999));
+    }
 }
