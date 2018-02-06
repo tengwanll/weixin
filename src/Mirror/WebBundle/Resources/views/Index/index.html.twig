@@ -59,8 +59,8 @@
 {% endblock %}
 {% block script %}
     <script>
-        var status={{ status }}?{{ status }}:0;
-        if(status!=0){
+        var status='{{ status }}';
+        if(status!='0'){
             $('.logout').show();
         }else{
             $('.logout').hide();
