@@ -25,6 +25,11 @@ class LoginController extends Controller
     public function indexAction(Request $request)
     {
         $code=$request->get('code','');
+        $referer=$request->server->get('HTTP_REFERER','');
+        if($referer){
+            $referer=strrchr($referer,'/web');
+            $referer=$referer?$referer:'/web/index';
+        }
         $openId = $request->getSession ()->get ( 'openId', '' );
         if (!$openId&&$code) {
             $result = WeixinHelper::getWeixinId ( $code );
@@ -35,6 +40,6 @@ class LoginController extends Controller
         if($status){
             return $this->render('MirrorWebBundle:Index:index.html.twig',array('openId'=>$openId));
         }
-        return array('openId'=>$openId,'version'=>mt_rand(1000,9999));
+        return array('openId'=>$openId,'version'=>mt_rand(1000,9999),'referer'=>$referer);
     }
 }

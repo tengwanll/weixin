@@ -38,7 +38,7 @@
 {% endblock %}
 {% block script %}
     <script>
-
+        var referer={{ referer }};
         var countdown=60;
         function settimes() {
             if (countdown == 0) {
@@ -96,7 +96,7 @@
             info.telephone=telephone;
             info.code=code;
             ajaxAction("post",'/api/user/login',info,false,function(data,textStatus){
-                location.href=wxPath('/web/index');
+                location.href=wxPath(referer);
             },function(errno,errmsg){
                 //阴影错误提示
             });
