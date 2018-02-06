@@ -152,7 +152,7 @@ class BaseController extends Controller {
         }
         $errorArray = array(
             'errno' => $errNo,
-            'errmsg' => $errorMessageCN,
+            'errmsg' => $errorMessageCN
         );
         $respArray = array_merge($errorArray, $jsonArray);
         // 使用array_filter 取出null的item
