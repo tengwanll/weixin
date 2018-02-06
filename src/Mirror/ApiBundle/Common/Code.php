@@ -20,7 +20,7 @@ class Code {
     public static $goods_not_exist=20103;
     public static $address_null=20104;
     public static $order_not_exist=20105;
-    public static $order_had_paid=20105;
     public static $code_exist=20106;
     public static $box_not_exist=20107;
+    public static $order_had_paid=20108;
 }

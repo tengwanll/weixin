@@ -73,7 +73,7 @@
             ajaxAction("post",'/api/user/logout','',false,function(data,textStatus){
                 location.href=wxPath('/web/index');
             },function(errno,errmsg){
-
+                alert(errmsg)
             });
         });
 

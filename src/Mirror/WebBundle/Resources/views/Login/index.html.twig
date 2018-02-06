@@ -72,7 +72,7 @@
             ajaxAction("get",'/api/sms/code/'+telephone,'',false,function(data,textStatus){
                 settimes();
             },function(errno,errmsg){
-
+                alert(errmsg);
             });
         });
         $('.loginButton').click(function(){
