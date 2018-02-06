@@ -37,9 +37,14 @@ class GoodsController extends Controller
             $openId=Helper::getc($result,'openid','');
             $request->getSession ()->set ( 'openId', $openId );
         }
+        if($id==1){
+            $referer='/web/index';
+        }else{
+            $referer='/web/index/face';
+        }
         $status=$this->get('user_service')->checkLogin($openId);
         if(!$status){
-            return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId));
+            return $this->render('MirrorWebBundle:Login:index.html.twig',array('openId'=>$openId,'referer'=>$referer));
         }
         return array('openId'=>$openId,'version'=>mt_rand(1000,9999),'id'=>$id);
     }

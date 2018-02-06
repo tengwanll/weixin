@@ -38,7 +38,7 @@
 {% endblock %}
 {% block script %}
     <script>
-        var referer='{{ referer }}';
+        var referer='{{ referer }}'?'{{ referer }}':'/web/index';
         var countdown=60;
         function settimes() {
             if (countdown == 0) {
